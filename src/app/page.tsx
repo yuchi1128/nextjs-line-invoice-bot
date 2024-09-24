@@ -153,6 +153,8 @@ export default function Home() {
   useEffect(() => {
     const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
   
+    console.log('LIFF ID:', liffId); // 確認のためのログ
+  
     if (!liffId) {
       console.error('LIFF ID is missing');
       return;
