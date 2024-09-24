@@ -133,22 +133,45 @@ export default function Home() {
   const [amount, setAmount] = useState('');
   const [dueDate, setDueDate] = useState('');
 
+  // useEffect(() => {
+  //   liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID as string })
+  //     .then(() => {
+  //       if (liff.isLoggedIn()) {
+  //         const idToken = liff.getDecodedIDToken();
+  //         if (idToken) {
+  //           setProfile({
+  //             name: idToken.name ?? '',    // nameがundefinedの場合は空文字に
+  //             picture: idToken.picture ?? '' // pictureがundefinedの場合は空文字に
+  //           });
+  //         }
+  //         setIsLoggedIn(true);
+  //       }
+  //     })
+  //     .catch((error) => console.error('LIFF init error', error));
+  // }, []);
+
   useEffect(() => {
-    liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID as string })
+    const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
+  
+    if (!liffId) {
+      console.error('LIFF ID is missing');
+      return;
+    }
+  
+    liff
+      .init({ liffId })
       .then(() => {
         if (liff.isLoggedIn()) {
           const idToken = liff.getDecodedIDToken();
-          if (idToken) {
-            setProfile({
-              name: idToken.name ?? '',    // nameがundefinedの場合は空文字に
-              picture: idToken.picture ?? '' // pictureがundefinedの場合は空文字に
-            });
-          }
+          setProfile({ name: idToken?.name ?? '', picture: idToken?.picture ?? '' });
           setIsLoggedIn(true);
         }
       })
-      .catch((error) => console.error('LIFF init error', error));
+      .catch((error) => {
+        console.log('LIFF initialization failed', error);
+      });
   }, []);
+  
 
   const handleLogin = () => {
     liff.login();
@@ -158,33 +181,6 @@ export default function Home() {
     liff.logout();
     location.reload();
   };
-
-  // const handleCreateInvoice = () => {
-  //   if (!amount || !dueDate) {
-  //     alert('金額と期日を入力してください');
-  //     return;
-  //   }
-
-  //   const invoiceData = { amount, dueDate };
-
-  //   liff.shareTargetPicker([
-  //     {
-  //       type: "text",
-  //       text: "請求書送信BOTより請求書が送られました",
-  //       data: invoiceData,
-  //     },
-  //     {
-  //       type: "image",
-  //       originalContentUrl: "https://thumb.ac-illust.com/f0/f0de180fce970dd84d499eae59e4f3a0_t.jpeg",
-  //       previewImageUrl: "https://thumb.ac-illust.com/f0/f0de180fce970dd84d499eae59e4f3a0_t.jpeg",
-  //     },
-  //     {
-  //       type: "text",
-  //       text: `金額: ${amount}円\n期日: ${dueDate}`,
-  //       data: invoiceData,
-  //     },
-  //   ]);
-  // };
 
   function handleCreateInvoice() {
     if (!amount || !dueDate) {
