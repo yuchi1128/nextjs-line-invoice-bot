@@ -185,3 +185,101 @@ html, body {
   font-size: 1.2rem;
   padding: 0.75rem 1.5rem;
 }
+
+.home__input {
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.home__input h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.home__input label {
+  display: block;
+  font-size: 1.3rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.home__input input,
+.home__input textarea {
+  font-size: 1.2rem;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: calc(100% - 1.4rem);
+  margin-bottom: 1rem;
+}
+
+.home__input textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.create-invoice-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.create-invoice-button button {
+  font-size: 1.3rem;
+  padding: 1rem 2rem;
+}
+
+.home__input {
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: left;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.home__input h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.home__input label {
+  display: block;
+  font-size: 1.3rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.home__input input,
+.home__input textarea {
+  font-size: 1.2rem;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: calc(100% - 1.4rem);
+  margin-bottom: 1rem;
+}
+
+.home__input textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.home__input button {
+  font-size: 1.3rem;
+  padding: 1rem 2rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#profile_img {
+  width: 80px; /* 画像のサイズを調整 */
+  height: 80px; /* 画像のサイズを調整 */
+  border-radius: 50%; /* 角を丸くする */
+  object-fit: cover; /* 画像の比率を保持しつつ枠に収める */
+  display: block;
+  margin: 0 auto; /* 中央に配置 */
+}
