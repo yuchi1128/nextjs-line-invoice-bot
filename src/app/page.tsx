@@ -133,23 +133,6 @@ export default function Home() {
   const [amount, setAmount] = useState('');
   const [dueDate, setDueDate] = useState('');
 
-  // useEffect(() => {
-  //   liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID as string })
-  //     .then(() => {
-  //       if (liff.isLoggedIn()) {
-  //         const idToken = liff.getDecodedIDToken();
-  //         if (idToken) {
-  //           setProfile({
-  //             name: idToken.name ?? '',    // nameがundefinedの場合は空文字に
-  //             picture: idToken.picture ?? '' // pictureがundefinedの場合は空文字に
-  //           });
-  //         }
-  //         setIsLoggedIn(true);
-  //       }
-  //     })
-  //     .catch((error) => console.error('LIFF init error', error));
-  // }, []);
-
   useEffect(() => {
     const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
     console.log('LIFF ID:', liffId);
