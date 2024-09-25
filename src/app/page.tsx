@@ -199,9 +199,14 @@ export default function Home() {
       },
       {
         type: "image",
-        originalContentUrl: "https://thumb.ac-illust.com/f0/f0de180fce970dd84d499eae59e4f3a0_t.jpeg",
-        previewImageUrl: "https://thumb.ac-illust.com/f0/f0de180fce970dd84d499eae59e4f3a0_t.jpeg",
+        originalContentUrl: "http://localhost:3000/api/og/invoice?issueDate=2023-09-25&dueDate=2023-10-01&amount=50000&message=%E3%81%8A%E6%94%AF%E6%89%95%E3%81%84%E3%82%88%E3%82%8D%E3%81%97%E3%81%8F%E3%81%8A%E9%A1%98%E3%81%84%E3%81%97%E3%81%BE%E3%81%99%E3%80%82",
+        previewImageUrl: "http://localhost:3000/api/og/invoice?issueDate=2023-09-25&dueDate=2023-10-01&amount=50000&message=%E3%81%8A%E6%94%AF%E6%89%95%E3%81%84%E3%82%88%E3%82%8D%E3%81%97%E3%81%8F%E3%81%8A%E9%A1%98%E3%81%84%E3%81%97%E3%81%BE%E3%81%99%E3%80%82",
       },
+      // {
+      //   type: "image",
+      //   originalContentUrl: "https://thumb.ac-illust.com/f0/f0de180fce970dd84d499eae59e4f3a0_t.jpeg",
+      //   previewImageUrl: "https://thumb.ac-illust.com/f0/f0de180fce970dd84d499eae59e4f3a0_t.jpeg",
+      // },
       {
         type: "text",
         text: `金額: ${amount}円\n期日: ${dueDate}`,
