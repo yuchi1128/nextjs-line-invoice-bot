@@ -197,7 +197,7 @@ export default function Home() {
     const issueDate = getCurrentDate(); // 発行日を自動で取得
 
     // 動的な請求書画像のURLを生成
-    const invoiceImageUrl = `https://your-domain/api/og/invoice?amount=${amount}&dueDate=${dueDate}&issueDate=${issueDate}&message=${encodeURIComponent(message)}`;
+    const invoiceImageUrl = `https://nextjs-line-invoice-bot.vercel.app/api/og/invoice?amount=${amount}&dueDate=${dueDate}&issueDate=${issueDate}&message=${encodeURIComponent(message)}`;
 
     liff.shareTargetPicker([
       {
