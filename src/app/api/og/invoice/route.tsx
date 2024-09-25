@@ -128,10 +128,14 @@ export function GET(req: NextRequest) {
         height: 630,
       }
     );
-  } catch (e: any) {
-    console.log(`${e.message}`);
-    return new Response(`画像の生成に失敗しました`, {
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      console.log(`${e.message}`);
+    } else {
+      console.log("An unknown error occurred");
+    }
+    return new Response("画像の生成に失敗しました", {
       status: 500,
     });
-  }
+  }  
 }
