@@ -1,18 +1,17 @@
 import { NextRequest } from "next/server";
 import { ImageResponse } from "@vercel/og";
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "edge";
 
-export default function handler(req: NextRequest) {
+export function GET(req: NextRequest) {
+  if (req.method !== "GET") {
+    return new Response("Method Not Allowed", { status: 405 });
+  }
+
   try {
     const { searchParams } = new URL(req.url);
 
-    // タイトルは固定
     const title = "ご請求書";
-
-    // 発行日、期日、ご請求金額、メッセージを動的に取得
     const issueDate = searchParams.get("issueDate") || "";
     const dueDate = searchParams.get("dueDate") || "";
     const amount = searchParams.get("amount") || "";
@@ -30,7 +29,6 @@ export default function handler(req: NextRequest) {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
-            flexWrap: "nowrap",
             fontFamily: "Arial, sans-serif",
           }}
         >
@@ -41,9 +39,20 @@ export default function handler(req: NextRequest) {
               border: "1px solid #000",
               padding: "20px",
               boxSizing: "border-box",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            <h1 style={{ textAlign: "center", marginBottom: "20px", fontSize: "40px" }}>
+            <h1
+              style={{
+                textAlign: "center",
+                marginBottom: "20px",
+                fontSize: "40px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               {title}
             </h1>
             <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "10px", fontSize: "24px" }}>
@@ -54,6 +63,7 @@ export default function handler(req: NextRequest) {
                   padding: "5px",
                   minWidth: "150px",
                   marginLeft: "10px",
+                  display: "flex",
                 }}
               >
                 {issueDate}
@@ -67,6 +77,7 @@ export default function handler(req: NextRequest) {
                   padding: "5px",
                   minWidth: "150px",
                   marginLeft: "10px",
+                  display: "flex",
                 }}
               >
                 {dueDate}
@@ -88,9 +99,10 @@ export default function handler(req: NextRequest) {
                   padding: "5px",
                   minWidth: "150px",
                   marginLeft: "10px",
+                  display: "flex",
                 }}
               >
-                {amount}
+                ¥{amount}
               </div>
             </div>
             <div
@@ -101,6 +113,9 @@ export default function handler(req: NextRequest) {
                 marginTop: "20px",
                 padding: "10px",
                 boxSizing: "border-box",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               {message}
@@ -115,7 +130,7 @@ export default function handler(req: NextRequest) {
     );
   } catch (e: any) {
     console.log(`${e.message}`);
-    return new Response(`Failed to generate the image`, {
+    return new Response(`画像の生成に失敗しました`, {
       status: 500,
     });
   }
