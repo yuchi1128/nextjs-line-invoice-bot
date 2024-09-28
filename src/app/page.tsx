@@ -69,7 +69,7 @@ export default function Home() {
     liff.shareTargetPicker([
       {
         type: "text",
-        text: "お金貸し借り管理BOTからの請求書です。\n精算額を確認し、速やかな対応をお願いします。",
+        text: "請求書発行BOTからの請求書です。\n精算額を確認し、速やかな対応をお願いします。",
       },
       {
         type: "image",
