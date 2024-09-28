@@ -36,7 +36,7 @@ export function GET(req: NextRequest) {
               width: "95%",
               maxWidth: "1150px",
               height: "95%",
-              border: "4px solid #000",
+              // border: "4px solid #000",
               padding: "20px",
               boxSizing: "border-box",
               display: "flex",
@@ -48,7 +48,7 @@ export function GET(req: NextRequest) {
               style={{
                 textAlign: "center",
                 marginBottom: "10px",
-                fontSize: "65px",
+                fontSize: "78px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -56,11 +56,11 @@ export function GET(req: NextRequest) {
             >
               ご請求書
             </h1>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "32px", alignItems: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "38px", alignItems: "flex-end" }}>
               <span style={{ paddingBottom: "8px" }}>発行日:</span>
               <div
                 style={{
-                  border: "2px solid #000",
+                  border: "3px solid #000",
                   padding: "6px",
                   minWidth: "180px",
                   marginLeft: "10px",
@@ -70,11 +70,11 @@ export function GET(req: NextRequest) {
                 {issueDate}
               </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "32px", alignItems: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "38px", alignItems: "flex-end" }}>
               <span style={{ paddingBottom: "8px" }}>期日:</span>
               <div
                 style={{
-                  border: "2px solid #000",
+                  border: "3px solid #000",
                   padding: "6px",
                   minWidth: "180px",
                   marginLeft: "10px",
@@ -87,7 +87,7 @@ export function GET(req: NextRequest) {
             <div
               style={{
                 textAlign: "center",
-                fontSize: "26px",
+                fontSize: "32px",
                 fontWeight: "bold",
                 margin: "15px 0",
               }}
@@ -100,14 +100,14 @@ export function GET(req: NextRequest) {
                 justifyContent: "center",
                 alignItems: "flex-end",
                 margin: "15px 0",
-                fontSize: "48px",
+                fontSize: "55px",
                 fontWeight: "bold",
               }}
             >
               <span style={{ paddingBottom: "11px" }}>ご請求金額</span>
               <div
                 style={{
-                  border: "2px solid #000",
+                  border: "3px solid #000",
                   padding: "10px",
                   minWidth: "280px",
                   marginLeft: "15px",
@@ -121,14 +121,14 @@ export function GET(req: NextRequest) {
               style={{
                 width: "100%",
                 height: "140px",
-                border: "2px solid #000",
+                border: "3px solid #000",
                 marginTop: "15px",
                 padding: "15px",
                 boxSizing: "border-box",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "25px",
+                fontSize: "30px",
                 lineHeight: "1.3",
                 overflow: "hidden",
               }}
