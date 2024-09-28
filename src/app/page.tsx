@@ -69,13 +69,18 @@ export default function Home() {
     liff.shareTargetPicker([
       {
         type: "text",
-        text: "請求書発行BOTからの請求書です。\n精算額を確認し、速やかな対応をお願いします。",
+        text: "請求書送信BOTからの請求書です。\n精算額を確認し、速やかな対応をお願いします。",
       },
       {
         type: "image",
         originalContentUrl: invoiceImageUrl, 
         previewImageUrl: invoiceImageUrl,
-      }
+      },
+      {
+        type: 'text',
+        text: `このメッセージは請求書送信BOTから送信されています。\nhttps://lin.ee/qeZlCxi
+        `,
+      },
     ]);
   }
 
