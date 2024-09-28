@@ -11,7 +11,6 @@ export function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
 
-    const title = "ご請求書";
     const issueDate = searchParams.get("issueDate") || "";
     const dueDate = searchParams.get("dueDate") || "";
     const amount = searchParams.get("amount") || "";
@@ -34,11 +33,11 @@ export function GET(req: NextRequest) {
         >
           <div
             style={{
-              width: "90%",
-              maxWidth: "1100px",
-              height: "90%",
-              border: "2px solid #000",
-              padding: "40px",
+              width: "95%",
+              maxWidth: "1150px",
+              height: "95%",
+              border: "4px solid #000",
+              padding: "20px",
               boxSizing: "border-box",
               display: "flex",
               flexDirection: "column",
@@ -48,22 +47,22 @@ export function GET(req: NextRequest) {
             <h1
               style={{
                 textAlign: "center",
-                marginBottom: "30px",
-                fontSize: "50px",
+                marginBottom: "10px",
+                fontSize: "65px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              {title}
+              ご請求書
             </h1>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "20px", fontSize: "30px" }}>
-              <span>発行日:</span>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "32px", alignItems: "flex-end" }}>
+              <span style={{ paddingBottom: "8px" }}>発行日:</span>
               <div
                 style={{
-                  border: "1px solid #000",
-                  padding: "10px",
-                  minWidth: "200px",
+                  border: "2px solid #000",
+                  padding: "6px",
+                  minWidth: "180px",
                   marginLeft: "10px",
                   display: "flex",
                 }}
@@ -71,13 +70,13 @@ export function GET(req: NextRequest) {
                 {issueDate}
               </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "20px", fontSize: "30px" }}>
-              <span>期日:</span>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "32px", alignItems: "flex-end" }}>
+              <span style={{ paddingBottom: "8px" }}>期日:</span>
               <div
                 style={{
-                  border: "1px solid #000",
-                  padding: "10px",
-                  minWidth: "200px",
+                  border: "2px solid #000",
+                  padding: "6px",
+                  minWidth: "180px",
                   marginLeft: "10px",
                   display: "flex",
                 }}
@@ -87,20 +86,31 @@ export function GET(req: NextRequest) {
             </div>
             <div
               style={{
+                textAlign: "center",
+                fontSize: "26px",
+                fontWeight: "bold",
+                margin: "15px 0",
+              }}
+            >
+              下記の通り、ご請求申し上げます。
+            </div>
+            <div
+              style={{
                 display: "flex",
                 justifyContent: "center",
-                margin: "30px 0",
-                fontSize: "40px",
+                alignItems: "flex-end",
+                margin: "15px 0",
+                fontSize: "48px",
                 fontWeight: "bold",
               }}
             >
-              <span>ご請求金額</span>
+              <span style={{ paddingBottom: "11px" }}>ご請求金額</span>
               <div
                 style={{
-                  border: "1px solid #000",
+                  border: "2px solid #000",
                   padding: "10px",
-                  minWidth: "200px",
-                  marginLeft: "10px",
+                  minWidth: "280px",
+                  marginLeft: "15px",
                   display: "flex",
                 }}
               >
@@ -110,18 +120,29 @@ export function GET(req: NextRequest) {
             <div
               style={{
                 width: "100%",
-                height: "150px",
-                border: "1px solid #000",
-                marginTop: "30px",
-                padding: "20px",
+                height: "140px",
+                border: "2px solid #000",
+                marginTop: "15px",
+                padding: "15px",
                 boxSizing: "border-box",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "24px",
+                fontSize: "25px",
+                lineHeight: "1.3",
+                overflow: "hidden",
               }}
             >
-              {message}
+              <div style={{
+                maxHeight: "100%",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: "vertical",
+              }}>
+                {message}
+              </div>
             </div>
           </div>
         </div>
