@@ -43,10 +43,10 @@ export default function Home() {
     liff.login();
   };
 
-  const handleLogout = () => {
-    liff.logout();
-    location.reload();
-  };
+  // const handleLogout = () => {
+  //   liff.logout();
+  //   location.reload();
+  // };
 
   const getCurrentDate = () => {
     const today = new Date();
@@ -98,15 +98,15 @@ export default function Home() {
             <h2 id="profile_string">ログインされていません。</h2>
           )}
         </div>
-        <hr style={{ width: '100%' }} />
         {!isLoggedIn ? (
-          <a id="login" className="home__buttons__button button--primary" onClick={handleLogin}>
-            Login with LINE
-          </a>
+          <div>
+            <hr style={{ width: '100%' }} />
+            <a id="login" className="home__buttons__button button--primary" onClick={handleLogin}>
+              LINEでログイン
+            </a>
+          </div>
         ) : (
-          <a id="logout" className="home__buttons__button button--tertiary" onClick={handleLogout}>
-            Logout
-          </a>
+          <div></div>
         )}
         <hr style={{ width: '100%' }} />
         <div className="home__input">
