@@ -43,11 +43,6 @@ export default function Home() {
     liff.login();
   };
 
-  // const handleLogout = () => {
-  //   liff.logout();
-  //   location.reload();
-  // };
-
   const getCurrentDate = () => {
     const today = new Date();
     const year = today.getFullYear();
@@ -101,9 +96,11 @@ export default function Home() {
         {!isLoggedIn ? (
           <div>
             <hr style={{ width: '100%' }} />
-            <a id="login" className="home__buttons__button button--primary" onClick={handleLogin}>
-              LINEでログイン
-            </a>
+            <div>
+              <a id="login" className="home__buttons__button button--primary" onClick={handleLogin}>
+                LINEでログイン
+              </a>
+            </div>
           </div>
         ) : (
           <div></div>
