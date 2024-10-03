@@ -160,7 +160,7 @@ export default function Home() {
   const [amount, setAmount] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [message, setMessage] = useState('');
-  const [recipient, setRecipient] = useState(''); // 新しい状態を追加
+  const [recipient, setRecipient] = useState('');
 
   useEffect(() => {
     const liffId = process.env.NEXT_PUBLIC_LIFF_ID;

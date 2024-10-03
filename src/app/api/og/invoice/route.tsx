@@ -331,7 +331,7 @@ export function GET(req: NextRequest) {
       ),
       {
         width: 1200,
-        height: 630,
+        height: 730,
       }
     );
   } catch (e: unknown) {
