@@ -46,9 +46,10 @@ export function GET(req: NextRequest) {
           >
             <h1
               style={{
+                marginTop: "40px", 
                 textAlign: "center",
                 marginBottom: "10px",
-                fontSize: "90px",
+                fontSize: "95px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -60,7 +61,7 @@ export function GET(req: NextRequest) {
               style={{ 
                 display: "flex",
                 justifyContent: "flex-start",
-                fontSize: "50px", 
+                fontSize: "53px", 
                 fontWeight: "bold", 
                 marginBottom: "20px",
                 marginLeft: "35px",
@@ -69,7 +70,7 @@ export function GET(req: NextRequest) {
             >
               {recipient} 様
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "0px", fontSize: "44px", alignItems: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "0px", fontSize: "50px", alignItems: "flex-end" }}>
               <span style={{ paddingBottom: "2px" }}>発行日：</span>
               <div
                 style={{
@@ -82,7 +83,7 @@ export function GET(req: NextRequest) {
                 {issueDate}
               </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "44px", alignItems: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "50px", alignItems: "flex-end" }}>
               <span style={{ paddingBottom: "2px" }}>支払い期限：</span>
               <div
                 style={{
@@ -112,7 +113,7 @@ export function GET(req: NextRequest) {
                 justifyContent: "center",
                 alignItems: "flex-end",
                 margin: "15px 0",
-                fontSize: "58px",
+                fontSize: "60px",
                 fontWeight: "bold",
                 position: "relative",
               }}
@@ -124,7 +125,7 @@ export function GET(req: NextRequest) {
                   minWidth: "280px",
                   marginLeft: "15px",
                   display: "flex",
-                  fontSize: "88px",
+                  fontSize: "90px",
                 }}
               >
                 ¥{amount}
@@ -153,7 +154,7 @@ export function GET(req: NextRequest) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "30px",
+                fontSize: "36px",
                 lineHeight: "1.3",
                 overflow: "hidden",
               }}
@@ -174,7 +175,7 @@ export function GET(req: NextRequest) {
       ),
       {
         width: 1200,
-        height: 730,
+        height: 750,
       }
     );
   } catch (e: unknown) {
