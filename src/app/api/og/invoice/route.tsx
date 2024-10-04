@@ -1259,7 +1259,7 @@ export function GET(req: NextRequest) {
           </div>
 
 
-          <div
+          {/* <div
             style={{
               position: "absolute",
               bottom: "40px",
@@ -1271,7 +1271,24 @@ export function GET(req: NextRequest) {
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
-          />
+          /> */}
+          {hankoImage && (
+            <img
+              src={`data:image/png;base64,${Buffer.from(hankoImage).toString('base64')}`}
+              alt="Hanko"
+              style={{
+                position: "absolute",
+                bottom: "40px",
+                right: "40px",
+                width: "100px",
+                height: "100px",
+                objectFit: "contain",
+              }}
+            />
+          )}
+          <div style={{ position: "absolute", bottom: "10px", left: "10px", fontSize: "10px" }}>
+            Debug: Hanko image {hankoImage ? "loaded" : "not loaded"}
+          </div>
           
         </div>
       ),
