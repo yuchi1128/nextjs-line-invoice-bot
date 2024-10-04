@@ -380,10 +380,10 @@ export function GET(req: NextRequest) {
               alt="Hanko"
               style={{
                 position: "absolute",
-                bottom: "188px",
+                bottom: "185px",
                 right: "63px",
-                width: "200px",
-                height: "200px",
+                width: "193px",
+                height: "193px",
                 objectFit: "contain",
               }}
             />
