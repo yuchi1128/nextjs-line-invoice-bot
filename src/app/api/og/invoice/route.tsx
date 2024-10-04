@@ -393,7 +393,7 @@ export function GET(req: NextRequest) {
       ),
       {
         width: 1200,
-        height: 750,
+        height: 880,
       }
     );
   } catch (e: unknown) {
