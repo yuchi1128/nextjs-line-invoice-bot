@@ -179,8 +179,6 @@ export default function Home() {
 
   useEffect(() => {
     const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
-    console.log('LIFF ID:', liffId);
-    console.log('All env variables:', process.env);
 
     if (!liffId) {
       console.error('LIFF ID is missing');

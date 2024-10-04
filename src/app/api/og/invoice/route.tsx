@@ -338,7 +338,7 @@ export function GET(req: NextRequest) {
                 content: '""',
                 position: "absolute",
                 bottom: "200px",
-                width: "72%",
+                width: "74%",
                 height: "3px",
                 backgroundColor: "black",
                 left: "13%",
