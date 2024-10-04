@@ -251,7 +251,7 @@ export function GET(req: NextRequest) {
                 marginTop: "40px", 
                 textAlign: "center",
                 marginBottom: "10px",
-                fontSize: "105px",
+                fontSize: "115px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -263,7 +263,7 @@ export function GET(req: NextRequest) {
               style={{ 
                 display: "flex",
                 justifyContent: "flex-start",
-                fontSize: "60px", 
+                fontSize: "67px", 
                 fontWeight: "bold", 
                 marginBottom: "20px",
                 marginLeft: "35px",
@@ -272,7 +272,7 @@ export function GET(req: NextRequest) {
             >
               {recipient} 様
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "0px", fontSize: "53px", alignItems: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "0px", fontSize: "56px", alignItems: "flex-end" }}>
               <span style={{ paddingBottom: "2px" }}>発行日：</span>
               <div
                 style={{
@@ -285,7 +285,7 @@ export function GET(req: NextRequest) {
                 {issueDate}
               </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "53px", alignItems: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "56px", alignItems: "flex-end" }}>
               <span style={{ paddingBottom: "2px" }}>支払い期限：</span>
               <div
                 style={{
@@ -301,7 +301,7 @@ export function GET(req: NextRequest) {
             <div
               style={{
                 textAlign: "center",
-                fontSize: "40px",
+                fontSize: "43px",
                 fontWeight: "bold",
                 marginLeft: "10px",
                 margin: "20px 10px 38px 35px",
@@ -381,9 +381,9 @@ export function GET(req: NextRequest) {
               style={{
                 position: "absolute",
                 bottom: "196px",
-                right: "60px",
-                width: "250px",
-                height: "250px",
+                right: "40px",
+                width: "260px",
+                height: "260px",
                 objectFit: "contain",
               }}
             />
