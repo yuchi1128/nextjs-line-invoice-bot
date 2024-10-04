@@ -10,17 +10,20 @@
   },
   "dependencies": {
     "@line/liff": "^2.24.0",
+    "@supabase/supabase-js": "^2.45.4",
     "@vercel/og": "^0.6.3",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/sharp": "^0.31.1",
+    "@types/uuid": "^10.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.13",
     "postcss": "^8",
