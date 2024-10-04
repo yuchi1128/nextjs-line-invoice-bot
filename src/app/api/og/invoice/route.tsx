@@ -1102,6 +1102,7 @@ export function GET(req: NextRequest) {
     const message = searchParams.get("message") || "";
     const recipient = searchParams.get("recipient") || "";
     const hankoImage = searchParams.get("hankoImage") || "";
+    const decodedHankoImage = decodeURIComponent(hankoImage);
 
     console.log(hankoImage);
 
@@ -1298,7 +1299,7 @@ export function GET(req: NextRequest) {
 
           {hankoImage && (
             <img
-              src={hankoImage}
+              src={decodedHankoImage}
               alt="Hanko"
               style={{
                 position: "absolute",
