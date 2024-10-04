@@ -1190,6 +1190,8 @@ export default function Home() {
 
     const invoiceImageUrl = `https://nextjs-line-invoice-bot.vercel.app/api/og/invoice?amount=${amount}&dueDate=${dueDate}&issueDate=${issueDate}&message=${encodeURIComponent(message)}&recipient=${encodeURIComponent(recipient)}&hankoImage=${encodeURIComponent(hankoImageUrl)}`;
 
+    console.log(invoiceImageUrl);
+
     liff.shareTargetPicker([
       {
         type: "text",
