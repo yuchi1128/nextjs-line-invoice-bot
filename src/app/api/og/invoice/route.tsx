@@ -1101,7 +1101,7 @@ export function GET(req: NextRequest) {
     const amount = searchParams.get("amount") || "";
     const message = searchParams.get("message") || "";
     const recipient = searchParams.get("recipient") || "";
-    const hankoImage = searchParams.get("hankoImage") || "";
+    // const hankoImage = searchParams.get("hankoImage") || "";
 
     return new ImageResponse(
       (
