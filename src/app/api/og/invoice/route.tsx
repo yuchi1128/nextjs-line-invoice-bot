@@ -430,12 +430,12 @@ export async function GET(req: NextRequest) {
     const hankoImage = searchParams.get("hankoImage") || "";
 
     // ハンコ画像の処理
-    let hankoBuffer;
-    if (hankoImage) {
-      const hankoResponse = await fetch(hankoImage);
-      const hankoArrayBuffer = await hankoResponse.arrayBuffer();
-      hankoBuffer = Buffer.from(hankoArrayBuffer);
-    }
+    // let hankoBuffer;
+    // if (hankoImage) {
+    //   const hankoResponse = await fetch(hankoImage);
+    //   const hankoArrayBuffer = await hankoResponse.arrayBuffer();
+    //   hankoBuffer = Buffer.from(hankoArrayBuffer);
+    // }
 
     return new ImageResponse(
       (
@@ -591,7 +591,7 @@ export async function GET(req: NextRequest) {
               </div>
             </div>
           </div>
-          {hankoBuffer && (
+          {/* {hankoBuffer && (
             <div style={{
               position: "absolute",
               bottom: "60px",
@@ -606,7 +606,21 @@ export async function GET(req: NextRequest) {
                 style={{ objectFit: "contain" }}
               />
             </div>
-          )}
+          )} */}
+            <div style={{
+              position: "absolute",
+              bottom: "60px",
+              right: "60px",
+              width: "100px",
+              height: "100px",
+            }}>
+              <img
+                src={`${hankoImage}`}
+                width="100"
+                height="100"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
         </div>
       ),
       {
