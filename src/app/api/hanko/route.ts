@@ -303,7 +303,7 @@ export async function POST(req: NextRequest) {
 
     // Supabaseに画像をアップロード
     const fileName = `${uuidv4()}.png`;
-    const { data: uploadData, error: uploadError } = await supabase.storage
+    const { error: uploadError } = await supabase.storage
       .from('hanko-images')
       .upload(fileName, hankoImage, {
         contentType: 'image/png',
