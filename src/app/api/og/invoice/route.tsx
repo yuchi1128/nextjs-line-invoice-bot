@@ -381,9 +381,9 @@ export function GET(req: NextRequest) {
               style={{
                 position: "absolute",
                 bottom: "180px",
-                right: "68px",
-                width: "230px",
-                height: "230px",
+                right: "60px",
+                width: "215px",
+                height: "215px",
                 objectFit: "contain",
               }}
             />
