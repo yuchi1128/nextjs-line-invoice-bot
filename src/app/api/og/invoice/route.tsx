@@ -314,7 +314,7 @@ export function GET(req: NextRequest) {
                 display: "flex",
                 justifyContent: "flex-start",
                 alignItems: "flex-end",
-                margin: "15px 0 15px 35px",
+                margin: "15px 0 15px 110px",
                 fontSize: "64px",
                 fontWeight: "bold",
                 position: "relative",
@@ -341,7 +341,7 @@ export function GET(req: NextRequest) {
                 width: "65%",
                 height: "3px",
                 backgroundColor: "black",
-                left: "20%",
+                left: "15%",
               }}
             />
             <div
