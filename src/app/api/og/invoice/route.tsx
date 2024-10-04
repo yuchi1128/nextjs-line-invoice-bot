@@ -411,7 +411,6 @@
 
 import { NextRequest } from "next/server";
 import { ImageResponse } from "@vercel/og";
-import sharp from 'sharp';
 
 export const runtime = "edge";
 
