@@ -1160,13 +1160,15 @@ export default function Home() {
       });
       const data = await response.json();
       setHankoImageUrl(data.imageUrl);
-
-      console.log(hankoImageUrl);
       
     } catch (error) {
       console.error('Failed to generate hanko image:', error);
     }
   };
+
+  useEffect(() => {
+    console.log(hankoImageUrl);
+  }, [hankoImageUrl]);
 
   const handleLogin = () => {
     liff.login();

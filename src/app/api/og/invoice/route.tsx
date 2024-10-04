@@ -1101,7 +1101,7 @@ export function GET(req: NextRequest) {
     const amount = searchParams.get("amount") || "";
     const message = searchParams.get("message") || "";
     const recipient = searchParams.get("recipient") || "";
-    // const hankoImage = searchParams.get("hankoImage") || "";
+    const hankoImage = searchParams.get("hankoImage") || "";
 
     return new ImageResponse(
       (
@@ -1259,19 +1259,21 @@ export function GET(req: NextRequest) {
           </div>
 
 
-          <div
+          {/* <div
             style={{
               position: "absolute",
               bottom: "40px",
               right: "40px",
               width: "100px",
               height: "100px",
-              backgroundImage: "https://pfcxrnqxfmjjphsdfrbd.supabase.co/storage/v1/object/public/hanko-images/82957a67-fdc3-4098-9e5d-4fa31c3a9e66.png",
+              backgroundImage: `url(${hankoImage})`,
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
-          />
+          /> */}
+
+
           {/* {hankoImage && (
             <img
               src={`data:image/png;base64,${Buffer.from(hankoImage).toString('base64')}`}
@@ -1290,6 +1292,24 @@ export function GET(req: NextRequest) {
             Debug: Hanko image {hankoImage ? "loaded" : "not loaded"}
           </div>
            */}
+
+
+          {hankoImage && (
+            <img
+              src={hankoImage}
+              alt="Hanko"
+              style={{
+                position: "absolute",
+                bottom: "40px",
+                right: "40px",
+                width: "100px",
+                height: "100px",
+                objectFit: "contain",
+              }}
+            />
+          )}
+
+
         </div>
       ),
       {
