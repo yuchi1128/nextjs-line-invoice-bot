@@ -615,7 +615,7 @@ export async function GET(req: NextRequest) {
               height: "100px",
             }}>
               <img
-                src={`${hankoImage}`}
+                src={hankoImage}
                 width="100"
                 height="100"
                 style={{ objectFit: "contain" }}
