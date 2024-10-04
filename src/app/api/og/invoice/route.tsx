@@ -304,7 +304,7 @@ export function GET(req: NextRequest) {
                 fontSize: "43px",
                 fontWeight: "bold",
                 marginLeft: "10px",
-                margin: "20px 10px 38px 35px",
+                margin: "20px 10px 33px 35px",
               }}
             >
               下記の通り、ご請求申し上げます。
@@ -312,9 +312,9 @@ export function GET(req: NextRequest) {
             <div
               style={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "flex-start",
                 alignItems: "flex-end",
-                margin: "15px 0",
+                margin: "15px 0 15px 35px",
                 fontSize: "64px",
                 fontWeight: "bold",
                 position: "relative",
