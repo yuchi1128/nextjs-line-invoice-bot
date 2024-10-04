@@ -623,6 +623,8 @@ export default function Home() {
 
     const invoiceImageUrl = `/api/og/invoice?amount=${amount}&dueDate=${dueDate}&issueDate=${issueDate}&message=${encodeURIComponent(message)}&recipient=${encodeURIComponent(recipient)}&hankoImage=${encodeURIComponent(hankoImage)}`;
 
+    console.log('Sending invoice with URL:', invoiceImageUrl);
+
     liff.shareTargetPicker([
       {
         type: "text",
