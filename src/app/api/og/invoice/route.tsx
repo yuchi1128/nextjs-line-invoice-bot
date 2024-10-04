@@ -382,8 +382,8 @@ export function GET(req: NextRequest) {
                 position: "absolute",
                 bottom: "196px",
                 right: "60px",
-                width: "223px",
-                height: "223px",
+                width: "232px",
+                height: "232px",
                 objectFit: "contain",
               }}
             />
