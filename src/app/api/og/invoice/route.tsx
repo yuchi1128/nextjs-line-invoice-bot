@@ -1259,20 +1259,20 @@ export function GET(req: NextRequest) {
           </div>
 
 
-          {/* <div
+          <div
             style={{
               position: "absolute",
               bottom: "40px",
               right: "40px",
               width: "100px",
               height: "100px",
-              backgroundImage: `url(${hankoImage})`,
+              backgroundImage: "https://pfcxrnqxfmjjphsdfrbd.supabase.co/storage/v1/object/public/hanko-images/82957a67-fdc3-4098-9e5d-4fa31c3a9e66.png",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
-          /> */}
-          {hankoImage && (
+          />
+          {/* {hankoImage && (
             <img
               src={`data:image/png;base64,${Buffer.from(hankoImage).toString('base64')}`}
               alt="Hanko"
@@ -1289,7 +1289,7 @@ export function GET(req: NextRequest) {
           <div style={{ position: "absolute", bottom: "10px", left: "10px", fontSize: "10px" }}>
             Debug: Hanko image {hankoImage ? "loaded" : "not loaded"}
           </div>
-          
+           */}
         </div>
       ),
       {
