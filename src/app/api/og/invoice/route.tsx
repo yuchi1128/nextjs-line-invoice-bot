@@ -314,7 +314,7 @@ export function GET(req: NextRequest) {
                 display: "flex",
                 justifyContent: "flex-start",
                 alignItems: "flex-end",
-                margin: "15px 0 15px 110px",
+                margin: "15px 0 15px 190px",
                 fontSize: "64px",
                 fontWeight: "bold",
                 position: "relative",
