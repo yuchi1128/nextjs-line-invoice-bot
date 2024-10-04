@@ -382,8 +382,8 @@ export function GET(req: NextRequest) {
                 position: "absolute",
                 bottom: "196px",
                 right: "60px",
-                width: "237px",
-                height: "237px",
+                width: "250px",
+                height: "250px",
                 objectFit: "contain",
               }}
             />
@@ -393,7 +393,7 @@ export function GET(req: NextRequest) {
       ),
       {
         width: 1200,
-        height: 880,
+        height: 940,
       }
     );
   } catch (e: unknown) {
