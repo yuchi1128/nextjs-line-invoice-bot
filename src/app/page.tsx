@@ -586,7 +586,7 @@ export default function Home() {
 
   const generateHanko = async (profileImageUrl: string) => {
     try {
-      const response = await fetch('/api/generate-hanko', {
+      const response = await fetch('/api/hanko', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
