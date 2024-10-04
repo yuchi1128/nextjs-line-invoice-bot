@@ -823,7 +823,7 @@ export async function GET(req: NextRequest) {
             </div>
           </div>
           
-          {hankoImage && (
+          {/* {hankoImage && (
             <div style={{
               position: "absolute",
               bottom: "60px",
@@ -838,7 +838,7 @@ export async function GET(req: NextRequest) {
                 style={{ objectFit: "contain" }}
               />
             </div>
-          )}
+          )} */}
         </div>
       ),
       {
