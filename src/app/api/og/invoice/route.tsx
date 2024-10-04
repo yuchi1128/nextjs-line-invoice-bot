@@ -1061,7 +1061,7 @@ export async function GET(req: NextRequest) {
       ),
       {
         width: 1200,
-        height: 750,
+        height: 1200,
       }
     );
   } catch (e: unknown) {
