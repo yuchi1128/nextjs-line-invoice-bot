@@ -341,7 +341,7 @@ export function GET(req: NextRequest) {
                 width: "72%",
                 height: "3px",
                 backgroundColor: "black",
-                left: "15%",
+                left: "13%",
               }}
             />
             <div
