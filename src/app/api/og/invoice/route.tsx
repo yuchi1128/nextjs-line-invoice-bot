@@ -1070,7 +1070,7 @@ export async function GET(req: NextRequest) {
     } else {
       console.log("An unknown error occurred");
     }
-    return new Response("画像の生成に失敗しました", {
+    return new Response("画像の生成に失敗しました。", {
       status: 500,
     });
   }
