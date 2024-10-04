@@ -13,4 +13,5 @@ LINE の友達に請求書を送ることのできる LINE BOT です
 - Next.js（TypeScript）
 - LIFF
 - LINE Official Account Manager
+- Supabase
 - Vercel
