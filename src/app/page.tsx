@@ -599,7 +599,7 @@ export default function Home() {
       }
       
       const data = await response.json();
-      setHankoImage(data.hankoImage);
+      setHankoImage(data.hankoImageUrl);
     } catch (error) {
       console.error('Error generating hanko:', error);
     }
