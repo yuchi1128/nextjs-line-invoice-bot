@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
 
     // 画像を加工
     const processedImage = await sharp(buffer)
-      .resize(210, 210, { fit: 'cover', position: 'center' })
+      .resize(200, 200, { fit: 'cover', position: 'center' })
       .grayscale()
       .threshold(128)
       .tint({ r: 255, g: 0, b: 0 })
@@ -115,13 +115,13 @@ export async function POST(req: NextRequest) {
       .toBuffer();
 
     const circleShape = Buffer.from(
-      `<svg width="220" height="220"><circle cx="110" cy="110" r="100" fill="white"/></svg>`
+      `<svg width="220" height="220"><circle cx="110" cy="110" r="95" fill="white"/></svg>`
     );
 
     const outerCircle = Buffer.from(
       `<svg width="220" height="220">
-        <circle cx="110" cy="110" r="110" fill="none" stroke="black" stroke-width="6"/>
-        <circle cx="110" cy="110" r="98" fill="none" stroke="black" stroke-width="4"/>
+        <circle cx="110" cy="110" r="105" fill="none" stroke="black" stroke-width="6"/>
+        <circle cx="110" cy="110" r="93" fill="none" stroke="black" stroke-width="4"/>
       </svg>`
     );
 
@@ -129,10 +129,11 @@ export async function POST(req: NextRequest) {
       create: { width: 220, height: 220, channels: 4, background: { r: 255, g: 255, b: 255, alpha: 0 } }
     })
       .composite([
-        { input: processedImage, top: 5, left: 5, blend: 'over' },
+        { input: processedImage, top: 10, left: 10, blend: 'over' },
         { input: circleShape, blend: 'dest-in' },
         { input: outerCircle, top: 0, left: 0 }
       ])
+      .blur(0.3)
       .png()
       .toBuffer();
 
