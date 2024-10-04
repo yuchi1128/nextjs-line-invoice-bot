@@ -1103,6 +1103,8 @@ export function GET(req: NextRequest) {
     const recipient = searchParams.get("recipient") || "";
     const hankoImage = searchParams.get("hankoImage") || "";
 
+    console.log(hankoImage);
+
     return new ImageResponse(
       (
         <div
