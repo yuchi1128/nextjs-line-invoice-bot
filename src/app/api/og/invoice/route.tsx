@@ -251,7 +251,7 @@ export function GET(req: NextRequest) {
                 marginTop: "40px", 
                 textAlign: "center",
                 marginBottom: "10px",
-                fontSize: "95px",
+                fontSize: "105px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -263,7 +263,7 @@ export function GET(req: NextRequest) {
               style={{ 
                 display: "flex",
                 justifyContent: "flex-start",
-                fontSize: "53px", 
+                fontSize: "60px", 
                 fontWeight: "bold", 
                 marginBottom: "20px",
                 marginLeft: "35px",
@@ -272,7 +272,7 @@ export function GET(req: NextRequest) {
             >
               {recipient} 様
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "0px", fontSize: "50px", alignItems: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "0px", fontSize: "53px", alignItems: "flex-end" }}>
               <span style={{ paddingBottom: "2px" }}>発行日：</span>
               <div
                 style={{
@@ -285,7 +285,7 @@ export function GET(req: NextRequest) {
                 {issueDate}
               </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "50px", alignItems: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px", fontSize: "53px", alignItems: "flex-end" }}>
               <span style={{ paddingBottom: "2px" }}>支払い期限：</span>
               <div
                 style={{
@@ -301,7 +301,7 @@ export function GET(req: NextRequest) {
             <div
               style={{
                 textAlign: "center",
-                fontSize: "37px",
+                fontSize: "40px",
                 fontWeight: "bold",
                 marginLeft: "10px",
                 margin: "20px 10px 38px 35px",
@@ -315,7 +315,7 @@ export function GET(req: NextRequest) {
                 justifyContent: "center",
                 alignItems: "flex-end",
                 margin: "15px 0",
-                fontSize: "60px",
+                fontSize: "64px",
                 fontWeight: "bold",
                 position: "relative",
               }}
@@ -327,7 +327,7 @@ export function GET(req: NextRequest) {
                   minWidth: "280px",
                   marginLeft: "15px",
                   display: "flex",
-                  fontSize: "90px",
+                  fontSize: "95px",
                 }}
               >
                 ¥{amount}
@@ -380,10 +380,10 @@ export function GET(req: NextRequest) {
               alt="Hanko"
               style={{
                 position: "absolute",
-                bottom: "192px",
+                bottom: "196px",
                 right: "60px",
-                width: "215px",
-                height: "215px",
+                width: "223px",
+                height: "223px",
                 objectFit: "contain",
               }}
             />
