@@ -549,7 +549,7 @@ body {
 .header {
   background-color: #00B900;
   color: white;
-  padding: 0.5rem 2rem;
+  padding: 0.7rem 2rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -561,8 +561,8 @@ body {
 }
 
 .profile-image {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 1rem;
@@ -570,7 +570,7 @@ body {
 }
 
 .profile-name {
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 .login-container {
