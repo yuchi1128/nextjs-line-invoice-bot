@@ -546,24 +546,10 @@ body {
   min-height: 100vh;
 }
 
-/* .header {
-  background-color: #00B900;
-  color: white;
-  padding: 0.8rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; 
-}
-
-.profile-container {
-  display: flex;
-  align-items: center;
-} */
-
 .header {
   background-color: #00B900;
   color: white;
-  padding: 0.8rem 1.5rem; /* 左右のパディングを少し戻す */
+  padding: 0.8rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -573,7 +559,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 0; /* margin-leftを削除または軽減 */
+  margin-left: 0;
 }
 
 .profile-image {
