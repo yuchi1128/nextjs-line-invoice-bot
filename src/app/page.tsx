@@ -414,6 +414,3 @@ export default function Home() {
   );
 
 }
-
-
-

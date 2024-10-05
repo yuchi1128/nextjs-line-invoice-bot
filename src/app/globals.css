@@ -549,10 +549,11 @@ body {
 .header {
   background-color: #00B900;
   color: white;
-  padding: 0.7rem 2rem;
+  padding: 0.8rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  justify-content: space-between; 
 }
 
 .profile-container {
@@ -570,7 +571,7 @@ body {
 }
 
 .profile-name {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 .login-container {
