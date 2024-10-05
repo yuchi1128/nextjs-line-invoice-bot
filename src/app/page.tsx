@@ -104,7 +104,6 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h3 className="home__title">請求書送信BOT</h3>
       <div className="home__buttons">
 
         <hr style={{ width: '100%' }} />
