@@ -563,7 +563,7 @@ body {
 .header {
   background-color: #00B900;
   color: white;
-  padding: 0.8rem 1rem; /* 左右のパディングを減らす */
+  padding: 0.8rem 1.5rem; /* 左右のパディングを少し戻す */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -573,7 +573,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: -10px; /* 左寄せを強調 */
+  margin-left: 0; /* margin-leftを削除または軽減 */
 }
 
 .profile-image {
