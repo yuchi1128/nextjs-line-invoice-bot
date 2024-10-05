@@ -189,11 +189,6 @@
 import { useEffect, useState } from 'react';
 import liff from '@line/liff';
 
-interface Profile {
-  name: string;
-  picture: string;
-}
-
 export default function Home() {
   const [amount, setAmount] = useState('');
   const [dueDate, setDueDate] = useState('');

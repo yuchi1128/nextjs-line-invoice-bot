@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 import liff from '@line/liff';
 
-type Profile = {
+interface Profile {
     name: string;
     picture: string;
-  };
+}
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
