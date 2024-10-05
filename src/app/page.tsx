@@ -289,68 +289,6 @@ export default function Home() {
     ]);
   }
 
-  // return (
-  //   <div className="home">
-  //     <div className="profile-container">
-  //       {isLoggedIn ? (
-  //         <>
-  //           <img className="profile-image" src={profile.picture} alt="プロフィール" />
-  //           <h2 className="profile-name">{profile.name}さん</h2>
-  //         </>
-  //       ) : (
-  //         <h2 className="profile-name">ログインされていません</h2>
-  //       )}
-  //     </div>
-
-  //     {!isLoggedIn ? (
-  //       <div className="login-container">
-  //         <a className="login-button" onClick={handleLogin}>
-  //           LINEでログイン
-  //         </a>
-  //       </div>
-  //     ) : (
-  //       <div className="home__input">
-  //         <h1>請求書の作成</h1>
-  //         <label htmlFor="recipient">送り先:</label>
-  //         <input
-  //           type="text"
-  //           id="recipient"
-  //           placeholder="送る相手の名前を入力してください"
-  //           value={recipient}
-  //           onChange={(e) => setRecipient(e.target.value)}
-  //         />
-  //         <label htmlFor="amount">金額:</label>
-  //         <input
-  //           type="number"
-  //           id="amount"
-  //           placeholder="金額を入力してください"
-  //           value={amount}
-  //           onChange={(e) => setAmount(e.target.value)}
-  //         />
-  //         <label htmlFor="due_date">支払い期限:</label>
-  //         <input
-  //           type="date"
-  //           id="due_date"
-  //           placeholder="期日を入力してください"
-  //           value={dueDate}
-  //           onChange={(e) => setDueDate(e.target.value)}
-  //         />
-  //         <label htmlFor="message">メッセージ:</label>
-  //         <textarea
-  //           id="message"
-  //           placeholder="メッセージを入力してください"
-  //           value={message}
-  //           onChange={(e) => setMessage(e.target.value)}
-  //         />
-  //         <button className="create-invoice-button" onClick={handleCreateInvoice}>
-  //           請求書作成
-  //         </button>
-  //       </div>
-  //     )}
-  //   </div>
-    
-  // );
-
   return (
     <div className="app">
       <header className="header">
@@ -412,5 +350,4 @@ export default function Home() {
       </main>
     </div>
   );
-
 }
