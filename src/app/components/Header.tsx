@@ -1,3 +1,4 @@
+//コンポーネント分割
 import { useEffect, useState } from 'react';
 import liff from '@line/liff';
 
