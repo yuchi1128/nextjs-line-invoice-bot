@@ -13,6 +13,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-bottom: 60px;
 }
 
 .header {
@@ -266,6 +267,7 @@ body {
   background-color: #f8f9fa;
   padding: 17px 0;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
 
 .nav-item {
