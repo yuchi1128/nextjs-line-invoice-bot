@@ -286,3 +286,32 @@ body {
 .nav-item span {
   font-size: 15px;
 }
+
+/* プレビュー画面の追加 */
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.invoice-image {
+  max-width: 80%;
+  margin-bottom: 20px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #45a049;
+}
