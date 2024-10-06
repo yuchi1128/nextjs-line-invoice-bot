@@ -340,154 +340,12 @@
 
 
 
-//コンポーネント分割
-"use client";
-
-import { useState, useEffect } from 'react';
-import liff from '@line/liff';
-import Header from './components/Header';
-
-export default function Home() {
-  const [amount, setAmount] = useState('');
-  const [dueDate, setDueDate] = useState('');
-  const [message, setMessage] = useState('');
-  const [recipient, setRecipient] = useState('');
-  const [hankoImageUrl, setHankoImageUrl] = useState('');
-
-  useEffect(() => {
-    const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
-
-    if (!liffId) {
-      console.error('LIFF ID is missing');
-      return;
-    }
-
-    liff
-      .init({ liffId })
-      .then(() => {
-        if (liff.isLoggedIn()) {
-          generateHankoImage();
-        } else {
-          liff.login();
-        }
-      })
-      .catch((error) => {
-        console.log('LIFF initialization failed', error);
-      });
-  }, []);
-
-  const generateHankoImage = async () => {
-    try {
-      const idToken = liff.getDecodedIDToken();
-      const profileImageUrl = idToken?.picture ?? '';
-      const response = await fetch('https://nextjs-line-invoice-bot.vercel.app/api/hanko', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ profileImageUrl }),
-      });
-      const data = await response.json();
-      setHankoImageUrl(data.imageUrl);
-    } catch (error) {
-      console.error('Failed to generate hanko image:', error);
-    }
-  };
-
-  const getCurrentDate = () => {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  };
-
-  function handleCreateInvoice() {
-    if (!amount || !dueDate || !message || !recipient) {
-      alert('金額、支払い期限、メッセージ、送り先を入力してください');
-      return;
-    }
-
-    const issueDate = getCurrentDate();
-
-    const invoiceImageUrl = `https://nextjs-line-invoice-bot.vercel.app/api/og/invoice?amount=${amount}&dueDate=${dueDate}&issueDate=${issueDate}&message=${encodeURIComponent(message)}&recipient=${encodeURIComponent(recipient)}&hankoImage=${encodeURIComponent(hankoImageUrl)}`;
-
-    console.log(invoiceImageUrl);
-
-    liff.shareTargetPicker([
-      {
-        type: "text",
-        text: "下記の内容にて請求書をお送りいたしますので、ご確認ください。",
-      },
-      {
-        type: "image",
-        originalContentUrl: invoiceImageUrl, 
-        previewImageUrl: invoiceImageUrl,
-      },
-      {
-        type: 'text',
-        text: `このメッセージは請求書送信BOTから送信されています。\nhttps://lin.ee/qeZlCxi`,
-      },
-    ]);
-  }
-
-  return (
-    <div className="app">
-      <Header />
-      <main className="main-content">
-        <div className="home__input">
-          <h1>請求書の作成</h1>
-          <label htmlFor="recipient">送り先:</label>
-          <input
-            type="text"
-            id="recipient"
-            placeholder="送る相手の名前を入力してください"
-            value={recipient}
-            onChange={(e) => setRecipient(e.target.value)}
-          />
-          <label htmlFor="amount">金額:</label>
-          <input
-            type="number"
-            id="amount"
-            placeholder="金額を入力してください"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-          <label htmlFor="due_date">支払い期限:</label>
-          <input
-            type="date"
-            id="due_date"
-            placeholder="期日を入力してください"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-          />
-          <label htmlFor="message">メッセージ:</label>
-          <textarea
-            id="message"
-            placeholder="メッセージを入力してください"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <button className="create-invoice-button" onClick={handleCreateInvoice}>
-            請求書作成
-          </button>
-        </div>
-      </main>
-    </div>
-  );
-}
-
-
-
-
-
-
-
-// //Headerでliff初期化をしないようにした　layoutでHeaderを呼び出し
+// //コンポーネント分割
 // "use client";
 
 // import { useState, useEffect } from 'react';
 // import liff from '@line/liff';
+// import Header from './components/Header';
 
 // export default function Home() {
 //   const [amount, setAmount] = useState('');
@@ -497,26 +355,25 @@ export default function Home() {
 //   const [hankoImageUrl, setHankoImageUrl] = useState('');
 
 //   useEffect(() => {
-//     const initLiff = async () => {
-//       const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
-//       if (!liffId) {
-//         console.error('LIFF ID is missing');
-//         return;
-//       }
+//     const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
 
-//       try {
-//         await liff.init({ liffId });
+//     if (!liffId) {
+//       console.error('LIFF ID is missing');
+//       return;
+//     }
+
+//     liff
+//       .init({ liffId })
+//       .then(() => {
 //         if (liff.isLoggedIn()) {
 //           generateHankoImage();
 //         } else {
 //           liff.login();
 //         }
-//       } catch (error) {
+//       })
+//       .catch((error) => {
 //         console.log('LIFF initialization failed', error);
-//       }
-//     };
-
-//     initLiff();
+//       });
 //   }, []);
 
 //   const generateHankoImage = async () => {
@@ -576,6 +433,7 @@ export default function Home() {
 
 //   return (
 //     <div className="app">
+//       <Header />
 //       <main className="main-content">
 //         <div className="home__input">
 //           <h1>請求書の作成</h1>
@@ -618,3 +476,49 @@ export default function Home() {
 //     </div>
 //   );
 // }
+
+
+
+
+
+
+//請求書作成画面を違うページに
+"use client";
+
+import { useEffect } from 'react';
+import liff from '@line/liff';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+
+export default function Home() {
+  useEffect(() => {
+    const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
+
+    if (!liffId) {
+      console.error('LIFF IDが見つかりません');
+      return;
+    }
+
+    liff
+      .init({ liffId })
+      .then(() => {
+        if (!liff.isLoggedIn()) {
+          liff.login();
+        }
+      })
+      .catch((error) => {
+        console.log('LIFF初期化に失敗しました', error);
+      });
+  }, []);
+
+  return (
+    <div className="app">
+      <Header />
+      <main className="main-content">
+        <h1>請求書作成アプリへようこそ</h1>
+        <p>請求書を作成するには、下部のナビゲーションバーの紙飛行機アイコンをタップしてください。</p>
+      </main>
+      <Navigation />
+    </div>
+  );
+}
