@@ -54,14 +54,16 @@ function PreviewContent() {
     <div className="app">
       <Header />
       <div className="preview-container">
-        <img src={invoiceImageUrl || ''} alt="Invoice Preview" className="invoice-image" />
+        <div className="invoice-box">
+          <img src={invoiceImageUrl || ''} alt="Invoice Preview" className="invoice-image" />
+        </div>
         <div className="invoice-button-container">
           <button onClick={handleSendToFriend} className="send-button">友達に送信</button>
           <button onClick={handleBackToCreate} className="back-button">作成画面に戻る</button>
         </div>
       </div>
     </div>
-  );
+  );  
 }
 
 export default function Preview() {
