@@ -9,7 +9,8 @@ export default function Navigation() {
         <FaHome />
         <span>ホーム</span>
       </Link>
-      <Link href="/create-invoice" className="nav-item">
+      {/* <Link href="/create-invoice" className="nav-item"> */}
+      <Link href="/invoice/create" className="nav-item">
         <FaPaperPlane />
         <span>請求書作成</span>
       </Link>
