@@ -313,5 +313,52 @@ body {
 }
 
 .send-button:hover {
-  background-color: #45a049;
+  background-color: #009300;
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.invoice-image {
+  max-width: 60%;
+  margin-bottom: 40px;
+}
+
+.invoice-button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.send-button {
+  padding: 1rem 2rem;
+  font-size: 16px;
+  background-color: #00B900;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #009300;
+}
+
+.back-button {
+  padding: 1rem 2rem;
+  font-size: 16px;
+  background-color: #a5a5a5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #797979;
 }

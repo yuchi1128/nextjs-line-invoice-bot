@@ -4,10 +4,12 @@ import { useSearchParams } from 'next/navigation';
 import liff from '@line/liff';
 import { useEffect, Suspense } from 'react';
 import Header from '../../components/Header';
+import { useRouter } from 'next/navigation';
 
 function PreviewContent() {
   const searchParams = useSearchParams();
   const invoiceImageUrl = searchParams.get('invoiceImageUrl');
+  const router = useRouter();
 
   useEffect(() => {
     const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
@@ -44,21 +46,28 @@ function PreviewContent() {
     ]);
   };  
 
+  const handleBackToCreate = () => {
+    router.push('/invoice/create');
+  };
+
   return (
     <div className="app">
       <Header />
       <div className="preview-container">
         <img src={invoiceImageUrl || ''} alt="Invoice Preview" className="invoice-image" />
-        <button onClick={handleSendToFriend} className="send-button">友達に送信</button>
+        <div className="invoice-button-container">
+          <button onClick={handleSendToFriend} className="send-button">友達に送信</button>
+          <button onClick={handleBackToCreate} className="back-button">作成画面に戻る</button>
+        </div>
       </div>
     </div>
   );
 }
 
 export default function Preview() {
-    return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <PreviewContent />
-      </Suspense>
-    );
-  }
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PreviewContent />
+    </Suspense>
+  );
+}
