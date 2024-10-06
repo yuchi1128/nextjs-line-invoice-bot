@@ -83,7 +83,6 @@ import Navigation from '../../components/Navigation';
 
 export default function SendInvoice() {
   const [invoiceImageUrl, setInvoiceImageUrl] = useState('');
-  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
