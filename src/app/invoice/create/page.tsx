@@ -6,6 +6,9 @@ import liff from '@line/liff';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
 
+// プリレンダリングを防ぐ
+export const dynamic = 'force-dynamic';
+
 export default function CreateInvoice() {
   const [amount, setAmount] = useState('');
   const [dueDate, setDueDate] = useState('');
