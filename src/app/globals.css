@@ -298,7 +298,7 @@ body {
 }
 
 .invoice-box {
-  border: 2px solid #959595; 
+  border: 2px solid #b4b4b4; 
   border-radius: 12px 12px 12px 12px;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -342,11 +342,19 @@ body {
   background-color: #009300;
 }
 
+.send-button:active {
+  background-color: #009300;
+}
+
 .back-button {
   background-color: #959595;
 }
 
 .back-button:hover {
+  background-color: #6a6a6a;
+}
+
+.back-button:active {
   background-color: #6a6a6a;
 }
 
