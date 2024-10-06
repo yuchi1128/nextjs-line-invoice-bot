@@ -314,7 +314,6 @@ body {
 .invoice-image {
   max-width: 100%; /* 幅を100%に設定 */
   height: auto; /* 高さは自動調整 */
-  margin-bottom: 20px; /* ボーダーとの間にマージンを追加 */
 }
 
 
