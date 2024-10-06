@@ -298,14 +298,14 @@ body {
 }
 
 .invoice-image {
-  max-width: 80%;
-  margin-bottom: 20px;
+  max-width: 60%;
+  margin-bottom: 40px;
 }
 
 .send-button {
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   font-size: 16px;
-  background-color: #4CAF50;
+  background-color: #00B900;
   color: white;
   border: none;
   border-radius: 5px;

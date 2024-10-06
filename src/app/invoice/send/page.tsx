@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import liff from '@line/liff';
 import { useEffect, Suspense } from 'react';
+import Header from '../../components/Header';
 
 function PreviewContent() {
   const searchParams = useSearchParams();
@@ -44,9 +45,12 @@ function PreviewContent() {
   };  
 
   return (
-    <div className="preview-container">
-      <img src={invoiceImageUrl || ''} alt="Invoice Preview" className="invoice-image" />
-      <button onClick={handleSendToFriend} className="send-button">友達に送信</button>
+    <div className="app">
+      <Header />
+      <div className="preview-container">
+        <img src={invoiceImageUrl || ''} alt="Invoice Preview" className="invoice-image" />
+        <button onClick={handleSendToFriend} className="send-button">友達に送信</button>
+      </div>
     </div>
   );
 }
