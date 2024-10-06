@@ -300,7 +300,7 @@ body {
 /* 請求書のボックススタイル */
 .invoice-box {
   border: 2px solid #00B900; /* ボーダーの色と太さ */
-  border-radius: 15px 15px 10px 10px; /* 上部を丸く、下部も少し丸くする */
+  border-radius: 12px 12px 12px 12px; /* 上部を丸く、下部も少し丸くする */
   padding: 20px; /* 内側の余白 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を追加 */
   display: flex; /* フレックスボックスを使用 */
@@ -312,9 +312,11 @@ body {
 
 /* 請求書画像 */
 .invoice-image {
-  max-width: 90%; /* 幅を90%に設定 */
+  max-width: 100%; /* 幅を100%に設定 */
   height: auto; /* 高さは自動調整 */
+  margin-bottom: 20px; /* ボーダーとの間にマージンを追加 */
 }
+
 
 /* ボタンスタイル */
 .invoice-button-container {
