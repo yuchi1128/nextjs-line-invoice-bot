@@ -298,51 +298,31 @@ body {
 }
 
 .invoice-image {
-  max-width: 60%;
-  margin-bottom: 40px;
-}
-
-.send-button {
-  padding: 1rem 2rem;
-  font-size: 16px;
-  background-color: #00B900;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.send-button:hover {
-  background-color: #009300;
-}
-
-.preview-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
-}
-
-.invoice-image {
-  max-width: 60%;
+  max-width: 90%; /* 幅を90%に設定 */
+  height: auto; /* 高さは自動調整 */
   margin-bottom: 40px;
 }
 
 .invoice-button-container {
-  display: flex;
-  gap: 10px;
+  display: flex; /* 横に並べる */
+  flex-direction: row; /* 横並びにする */
+  gap: 10px; /* ボタン間のスペース */
+  width: 100%; /* 幅を100%に設定 */
 }
 
-.send-button {
-  padding: 1rem 2rem;
+.send-button,
+.back-button {
+  padding: 1rem;
   font-size: 16px;
-  background-color: #00B900;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  flex: 1; /* ボタンを均等に配置 */
+}
+
+.send-button {
+  background-color: #00B900;
 }
 
 .send-button:hover {
@@ -350,15 +330,19 @@ body {
 }
 
 .back-button {
-  padding: 1rem 2rem;
-  font-size: 16px;
   background-color: #a5a5a5;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .back-button:hover {
   background-color: #797979;
+}
+
+@media (max-width: 768px) {
+  .invoice-image {
+    max-width: 95%; /* スマホでは幅を95%に設定 */
+  }
+
+  .invoice-button-container {
+    flex-direction: row; /* スマホでも横並びにする */
+  }
 }
