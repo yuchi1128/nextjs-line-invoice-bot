@@ -369,7 +369,7 @@ interface Profile {
 }
 
 export default function Home() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [profile, setProfile] = useState<Profile>({ name: '', picture: '' });
   const [amount, setAmount] = useState('');
   const [dueDate, setDueDate] = useState('');
@@ -403,7 +403,7 @@ export default function Home() {
     try {
       const idToken = liff.getDecodedIDToken();
       setProfile({ name: idToken?.name ?? '', picture: idToken?.picture ?? '' });
-      setIsLoggedIn(true);
+      // setIsLoggedIn(true);
       generateHankoImage(idToken?.picture ?? '');
     } catch (error) {
       console.error('Failed to fetch user profile:', error);
