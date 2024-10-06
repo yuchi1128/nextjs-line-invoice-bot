@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import liff from '@line/liff';
 import Header from '../../components/Header';
