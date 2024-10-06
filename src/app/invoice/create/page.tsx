@@ -15,6 +15,8 @@ export default function CreateInvoice() {
   const router = useRouter();
 
   useEffect(() => {
+    if (typeof window === 'undefined') return; // サーバーサイドでの実行を防ぐ
+
     const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
 
     if (!liffId) {
@@ -40,7 +42,7 @@ export default function CreateInvoice() {
     try {
       const idToken = liff.getDecodedIDToken();
       const profileImageUrl = idToken?.picture ?? '';
-      const response = await fetch('https://nextjs-line-invoice-bot.vercel.app/api/hanko', {
+      const response = await fetch('/api/hanko', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -70,10 +72,13 @@ export default function CreateInvoice() {
       hankoImageUrl,
     };
 
-    router.push({
-      pathname: '/invoice/send',
-      query: invoiceData,
-    });
+    // クライアントサイドでのみ実行
+    if (typeof window !== 'undefined') {
+      router.push({
+        pathname: '/invoice/send',
+        query: invoiceData,
+      });
+    }
   };
 
   return (
