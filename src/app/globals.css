@@ -297,36 +297,31 @@ body {
   padding: 20px;
 }
 
-/* 請求書のボックススタイル */
 .invoice-box {
-  border: 2px solid #00B900; /* ボーダーの色と太さ */
-  border-radius: 12px 12px 12px 12px; /* 上部を丸く、下部も少し丸くする */
-  padding: 20px; /* 内側の余白 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を追加 */
-  display: flex; /* フレックスボックスを使用 */
-  flex-direction: column; /* 縦に並べる */
-  align-items: center; /* 中央に配置 */
-  justify-content: center; /* 中央に配置 */
-  margin-bottom: 20px; /* 下部にマージンを追加 */
+  border: 2px solid #00B900; 
+  border-radius: 12px 12px 12px 12px;
+  padding: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-/* 請求書画像 */
 .invoice-image {
-  max-width: 100%; /* 幅を100%に設定 */
-  height: auto; /* 高さは自動調整 */
+  max-width: 100%;
+  height: auto;
 }
 
-
-/* ボタンスタイル */
 .invoice-button-container {
-  display: flex; /* 横に並べる */
-  flex-direction: row; /* 横並びにする */
-  gap: 10px; /* ボタン間のスペース */
-  width: 100%; /* 幅を100%に設定 */
-  padding-top: 10px; /* ボタンの上部に余白を追加 */
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  padding-top: 10px;
 }
 
-/* 送信ボタン */
 .send-button,
 .back-button {
   padding: 1rem;
@@ -335,10 +330,9 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  flex: 1; /* ボタンを均等に配置 */
+  flex: 1;
 }
 
-/* 送信ボタンの背景色 */
 .send-button {
   background-color: #00B900;
 }
@@ -347,22 +341,20 @@ body {
   background-color: #009300;
 }
 
-/* 戻るボタンの背景色 */
 .back-button {
-  background-color: #a5a5a5;
+  background-color: #959595;
 }
 
 .back-button:hover {
-  background-color: #797979;
+  background-color: #6a6a6a;
 }
 
-/* スマホ用のスタイル */
 @media (max-width: 768px) {
   .invoice-image {
-    max-width: 95%; /* スマホでは幅を95%に設定 */
+    max-width: 95%;
   }
 
   .invoice-button-container {
-    flex-direction: row; /* スマホでも横並びにする */
+    flex-direction: row;
   }
 }
