@@ -2,9 +2,9 @@
 
 import { useSearchParams } from 'next/navigation';
 import liff from '@line/liff';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
-export default function Preview() {
+function PreviewContent() {
   const searchParams = useSearchParams();
   const invoiceImageUrl = searchParams.get('invoiceImageUrl');
 
@@ -50,3 +50,11 @@ export default function Preview() {
     </div>
   );
 }
+
+export default function Preview() {
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <PreviewContent />
+      </Suspense>
+    );
+  }

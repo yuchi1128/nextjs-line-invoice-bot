@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import liff from '@line/liff';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default function CreateInvoice() {
   const [amount, setAmount] = useState('');
