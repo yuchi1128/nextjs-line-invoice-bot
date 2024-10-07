@@ -239,30 +239,16 @@ body {
   background-color: #009300;
 }
 
-.invoice-heading {
-  font-size: 1.5rem;
-  color: #333;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.invoice-caption {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 5px;
-  text-align: center;
-}
 
 @media screen and (max-width: 600px) {
   html {
     font-size: 12px;
   }
-
+  
   .home__title {
     font-size: 3rem;
   }
-
+  
   .home__buttons__button {
     font-size: 1.5rem;
   }
@@ -333,6 +319,22 @@ body {
 .invoice-image {
   max-width: 100%;
   height: auto;
+}
+
+.invoice-heading {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.invoice-caption {
+  font-size: 1.2rem;
+  color: #d7d7d7;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .invoice-button-container {
