@@ -182,14 +182,14 @@ body {
 
 .home__input {
   background-color: #fff;
-  padding: 3rem;
+  padding: 2.2rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 3rem;
   text-align: left;
-  max-width: 800px;
+  max-width: 700px;
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .home__input h1 {
@@ -197,7 +197,7 @@ body {
   margin-bottom: 2rem;
   text-align: center;
   color: #333;
-  font-weight: 400;
+  font-weight: 430;
 }
 
 .home__input label {
@@ -205,7 +205,7 @@ body {
   font-size: 1.3rem;
   margin: 1.5rem 0 0.7rem;
   color: #555;
-  font-weight: 450;
+  font-weight: 430;
 }
 
 .home__input input,
@@ -289,7 +289,7 @@ body {
 
 .nav-item span {
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 /* プレビュー画面の追加 */
