@@ -194,7 +194,7 @@ export function GET(req: NextRequest) {
         </div>
       ),
       {
-        width: 1230,
+        width: 1260,
         height: 960,
       }
     );
