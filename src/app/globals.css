@@ -197,7 +197,7 @@ body {
   margin-bottom: 2rem;
   text-align: center;
   color: #333;
-  font-weight: 445;
+  font-weight: 450;
 }
 
 .home__input label {
@@ -324,7 +324,7 @@ body {
 .invoice-heading {
   font-size: 2rem;
   color: #333;
-  font-weight: bold;
+  font-weight: 500;
   margin-top: 50px;
   margin-bottom: 20px;
   text-align: center;
@@ -334,7 +334,8 @@ body {
   font-size: 1.4rem;
   color: #555;
   margin-bottom: 5px;
-  text-align: center;
+  text-align: left;
+  width: 100%;
 }
 
 .invoice-button-container {
