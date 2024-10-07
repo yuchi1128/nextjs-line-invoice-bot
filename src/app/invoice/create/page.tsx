@@ -113,7 +113,7 @@ export default function CreateInvoice() {
             onChange={(e) => setMessage(e.target.value)}
           />
           <button className="create-invoice-button" onClick={handleCreateInvoice}>
-            請求書作成
+            この内容で請求書を作成
           </button>
         </div>
       </main>
