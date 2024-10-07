@@ -54,9 +54,9 @@ function PreviewContent() {
   return (
     <div className="app">
       <Header />
-      <div className="invoice-heading">この請求書が相手に送られます</div>
+      <div className="invoice-heading">この請求書が相手に送信されます</div>
       <div className="preview-container">
-        <div className="invoice-caption">完成した請求書</div>
+        <div className="invoice-caption">完成した請求書:</div>
         <div className="invoice-box">
           <img src={invoiceImageUrl || ''} alt="Invoice Preview" className="invoice-image" />
         </div>
