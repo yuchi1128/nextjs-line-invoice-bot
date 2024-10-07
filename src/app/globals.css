@@ -182,12 +182,12 @@ body {
 
 .home__input {
   background-color: #fff;
-  padding: 2rem;
+  padding: 1.7rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 3rem;
   text-align: left;
-  max-width: 600px;
+  max-width: 500px;
   width: 100%;
   font-size: 1.2rem;
 }
@@ -197,7 +197,7 @@ body {
   margin-bottom: 2rem;
   text-align: center;
   color: #333;
-  font-weight: 430;
+  font-weight: 460;
 }
 
 .home__input label {
@@ -205,7 +205,7 @@ body {
   font-size: 1.3rem;
   margin: 1.5rem 0 0.7rem;
   color: #555;
-  font-weight: 430;
+  font-weight: 460;
 }
 
 .home__input input,
