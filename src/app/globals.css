@@ -42,7 +42,8 @@ body {
 }
 
 .profile-name {
-  font-size: 1.9rem;
+  font-size: 1.7rem;
+  font-weight :bold
 }
 
 .login-container {
@@ -265,7 +266,7 @@ body {
   display: flex;
   justify-content: space-around;
   background-color: #f8f9fa;
-  padding: 17px 0;
+  padding: 19px 0;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
   z-index: 1000;
 }
@@ -298,7 +299,7 @@ body {
 }
 
 .invoice-box {
-  border: 1.7px solid #d7d7d7; 
+  border: 1.9px solid #d7d7d7; 
   border-radius: 8px 8px 8px 8px;
   padding: 9px;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
@@ -336,6 +337,7 @@ body {
 
 .send-button {
   background-color: #00B900;
+  font-weight :bold
 }
 
 .send-button:hover {
@@ -348,6 +350,7 @@ body {
 
 .back-button {
   background-color: #959595;
+  font-weight :bold
 }
 
 .back-button:hover {
