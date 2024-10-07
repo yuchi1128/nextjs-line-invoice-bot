@@ -5,6 +5,7 @@ import liff from '@line/liff';
 import { useEffect, Suspense } from 'react';
 import Header from '../../components/Header';
 import { useRouter } from 'next/navigation';
+import Navigation from '@/app/components/Navigation';
 
 function PreviewContent() {
   const searchParams = useSearchParams();
@@ -62,6 +63,7 @@ function PreviewContent() {
           <button onClick={handleSendToFriend} className="send-button">友達に送信</button>
         </div>
       </div>
+      <Navigation />
     </div>
   );  
 }
