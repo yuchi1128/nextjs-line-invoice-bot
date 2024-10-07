@@ -299,7 +299,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
   padding: 20px;
 }
@@ -322,7 +322,7 @@ body {
 }
 
 .invoice-heading {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #333;
   font-weight: bold;
   margin-top: 50px;
@@ -331,8 +331,8 @@ body {
 }
 
 .invoice-caption {
-  font-size: 1.2rem;
-  color: #d7d7d7;
+  font-size: 1.4rem;
+  color: #555;
   margin-bottom: 5px;
   text-align: center;
 }
