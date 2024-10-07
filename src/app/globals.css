@@ -266,7 +266,7 @@ body {
   display: flex;
   justify-content: space-around;
   background-color: #f8f9fa;
-  padding: 19px 0;
+  padding: 22px 0;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
   z-index: 1000;
 }
@@ -285,7 +285,8 @@ body {
 }
 
 .nav-item span {
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 /* プレビュー画面の追加 */
@@ -349,7 +350,7 @@ body {
 }
 
 .back-button {
-  background-color: #959595;
+  background-color: #868686;
   font-weight :bold
 }
 
