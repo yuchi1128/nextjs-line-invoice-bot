@@ -197,6 +197,7 @@ body {
   margin-bottom: 2rem;
   text-align: center;
   color: #333;
+  font-weight: 500;
 }
 
 .home__input label {
@@ -204,6 +205,7 @@ body {
   font-size: 1.3rem;
   margin: 1.5rem 0 0.7rem;
   color: #555;
+  font-weight: 500;
 }
 
 .home__input input,
@@ -286,7 +288,7 @@ body {
 
 .nav-item span {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 /* プレビュー画面の追加 */
