@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       .resize(200, 200, { fit: 'cover', position: 'center' })
       .grayscale()
       .threshold(128)
-      .tint({ r: 255, g: 0, b: 0 })
+      // .tint({ r: 255, g: 0, b: 0 })
       .blur(0.5)
       .toBuffer();
 
