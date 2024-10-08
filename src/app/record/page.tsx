@@ -4,7 +4,8 @@ import Navigation from '@/app/components/Navigation';
 
 const Record = () => {
   return (
-    <Navigation />
+    <div>Record</div>
+    // <Navigation />
   )
 }
 
