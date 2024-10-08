@@ -153,7 +153,7 @@ export async function POST(req: NextRequest) {
 
     const outerCircle = Buffer.from(
       `<svg width="220" height="220">
-        <circle cx="110" cy="110" r="105" fill="none" stroke="red" stroke-width="6"/>
+        <circle cx="110" cy="110" r="107" fill="none" stroke="red" stroke-width="6"/>
         <circle cx="110" cy="110" r="93" fill="none" stroke="red" stroke-width="4"/>
       </svg>`
     );
