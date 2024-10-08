@@ -148,7 +148,7 @@ interface Invoice {
 
 const InvoiceHistory = () => {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
-  const [userId, setUserId] = useState<string | null>(null);
+//   const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
     const initLiff = async () => {
@@ -156,7 +156,7 @@ const InvoiceHistory = () => {
         await liff.init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID! });
         if (liff.isLoggedIn()) {
           const profile = await liff.getProfile();
-          setUserId(profile.userId);
+        //   setUserId(profile.userId);
           fetchInvoices(profile.userId);
         } else {
           liff.login();
