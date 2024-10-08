@@ -3,6 +3,24 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+export async function GET(request: Request, { params }: { params: { id: string } }) {
+  const id = parseInt(params.id);
+
+  try {
+    const invoice = await prisma.invoice.findUnique({
+      where: { id },
+    });
+
+    if (!invoice) {
+      return NextResponse.json({ error: '請求書が見つかりません' }, { status: 404 });
+    }
+
+    return NextResponse.json(invoice);
+  } catch (error) {
+    return NextResponse.json({ error: 'エラーが発生しました' }, { status: 500 });
+  }
+}
+
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
   const id = parseInt(params.id);
   const body = await request.json();
