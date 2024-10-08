@@ -68,43 +68,91 @@ const InvoiceHistory = () => {
     }
   };
 
-  return (
-    <div>
-      <h1>請求書履歴</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>送信相手</th>
-            <th>送信日</th>
-            <th>支払い期限</th>
-            <th>金額</th>
-            <th>メッセージ</th>
-            <th>状態</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          {invoices.map((invoice) => (
-            <tr key={invoice.id}>
-              <td>{invoice.recipient}</td>
-              <td>{new Date(invoice.sentDate).toLocaleDateString()}</td>
-              <td>{new Date(invoice.dueDate).toLocaleDateString()}</td>
-              <td>{invoice.amount}円</td>
-              <td>{invoice.message}</td>
-              <td>
-                <button onClick={() => togglePaidStatus(invoice.id)}>
-                  {invoice.isPaid ? '清算済み' : '未清算'}
-                </button>
-              </td>
-              <td>
-                <button onClick={() => deleteInvoice(invoice.id)}>削除</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+//   return (
+//     <div>
+//       <h1>請求書履歴</h1>
+//       <table>
+//         <thead>
+//           <tr>
+//             <th>送信相手</th>
+//             <th>送信日</th>
+//             <th>支払い期限</th>
+//             <th>金額</th>
+//             <th>メッセージ</th>
+//             <th>状態</th>
+//             <th>操作</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {invoices.map((invoice) => (
+//             <tr key={invoice.id}>
+//               <td>{invoice.recipient}</td>
+//               <td>{new Date(invoice.sentDate).toLocaleDateString()}</td>
+//               <td>{new Date(invoice.dueDate).toLocaleDateString()}</td>
+//               <td>{invoice.amount}円</td>
+//               <td>{invoice.message}</td>
+//               <td>
+//                 <button onClick={() => togglePaidStatus(invoice.id)}>
+//                   {invoice.isPaid ? '清算済み' : '未清算'}
+//                 </button>
+//               </td>
+//               <td>
+//                 <button onClick={() => deleteInvoice(invoice.id)}>削除</button>
+//               </td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+    return (
+        <div className="invoice-history">
+        <h1 className="invoice-history__title">請求書履歴</h1>
+        <div className="invoice-history__table-container">
+            <table className="invoice-history__table">
+            <thead>
+                <tr>
+                <th>送信相手</th>
+                <th>送信日</th>
+                <th>支払い期限</th>
+                <th>金額</th>
+                <th>メッセージ</th>
+                <th>状態</th>
+                <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {invoices.map((invoice) => (
+                <tr key={invoice.id}>
+                    <td>{invoice.recipient}</td>
+                    <td>{new Date(invoice.sentDate).toLocaleDateString()}</td>
+                    <td>{new Date(invoice.dueDate).toLocaleDateString()}</td>
+                    <td>{invoice.amount}円</td>
+                    <td>{invoice.message}</td>
+                    <td>
+                    <button 
+                        className={`invoice-history__status-button ${invoice.isPaid ? 'paid' : 'unpaid'}`}
+                        onClick={() => togglePaidStatus(invoice.id)}
+                    >
+                        {invoice.isPaid ? '清算済み' : '未清算'}
+                    </button>
+                    </td>
+                    <td>
+                    <button 
+                        className="invoice-history__delete-button"
+                        onClick={() => deleteInvoice(invoice.id)}
+                    >
+                        削除
+                    </button>
+                    </td>
+                </tr>
+                ))}
+            </tbody>
+            </table>
+        </div>
+        </div>
+    );
 };
+
 
 export default InvoiceHistory;

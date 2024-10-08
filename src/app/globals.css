@@ -393,3 +393,98 @@ body {
     flex-direction: row;
   }
 }
+
+
+
+
+
+/* 履歴ページ */
+.invoice-history {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.invoice-history__title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.invoice-history__table-container {
+  overflow-x: auto;
+}
+
+.invoice-history__table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-history__table th,
+.invoice-history__table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.invoice-history__table th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+  color: #333;
+}
+
+.invoice-history__table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.invoice-history__status-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.invoice-history__status-button.paid {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.invoice-history__status-button.unpaid {
+  background-color: #FFC107;
+  color: black;
+}
+
+.invoice-history__delete-button {
+  padding: 0.5rem 1rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.invoice-history__delete-button:hover {
+  background-color: #d32f2f;
+}
+
+@media screen and (max-width: 768px) {
+  .invoice-history {
+    padding: 1rem;
+  }
+
+  .invoice-history__title {
+    font-size: 2rem;
+  }
+
+  .invoice-history__table th,
+  .invoice-history__table td {
+    padding: 0.5rem;
+  }
+}
