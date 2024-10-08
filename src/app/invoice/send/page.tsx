@@ -162,10 +162,10 @@ function SendInvoice() {
       const profile = await liff.getProfile();
       const invoiceData = {
         userId: profile.userId,
-        recipient: searchParams.get('recipient') || '', // 空文字列をデフォルト値として設定
+        recipient: searchParams.get('recipient') || '',
         amount: parseInt(searchParams.get('amount') || '0'),
         dueDate: searchParams.get('dueDate') ? new Date(searchParams.get('dueDate')!) : new Date(),
-        message: searchParams.get('message') || '', // 空文字列をデフォルト値として設定
+        message: searchParams.get('message') || '',
       };
 
       const response = await fetch('/api/invoices', {

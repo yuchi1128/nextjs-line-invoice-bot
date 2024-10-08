@@ -51,14 +51,14 @@ export async function POST(request: Request) {
         console.log('Received invoice data:', body);
 
         // Validate required fields
-        if (!body.userId) {
-            return NextResponse.json({ error: 'userId is required' }, { status: 400 });
+        if (!body.userId || body.userId.trim() === '') {
+            return NextResponse.json({ error: 'userId is required and cannot be empty' }, { status: 400 });
         }
-        if (!body.recipient) {
-            return NextResponse.json({ error: 'recipient is required' }, { status: 400 });
+        if (!body.recipient || body.recipient.trim() === '') {
+            return NextResponse.json({ error: 'recipient is required and cannot be empty' }, { status: 400 });
         }
-        if (typeof body.amount !== 'number' || isNaN(body.amount)) {
-            return NextResponse.json({ error: 'amount must be a valid number' }, { status: 400 });
+        if (typeof body.amount !== 'number' || isNaN(body.amount) || body.amount < 0) {
+            return NextResponse.json({ error: 'amount must be a valid number greater than or equal to 0' }, { status: 400 });
         }
         if (!body.dueDate || isNaN(Date.parse(body.dueDate))) {
             return NextResponse.json({ error: 'dueDate must be a valid date' }, { status: 400 });
