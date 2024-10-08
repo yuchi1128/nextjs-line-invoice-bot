@@ -4,8 +4,8 @@
 import { useSearchParams } from 'next/navigation';
 import liff from '@line/liff';
 import { useEffect, Suspense } from 'react';
-import Header from '../../components/Header';
 import { useRouter } from 'next/navigation';
+import Header from '../../components/Header';
 import Navigation from '@/app/components/Navigation';
 
 function PreviewContent() {
