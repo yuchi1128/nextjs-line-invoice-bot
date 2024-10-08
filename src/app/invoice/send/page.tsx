@@ -160,12 +160,19 @@ function SendInvoice() {
 
       // データベースに保存
       const profile = await liff.getProfile();
+    //   const invoiceData = {
+    //     userId: profile.userId,
+    //     recipient: searchParams.get('recipient'),
+    //     amount: parseInt(searchParams.get('amount') || '0'),
+    //     dueDate: new Date(searchParams.get('dueDate') || ''),
+    //     message: searchParams.get('message'),
+    //   };
       const invoiceData = {
         userId: profile.userId,
-        recipient: searchParams.get('recipient'),
+        recipient: searchParams.get('recipient') || '', // 空文字列をデフォルト値として設定
         amount: parseInt(searchParams.get('amount') || '0'),
-        dueDate: new Date(searchParams.get('dueDate') || ''),
-        message: searchParams.get('message'),
+        dueDate: searchParams.get('dueDate') ? new Date(searchParams.get('dueDate')!) : new Date(),
+        message: searchParams.get('message') || '', // 空文字列をデフォルト値として設定
       };
 
       const response = await fetch('/api/invoices', {
