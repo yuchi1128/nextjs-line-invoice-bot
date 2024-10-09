@@ -491,12 +491,12 @@ body {
 
 .invoice-history__card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.1rem;
 }
 
 .invoice-history__card {
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff;
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;

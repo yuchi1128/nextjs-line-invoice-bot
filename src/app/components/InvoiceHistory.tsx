@@ -181,12 +181,12 @@ const InvoiceHistory = () => {
 
   return (
     <div className="invoice-history">
-      <h1 className="invoice-history__title">請求書履歴</h1>
+      <h1 className="invoice-history__title">送信履歴</h1>
       <div className="invoice-history__card-container">
         {invoices.map((invoice) => (
           <Link href={`/record/${invoice.id}`} key={invoice.id}>
             <div className="invoice-history__card">
-              <h2>{invoice.recipient}</h2>
+              <h2>相手: {invoice.recipient}</h2>
               <p>送信日: {new Date(invoice.sentDate).toLocaleDateString()}</p>
               <p>金額: {invoice.amount}円</p>
               <p className={`invoice-history__status ${invoice.isPaid ? 'paid' : 'unpaid'}`}>
