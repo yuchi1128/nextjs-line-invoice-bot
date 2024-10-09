@@ -545,6 +545,9 @@ body {
   padding: 1.5rem;
   min-height: 100px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  width: 90%; /* 横幅を100%に設定 */
+  max-width: 600px; /* 最大幅を600pxに設定して調整 */
+  margin: 0 auto; /* カードを中央に配置 */
 }
 
 .invoice-history__card:hover {
@@ -581,9 +584,11 @@ body {
 }
 
 .invoice-history__details-button {
+  margin-left: auto;
+  font-weight: 250;
   padding: 0.5rem 1rem;
-  background-color: #0070f3;
-  color: white;
+  background-color: #c3dfff;
+  color: rgb(121, 181, 255);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -591,5 +596,5 @@ body {
 }
 
 .invoice-history__details-button:hover {
-  background-color: #005bb5;
+  background-color: #a2d0ff;
 }
