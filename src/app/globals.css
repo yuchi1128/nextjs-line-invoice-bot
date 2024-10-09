@@ -65,6 +65,17 @@ body {
   padding: 2rem;
   max-width: 600px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.main-content h1 {
+  font-size: 2.5rem;
+  font-weight: 450;
+}
+
+.main-content p {
+  font-size: 1.7rem;
+  font-weight: 300;
 }
 
 .login-message {
@@ -401,7 +412,7 @@ body {
 /* 履歴ページ */
 .invoice-history {
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 

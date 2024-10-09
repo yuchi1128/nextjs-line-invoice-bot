@@ -31,7 +31,7 @@ export default function Home() {
     <div className="app">
       <Header />
       <main className="main-content">
-        <h1>請求書作成アプリへようこそ</h1>
+        <h1>請求書作成アプリへようこそ!!</h1>
         <p>請求書を作成するには、下部のナビゲーションバーの紙飛行機アイコンをタップしてください。</p>
       </main>
       <Navigation />
