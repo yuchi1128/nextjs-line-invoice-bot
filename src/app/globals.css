@@ -496,12 +496,18 @@ body {
 }
 
 .invoice-history__card {
-  border: 1px solid #ffffff;
+  background-color: #ffffff;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
+
 
 .invoice-history__card:hover {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
