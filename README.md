@@ -1,12 +1,14 @@
-## 請求書発行 BOT
+## 請求書送信 BOT
 
 LINE の友達に請求書を送ることのできる LINE BOT です
 
 ### QR コード
 
-<div>
+<!-- <div>
     <img src="https://github.com/user-attachments/assets/61e35050-e1da-474e-95fe-f18d63cee20e" width="250px" alt="請求書発行BOT">
-</div>
+</div> -->
+
+![alt text](Videotogif.gif)
 
 ### 簡易デモ
 
