@@ -502,6 +502,7 @@ body {
   padding: 1.5rem;
   cursor: pointer;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
