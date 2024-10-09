@@ -514,18 +514,6 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.invoice-history__status {
-  font-weight: bold;
-}
-
-.invoice-history__status.paid {
-  color: green;
-}
-
-.invoice-history__status.unpaid {
-  color: red;
-}
-
 .invoice-detail__content {
   max-width: 600px;
   margin: 0 auto;
@@ -546,4 +534,62 @@ body {
 .invoice-detail__status-button.unpaid {
   background-color: red;
   color: white;
+}
+
+
+.invoice-history__card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 100px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.invoice-history__card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.invoice-history__header {
+  position: relative;
+  height: 24px;
+}
+
+.invoice-history__date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.invoice-history__content h2, .invoice-history__content p {
+  font-size: 1.2rem;
+}
+
+.invoice-history__status {
+  font-weight: bold;
+}
+
+.invoice-history__status.paid {
+  color: green;
+}
+
+.invoice-history__status.unpaid {
+  color: red;
+}
+
+.invoice-history__details-button {
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.invoice-history__details-button:hover {
+  background-color: #005bb5;
 }
