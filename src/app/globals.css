@@ -410,7 +410,7 @@ body {
 
 
 /* 履歴ページ */
-.invoice-history {
+/* .invoice-history {
   padding: 2rem;
   max-width: 1300px;
   margin: 0 auto;
@@ -556,9 +556,9 @@ body {
   padding: 1.5rem;
   min-height: 100px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  width: 90%; /* 横幅を100%に設定 */
-  max-width: 600px; /* 最大幅を600pxに設定して調整 */
-  margin: 0 auto; /* カードを中央に配置 */
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .invoice-history__card:hover {
@@ -608,4 +608,141 @@ body {
 
 .invoice-history__details-button:hover {
   background-color: #a2d0ff;
+} */
+
+
+
+.invoice-history {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.invoice-history__title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+.invoice-history__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* 請求書カード */
+.invoice-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.invoice-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.invoice-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.invoice-card__date {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.invoice-card__status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.invoice-card__status--paid {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.invoice-card__status--unpaid {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.invoice-card__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invoice-card__recipient {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.invoice-card__recipient-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.invoice-card__amount {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.invoice-card__amount-value {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* アイコン */
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon--blue {
+  color: #3b82f6;
+}
+
+.icon--gray {
+  color: #9ca3af;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 640px) {
+  .invoice-history {
+    padding: 1rem 0.5rem;
+  }
+
+  .invoice-history__title {
+    font-size: 1.5rem;
+  }
+
+  .invoice-card {
+    padding: 1rem;
+  }
+
+  .invoice-card__recipient-name {
+    font-size: 1.125rem;
+  }
+
+  .invoice-card__amount-value {
+    font-size: 1rem;
+  }
 }
