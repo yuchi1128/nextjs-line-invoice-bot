@@ -618,13 +618,6 @@ body {
   padding: 2rem 1rem;
 }
 
-.invoice-history__title {
-  font-size: 1.875rem;
-  font-weight: bold;
-  color: #1f2937;
-  margin-bottom: 2rem;
-}
-
 .invoice-history__list {
   display: flex;
   flex-direction: column;

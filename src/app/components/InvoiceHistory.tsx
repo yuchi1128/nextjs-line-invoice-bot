@@ -122,7 +122,6 @@ const InvoiceHistory = () => {
 
   return (
     <div className="invoice-history">
-      <h1 className="invoice-history__title">請求書履歴</h1>
       <div className="invoice-history__list">
         {invoices.map((invoice) => (
           <Link href={`/record/${invoice.id}`} key={invoice.id} className="invoice-card">
