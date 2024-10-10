@@ -817,14 +817,14 @@ body {
 }
 
 .invoice-detail__title {
-  font-size: 2rem; /* タイトルのフォントサイズ */
+  font-size: 2.5rem; /* タイトルのフォントサイズ */
   font-weight: bold; /* 太字 */
   margin-bottom: 1.5rem; /* 下に余白を追加 */
   text-align: center; /* 中央揃え */
 }
 
 .invoice-detail__content p {
-  font-size: 1.2rem; /* コンテンツのフォントサイズ */
+  font-size: 1.5rem; /* コンテンツのフォントサイズ */
   margin-bottom: 1.2rem; /* 下に余白を追加 */
 }
 
@@ -833,7 +833,7 @@ body {
   border: none; /* ボーダーを無くす */
   border-radius: 4px; /* 角を丸める */
   cursor: pointer; /* カーソルをポインタに変更 */
-  font-size: 1.2rem; /* ボタンのフォントサイズ */
+  font-size: 1.5rem; /* ボタンのフォントサイズ */
   font-weight: bold; /* 太字 */
   transition: background-color 0.3s ease; /* 背景色の遷移効果 */
 }
@@ -861,7 +861,7 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
@@ -874,7 +874,7 @@ body {
 @media (max-width: 640px) {
   .invoice-detail {
     width: 90%;
-    padding: 1.5rem; /* モバイル時の内側の余白 */
+    padding: 1.8rem; /* モバイル時の内側の余白 */
   }
 
   .invoice-detail__title {
@@ -882,10 +882,10 @@ body {
   }
 
   .invoice-detail__content p {
-    font-size: 1rem; /* モバイル時のコンテンツのフォントサイズ */
+    font-size: 1.3rem; /* モバイル時のコンテンツのフォントサイズ */
   }
 
   .invoice-detail__status-button {
-    font-size: 1rem; /* モバイル時のボタンのフォントサイズ */
+    font-size: 1.1rem; /* モバイル時のボタンのフォントサイズ */
   }
 }
