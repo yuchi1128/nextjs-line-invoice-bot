@@ -52,26 +52,26 @@ const InvoiceDetail = () => {
 
   return (
     <div>
-        <Header />
-        <div className="invoice-detail">
-          <h1>請求書詳細</h1>
-          <div className="invoice-detail__content">
-            <p><strong>送信相手:</strong> {invoice.recipient}</p>
-            <p><strong>送信日:</strong> {new Date(invoice.sentDate).toLocaleDateString()}</p>
-            <p><strong>支払い期限:</strong> {new Date(invoice.dueDate).toLocaleDateString()}</p>
-            <p><strong>金額:</strong> {invoice.amount}円</p>
-            <p><strong>メッセージ:</strong> {invoice.message}</p>
-            <p><strong>状態:</strong> 
-              <button 
-                className={`invoice-detail__status-button ${invoice.isPaid ? 'paid' : 'unpaid'}`}
-                onClick={togglePaidStatus}
-              >
-                {invoice.isPaid ? '清算済み' : '未清算'}
-              </button>
-            </p>
-          </div>
+      <Header />
+      <div className="invoice-detail">
+        <h1 className="invoice-detail__title">請求書詳細</h1>
+        <div className="invoice-detail__content">
+          <p><strong>送信相手:</strong> {invoice.recipient}</p>
+          <p><strong>送信日:</strong> {new Date(invoice.sentDate).toLocaleDateString()}</p>
+          <p><strong>支払い期限:</strong> {new Date(invoice.dueDate).toLocaleDateString()}</p>
+          <p><strong>金額:</strong> {invoice.amount}円</p>
+          <p><strong>メッセージ:</strong> {invoice.message}</p>
+          <p><strong>状態:</strong>
+            <button
+              className={`invoice-detail__status-button ${invoice.isPaid ? 'paid' : 'unpaid'}`}
+              onClick={togglePaidStatus}
+            >
+              {invoice.isPaid ? '清算済み' : '未清算'}
+            </button>
+          </p>
         </div>
-        <Navigation />     
+      </div>
+      <Navigation />
     </div>
   );
 };
