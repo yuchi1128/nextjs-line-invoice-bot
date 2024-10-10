@@ -693,6 +693,8 @@ body {
 
 
 
+/* 
+
 .container {
   min-height: 100vh;
   display: flex;
@@ -704,6 +706,81 @@ body {
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.highlight {
+  color: #0070f3;
+  font-weight: 600;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 250px;
+  transition: transform 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #0070f3;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+}
+ */
+
+
+
+
+
+
+
+
+ .container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem; /* 左右の余白を追加 */
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px; /* 最大幅を設定 */
+  margin: 0 auto; /* 中央揃え */
   text-align: center;
 }
 
@@ -758,4 +835,3 @@ body {
   font-size: 1rem;
   color: #666;
 }
-
