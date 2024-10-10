@@ -613,7 +613,7 @@ body {
 
 
 .invoice-history {
-  max-width: 66rem;
+  max-width: 68rem;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
@@ -873,7 +873,7 @@ body {
 /* モバイル対応 */
 @media (max-width: 640px) {
   .invoice-detail {
-    width: 95%;
+    width: 90%;
     padding: 1.5rem; /* モバイル時の内側の余白 */
   }
 
