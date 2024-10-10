@@ -742,7 +742,7 @@ body {
 
 
 /* 履歴詳細画面 */
-.invoice-detail {
+/* .invoice-detail {
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
@@ -802,5 +802,70 @@ body {
 
   .invoice-detail__status-button {
     font-size: 0.875rem;
+  }
+} */
+
+
+.invoice-detail {
+  max-width: 600px; /* 最大幅を設定 */
+  margin: 2rem auto; /* 上下に余白を追加し、中央寄せ */
+  padding: 2rem; /* 内側の余白を設定 */
+  background-color: #f9fafb; /* 背景色 */
+  border-radius: 8px; /* 角を丸める */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を付ける */
+}
+
+.invoice-detail__title {
+  font-size: 2rem; /* タイトルのフォントサイズ */
+  font-weight: bold; /* 太字 */
+  margin-bottom: 1.5rem; /* 下に余白を追加 */
+  text-align: center; /* 中央揃え */
+}
+
+.invoice-detail__content p {
+  font-size: 1.2rem; /* コンテンツのフォントサイズ */
+  margin-bottom: 1.2rem; /* 下に余白を追加 */
+}
+
+.invoice-detail__status-button {
+  padding: 0.5rem 1rem; /* ボタン内の余白 */
+  border: none; /* ボーダーを無くす */
+  border-radius: 4px; /* 角を丸める */
+  cursor: pointer; /* カーソルをポインタに変更 */
+  font-size: 1.2rem; /* ボタンのフォントサイズ */
+  font-weight: bold; /* 太字 */
+  transition: background-color 0.3s ease; /* 背景色の遷移効果 */
+}
+
+.invoice-detail__status-button.paid {
+  background-color: #d1fae5; /* 支払い済みボタンの背景色 */
+  color: #065f46; /* 支払い済みボタンの文字色 */
+}
+
+.invoice-detail__status-button.unpaid {
+  background-color: #fee2e2; /* 未支払いボタンの背景色 */
+  color: #991b1b; /* 未支払いボタンの文字色 */
+}
+
+.invoice-detail__status-button:hover {
+  opacity: 0.9; /* ホバー時の透明度 */
+}
+
+/* モバイル対応 */
+@media (max-width: 640px) {
+  .invoice-detail {
+    padding: 1.5rem; /* モバイル時の内側の余白 */
+  }
+
+  .invoice-detail__title {
+    font-size: 1.5rem; /* モバイル時のタイトルのフォントサイズ */
+  }
+
+  .invoice-detail__content p {
+    font-size: 1rem; /* モバイル時のコンテンツのフォントサイズ */
+  }
+
+  .invoice-detail__status-button {
+    font-size: 1rem; /* モバイル時のボタンのフォントサイズ */
   }
 }
