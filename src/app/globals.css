@@ -613,13 +613,13 @@ body {
 
 
 .invoice-history {
-  max-width: 64rem;
+  max-width: 66rem;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
 .invoice-history__list {
-  margin-top: 70px;
+  margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
@@ -808,6 +808,7 @@ body {
 
 .invoice-detail {
   max-width: 600px; /* 最大幅を設定 */
+  width: 90%;
   margin: 2rem auto; /* 上下に余白を追加し、中央寄せ */
   padding: 2rem; /* 内側の余白を設定 */
   background-color: #f9fafb; /* 背景色 */
@@ -854,6 +855,7 @@ body {
 /* モバイル対応 */
 @media (max-width: 640px) {
   .invoice-detail {
+    width: 95%;
     padding: 1.5rem; /* モバイル時の内側の余白 */
   }
 
