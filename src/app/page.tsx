@@ -48,7 +48,6 @@ import { useEffect } from 'react';
 import liff from '@line/liff';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
-import styles from './Home.module.css';
 
 export default function Home() {
   useEffect(() => {
@@ -72,25 +71,25 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Header />
-      <main className={styles.mainContent}>
-        <h1 className={styles.title}>請求書作成アプリへようこそ!</h1>
-        <p className={styles.description}>
+      <main className="mainContent">
+        <h1 className="title">請求書作成アプリへようこそ!</h1>
+        <p className="description">
           簡単に素早く請求書を作成できます。下部のナビゲーションバーの
-          <span className={styles.highlight}>紙飛行機アイコン</span>
+          <span className="highlight">紙飛行機アイコン</span>
           をタップして始めましょう。
         </p>
-        <div className={styles.cardContainer}>
-          <div className={styles.card}>
+        <div className="cardContainer">
+          <div className="card">
             <h2>簡単作成</h2>
             <p>直感的なインターフェースで、数分で請求書を作成できます。</p>
           </div>
-          <div className={styles.card}>
+          <div className="card">
             <h2>自動計算</h2>
             <p>合計金額や税金を自動で計算します。ミスの心配はありません。</p>
           </div>
-          <div className={styles.card}>
+          <div className="card">
             <h2>テンプレート</h2>
             <p>複数のテンプレートから選択して、作業を効率化できます。</p>
           </div>
