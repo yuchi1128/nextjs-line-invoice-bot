@@ -74,7 +74,7 @@ export default function Home() {
     <div className="container">
       <Header />
       <main className="mainContent">
-        <h1 className="title">請求書作成アプリへようこそ!</h1>
+        <h1 className="title">請求書送信アプリへようこそ!</h1>
         <p className="description">
           簡単に素早く請求書を作成できます。下部のナビゲーションバーの
           <span className="highlight">紙飛行機アイコン</span>

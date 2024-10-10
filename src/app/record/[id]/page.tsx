@@ -17,7 +17,7 @@ interface Invoice {
 
 const InvoiceDetail = () => {
   const [invoice, setInvoice] = useState<Invoice | null>(null);
-  const { id } = useParams(); // useParamsでURLパラメータを取得
+  const { id } = useParams();
 
   useEffect(() => {
     if (id) {

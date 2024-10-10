@@ -637,7 +637,7 @@ body {
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: 600;
   margin-bottom: 1rem;
   color: #333;
@@ -651,7 +651,7 @@ body {
 }
 
 .highlight {
-  color: #009300;
+  color: #008200;
   font-weight: 600;
 }
 
@@ -678,13 +678,14 @@ body {
 }
 
 .card h2 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 1rem;
-  color: #009300;
+  color: #0da10d;
+  font-weight: 350;
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #666;
 }
 
