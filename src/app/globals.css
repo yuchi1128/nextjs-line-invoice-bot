@@ -196,9 +196,10 @@ body {
   padding: 1.7rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 33px;
   margin-bottom: 3rem;
   text-align: left;
-  max-width: 500px;
+  max-width: 430px;
   width: 100%;
   font-size: 1.2rem;
 }
@@ -404,6 +405,9 @@ body {
     flex-direction: row;
   }
 }
+
+
+
 
 
 .invoice-history {
