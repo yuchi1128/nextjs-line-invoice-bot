@@ -62,50 +62,20 @@ body {
 
 .main-content {
   flex: 1;
-  padding: 3rem 2rem;
-  max-width: 800px;
-  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
   text-align: center;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .main-content h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  font-size: 2rem;
+  font-weight: 450;
 }
 
 .main-content p {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #555;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.navigation {
-  display: flex;
-  justify-content: center;
-  padding: 1.5rem;
-  background-color: #ffffff;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.navigation a {
-  margin: 0 1.5rem;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.navigation a:hover {
-  color: #0056b3;
-  transform: translateY(-2px);
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .login-message {
