@@ -67,7 +67,7 @@ const InvoiceDetail = () => {
               className={`invoice-detail__status-button ${invoice.isPaid ? 'paid' : 'unpaid'}`}
               onClick={togglePaidStatus}
             >
-              {invoice.isPaid ? '清算済み' : '未清算'}
+              {invoice.isPaid ? '精算済み' : '未精算'}
             </button>
           </p>
           <Link href="/record" className="invoice-detail__back-button">
