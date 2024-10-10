@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Header from '../../components/Header';
 import Navigation from '@/app/components/Navigation';
+import Link from 'next/link';
 interface Invoice {
   id: number;
   recipient: string;
@@ -69,6 +70,9 @@ const InvoiceDetail = () => {
               {invoice.isPaid ? '清算済み' : '未清算'}
             </button>
           </p>
+          <Link href="/record" className="invoice-detail__back-button">
+            一覧画面に戻る
+          </Link>
         </div>
       </div>
       <Navigation />
