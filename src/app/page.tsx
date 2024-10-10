@@ -83,15 +83,15 @@ export default function Home() {
         <div className="cardContainer">
           <div className="card">
             <h2>簡単作成</h2>
-            <p>直感的なインターフェースで、数分で請求書を作成できます。</p>
+            <p>直感的なインターフェースで、数秒で請求書を作成できます。</p>
           </div>
           <div className="card">
-            <h2>自動計算</h2>
-            <p>合計金額や税金を自動で計算します。ミスの心配はありません。</p>
+            <h2>送信履歴</h2>
+            <p>自分が送信した内容を履歴画面で確認できます。</p>
           </div>
           <div className="card">
-            <h2>テンプレート</h2>
-            <p>複数のテンプレートから選択して、作業を効率化できます。</p>
+            <h2>自分のハンコ</h2>
+            <p>自分のLINEのプロフィール画像のハンコを請求書に載せられます。</p>
           </div>
         </div>
       </main>
