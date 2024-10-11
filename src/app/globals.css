@@ -420,7 +420,7 @@ body {
   margin-top: 33px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem;
+  gap: 1.6rem;
 }
 
 .invoice-card {
@@ -689,3 +689,19 @@ body {
   color: #666;
 }
 
+
+
+
+.loading-screen {
+  display: flex; /* 子要素をフレックスコンテナに */
+  justify-content: center; /* 横方向で中央寄せ */
+  align-items: center; /* 縦方向で中央寄せ */
+  height: 100vh; /* 画面全体の高さを指定 */
+  background-color: #38a169; /* 背景色を緑に設定 */
+}
+
+.loading-screen__text {
+  color: white; /* 文字色を白に設定 */
+  font-size: 2rem; /* 文字の大きさを調整 */
+  font-weight: bold; /* 太字にする */
+}

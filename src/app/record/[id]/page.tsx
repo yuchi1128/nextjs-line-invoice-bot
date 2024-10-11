@@ -49,8 +49,12 @@ const InvoiceDetail = () => {
     }
   };
 
-  if (!invoice) return <div>読み込み中...</div>;
-
+  if (!invoice) return (
+    <div className="loading-screen">
+      <p className="loading-screen__text">読み込み中...</p>
+    </div>
+  );
+  
   return (
     <div>
       <Header />
