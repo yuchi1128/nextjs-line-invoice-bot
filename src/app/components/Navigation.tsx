@@ -20,7 +20,7 @@ export default function Navigation() {
       </Link>
       <Link href="/record" className="nav-item">
         <CgNotes />
-        <span>履歴</span>
+        <span>送信履歴</span>
       </Link>
       <Link href="/invoice/create" className="nav-item">
         <FaPaperPlane />
