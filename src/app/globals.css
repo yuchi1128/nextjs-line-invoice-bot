@@ -416,12 +416,20 @@ body {
   padding: 2rem 1rem;
 }
 
-.invoice-history__list {
+/* .invoice-history__list {
   margin-top: 33px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+} */
+
+.invoice-history__list {
+  margin-top: 33px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
+
 
 .invoice-card {
   background-color: white;
