@@ -147,7 +147,7 @@ const InvoiceHistory = () => {
   );
 
   return (
-    <div>
+    <>
         <Header />
         <div className="invoice-history">
           <div className="invoice-history__list">
@@ -188,7 +188,7 @@ const InvoiceHistory = () => {
           </div>
         </div>
         <Navigation />
-    </div>
+    </>
   );
 };
 
