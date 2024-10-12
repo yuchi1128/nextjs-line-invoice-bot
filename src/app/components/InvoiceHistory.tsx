@@ -184,7 +184,7 @@ const InvoiceHistory = () => {
                   </div>
                   <div className="flex items-center">
                     <svg className="w-5 h-5 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0z"></path>
                     </svg>
                     <p className="text-xl font-bold text-gray-900">{invoice.amount.toLocaleString()}円</p>
                   </div>
@@ -193,7 +193,8 @@ const InvoiceHistory = () => {
                   <span className={`px-3 py-1.5 text-sm font-semibold rounded ${invoice.isPaid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                     {invoice.isPaid ? '精算済み' : '未精算'}
                   </span>
-                  <div className="flex items-center">
+                  {/* アイコンを中央に配置 */}
+                  <div className="flex items-center justify-center h-full">
                     <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                     </svg>
@@ -206,7 +207,7 @@ const InvoiceHistory = () => {
       </main>
       <Navigation />
     </div>
-  );
+   );
 };
 
 export default InvoiceHistory;
