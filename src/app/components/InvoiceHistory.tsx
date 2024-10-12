@@ -258,7 +258,7 @@
 
 import { useState, useEffect } from 'react';
 import liff from '@line/liff';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Header from '@/app/components/Header';
 import Navigation from '@/app/components/Navigation';
 
