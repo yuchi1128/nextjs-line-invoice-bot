@@ -537,30 +537,28 @@ body {
 } */
 
 
-
 .invoice-history {
   max-width: 100%;
   margin: 0 auto;
-  padding: 1rem 0.5rem;
+  padding: 2rem 1rem;
 }
 
 .invoice-history__list {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 1rem;
+  gap: 1.6rem;
 }
 
 .invoice-card {
   background-color: white;
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 1.25rem;
+  padding: 1.5rem;
   transition: all 0.3s ease;
   text-decoration: none;
   color: inherit;
   display: block;
-  border: 1px solid #e5e7eb;
 }
 
 .invoice-card:hover {
@@ -572,7 +570,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .invoice-card__date {
@@ -584,12 +582,11 @@ body {
 }
 
 .invoice-card__status {
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .invoice-card__status--paid {
@@ -608,6 +605,10 @@ body {
   align-items: center;
 }
 
+.invoice-card__details {
+  flex-grow: 1;
+}
+
 .invoice-card__recipient {
   display: flex;
   align-items: center;
@@ -616,9 +617,9 @@ body {
 }
 
 .invoice-card__recipient-name {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: #111827;
+  color: #1f2937;
 }
 
 .invoice-card__amount {
@@ -629,8 +630,13 @@ body {
 
 .invoice-card__amount-value {
   font-size: 1.25rem;
-  font-weight: 700;
-  color: #1f2937;
+  font-weight: 600;
+  color: #374151;
+}
+
+.invoice-card__arrow {
+  flex-shrink: 0;
+  margin-left: 1rem;
 }
 
 .icon {
@@ -648,26 +654,22 @@ body {
 
 @media (max-width: 640px) {
   .invoice-history {
-    padding: 0.75rem 0.25rem;
+    padding: 1rem 0.5rem;
   }
 
   .invoice-card {
-    padding: 1rem;
+    padding: 1.25rem;
     border-radius: 0.5rem;
   }
 
   .invoice-card__recipient-name {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
   .invoice-card__amount-value {
     font-size: 1.125rem;
   }
 }
-
-
-
-
 
 
 
