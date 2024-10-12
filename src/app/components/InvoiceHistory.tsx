@@ -311,41 +311,70 @@ const InvoiceHistory = () => {
   );
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      <Header />
-      <main className="flex-grow p-4">
-        <h1 className="text-2xl font-bold mb-6 text-gray-800">請求書履歴</h1>
-        <div className="space-y-4">
-          {invoices.map((invoice) => (
-            <Link href={`/record/${invoice.id}`} key={invoice.id}>
-              <div className="bg-white rounded-lg shadow-md p-4 transition duration-300 ease-in-out transform hover:scale-105">
-                <div className="flex justify-between items-center mb-2">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span>{new Date(invoice.sentDate).toLocaleDateString()}</span>
-                  </div>
-                  <span className={`px-2 py-1 text-xs font-semibold rounded ${invoice.isPaid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                    {invoice.isPaid ? '精算済み' : '未精算'}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h2 className="text-lg font-semibold text-gray-800">{invoice.recipient}</h2>
-                    <p className="text-xl font-bold text-blue-600">{invoice.amount.toLocaleString()}円</p>
-                  </div>
-                  <svg className="w-6 h-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          ))}
+    // <div className="flex flex-col min-h-screen bg-gray-100">
+    //   <Header />
+    //   <main className="flex-grow p-4">
+    //     <h1 className="text-2xl font-bold mb-6 text-gray-800">請求書履歴</h1>
+    //     <div className="space-y-4">
+    //       {invoices.map((invoice) => (
+    //         <Link href={`/record/${invoice.id}`} key={invoice.id}>
+    //           <div className="bg-white rounded-lg shadow-md p-4 transition duration-300 ease-in-out transform hover:scale-105">
+    //             <div className="flex justify-between items-center mb-2">
+    //               <div className="flex items-center text-sm text-gray-600">
+    //                 <svg className="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    //                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    //                 </svg>
+    //                 <span>{new Date(invoice.sentDate).toLocaleDateString()}</span>
+    //               </div>
+    //               <span className={`px-2 py-1 text-xs font-semibold rounded ${invoice.isPaid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+    //                 {invoice.isPaid ? '精算済み' : '未精算'}
+    //               </span>
+    //             </div>
+    //             <div className="flex justify-between items-center">
+    //               <div>
+    //                 <h2 className="text-lg font-semibold text-gray-800">{invoice.recipient}</h2>
+    //                 <p className="text-xl font-bold text-blue-600">{invoice.amount.toLocaleString()}円</p>
+    //               </div>
+    //               <svg className="w-6 h-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    //                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    //               </svg>
+    //             </div>
+    //           </div>
+    //         </Link>
+    //       ))}
+    //     </div>
+    //   </main>
+    //   <Navigation />
+    // </div>
+
+    <div className="flex flex-col items-center bg-gray-100 min-h-screen p-4">
+  <Header />
+  <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 mb-4">
+    <h2 className="text-lg font-bold mb-4">請求書履歴</h2>
+    {loading ? (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-gray-700">読み込み中...</p>
+      </div>
+    ) : (
+      invoices.map((invoice) => (
+        <div key={invoice.id} className="mb-4 bg-white p-4 rounded-lg shadow-md">
+          <div className="flex justify-between text-sm text-gray-500">
+            <span>{new Date(invoice.sentDate).toLocaleDateString()}</span>
+            <span className={invoice.isPaid ? "text-green-500" : "text-red-500"}>
+              {invoice.isPaid ? "精算済み" : "未精算"}
+            </span>
+          </div>
+          <div className="mt-2">
+            <h3 className="text-lg font-bold text-gray-800">{invoice.recipient}</h3>
+            <p className="text-sm text-gray-700">{invoice.amount.toLocaleString()}円</p>
+          </div>
         </div>
-      </main>
-      <Navigation />
-    </div>
+      ))
+    )}
+  </div>
+  <Navigation/>
+</div>
+
   );
 };
 
