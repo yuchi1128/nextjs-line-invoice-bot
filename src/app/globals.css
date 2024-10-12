@@ -540,25 +540,26 @@ body {
 .invoice-history {
   max-width: 100%;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem 0.5rem;
 }
 
 .invoice-history__list {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.6rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .invoice-card {
   background-color: white;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
   transition: all 0.3s ease;
   text-decoration: none;
   color: inherit;
   display: block;
+  width: 100%;
 }
 
 .invoice-card:hover {
@@ -654,20 +655,19 @@ body {
 
 @media (max-width: 640px) {
   .invoice-history {
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
   }
 
   .invoice-card {
-    padding: 1.25rem;
-    border-radius: 0.5rem;
+    padding: 1rem;
   }
 
   .invoice-card__recipient-name {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .invoice-card__amount-value {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 }
 
