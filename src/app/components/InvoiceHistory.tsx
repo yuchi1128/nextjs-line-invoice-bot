@@ -365,7 +365,13 @@ const InvoiceHistory = () => {
     }
   };
 
-  if (loading) return <div className="p-4">読み込み中...</div>;
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <p className="loading-screen__text">読み込み中...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
