@@ -267,58 +267,50 @@ const InvoiceHistory = () => {
     }
   };
 
-  if (loading) return (
-    <div className="flex justify-center items-center h-screen">
-      <p className="text-xl font-semibold">読み込み中...</p>
-    </div>
-  );
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-lg">読み込み中...</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
-      <div className="container mx-auto px-4 py-8">
+      <main className="flex-grow container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-6">請求書履歴</h1>
         <div className="space-y-4">
           {invoices.map((invoice) => (
             <Link href={`/record/${invoice.id}`} key={invoice.id}>
-              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                <div className="p-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <div className="flex items-center text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span>{new Date(invoice.sentDate).toLocaleDateString()}</span>
+              <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4">
+                <div className="flex justify-between items-center mb-2">
+                  <div className="flex items-center space-x-2 text-gray-600">
+                    <span className="material-icons text-xl">calendar_today</span>
+                    <span>{new Date(invoice.sentDate).toLocaleDateString()}</span>
+                  </div>
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${invoice.isPaid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    {invoice.isPaid ? '精算済み' : '未精算'}
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-2">
+                      <span className="material-icons text-xl text-gray-500">person</span>
+                      <h2 className="text-lg font-semibold">{invoice.recipient}</h2>
                     </div>
-                    <div className={`px-3 py-1 rounded-full text-sm font-semibold ${invoice.isPaid ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'}`}>
-                      {invoice.isPaid ? '精算済み' : '未精算'}
+                    <div className="flex items-center space-x-2 text-gray-700">
+                      <span className="material-icons text-xl">attach_money</span>
+                      <p className="font-medium">{invoice.amount.toLocaleString()}円</p>
                     </div>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <div className="flex items-center mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                        <h2 className="text-lg font-semibold">{invoice.recipient}</h2>
-                      </div>
-                      <div className="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <p className="text-lg font-bold text-gray-800">{invoice.amount.toLocaleString()}円</p>
-                      </div>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
+                  <span className="material-icons text-gray-400">chevron_right</span>
                 </div>
               </div>
             </Link>
           ))}
         </div>
-      </div>
+      </main>
       <Navigation />
     </div>
   );
