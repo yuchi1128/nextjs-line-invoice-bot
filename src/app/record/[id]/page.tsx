@@ -286,12 +286,12 @@ const InvoiceDetail = () => {
   );
 
   return (
-    <div className="bg-gray-100 min-h-screen text-xl">
+    <div className="bg-gray-100 min-h-screen">
       <Header />
-      <div className="container mx-auto px-4 py-10 max-w-2xl">
+      <div className="container mx-auto px-4 py-10 max-w-3xl">
         <h1 className="text-3xl font-bold text-gray-800 mb-10 text-center">請求書の詳細</h1>
-        <div className="bg-white shadow-lg rounded-lg p-8">
-          <div className="grid grid-cols-1 gap-6">
+        <div className="bg-white shadow-lg rounded-lg p-6 md:p-8">
+          <div className="space-y-4">
             <p className="text-gray-700 text-xl"><span className="font-semibold">送信相手:</span> {invoice.recipient}</p>
             <p className="text-gray-700 text-xl"><span className="font-semibold">送信日:</span> {new Date(invoice.sentDate).toLocaleDateString()}</p>
             <p className="text-gray-700 text-xl"><span className="font-semibold">支払い期限:</span> {new Date(invoice.dueDate).toLocaleDateString()}</p>
