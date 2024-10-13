@@ -414,16 +414,18 @@ const InvoiceDetail = () => {
     }
   };
 
-  if (!invoice) return (
-    <div className="flex justify-center items-center h-screen">
-      <p className="text-3xl font-semibold text-gray-600">読み込み中...</p>
-    </div>
-  );
+  if (!invoice) {
+    return (
+      <div className="loading-screen">
+        <p className="loading-screen__text">読み込み中...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gray-100 min-h-screen text-xl">
       <Header />
-      <div className="container mx-auto px-4 py-10 w-[90%] max-w-2xl">
+      <div className="container mx-auto px-4 py-10 w-[92%] max-w-2xl">
         <h1 className="text-3xl font-bold text-gray-800 mb-10 text-center">請求書の詳細</h1>
         <div className="bg-white shadow-lg rounded-lg p-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -438,7 +440,7 @@ const InvoiceDetail = () => {
             <div className="flex items-center space-x-6">
               <button
                 onClick={togglePaidStatus}
-                className={`px-7 py-3 rounded-full text-2xl font-bold transition duration-300 ease-in-out ${
+                className={`px-9 py-4 rounded-full text-2xl font-bold transition duration-300 ease-in-out ${
                   invoice.isPaid ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-red-500 text-white hover:bg-red-600'
                 }`}
               >
