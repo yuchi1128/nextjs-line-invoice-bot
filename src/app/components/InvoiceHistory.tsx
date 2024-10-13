@@ -322,7 +322,7 @@ import liff from '@line/liff';
 import Link from 'next/link';
 import Header from '@/app/components/Header';
 import Navigation from '@/app/components/Navigation';
-import { Calendar, User, DollarSign, ChevronRight } from 'lucide-react';
+import { Calendar, User, DollarSign, ChevronRight, Check, X } from 'lucide-react';
 
 interface Invoice {
   id: number;
@@ -378,23 +378,29 @@ const InvoiceHistory = () => {
                 <div className="flex justify-between items-center p-3 border-b border-gray-200">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-gray-500" />
-                    <span className="text-xs text-gray-600">
+                    <span className="text-sm text-gray-600">
                       {new Date(invoice.sentDate).toLocaleDateString()}
                     </span>
                   </div>
-                  <div className={`text-xs ${invoice.isPaid ? 'text-green-600' : 'text-red-600'}`}>
-                    {invoice.isPaid ? '精算済み' : '未精算'}
+                  <div className={`flex items-center space-x-1 ${
+                    invoice.isPaid ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                    {invoice.isPaid ? (
+                      <><Check className="w-4 h-4" /> <span className="text-sm font-medium">精算済み</span></>
+                    ) : (
+                      <><X className="w-4 h-4" /> <span className="text-sm font-medium">未精算</span></>
+                    )}
                   </div>
                 </div>
                 <div className="flex items-center justify-between p-3">
                   <div className="flex items-center space-x-4 flex-grow">
                     <div className="flex items-center space-x-2">
-                      <User className="w-5 h-5 text-gray-500" />
-                      <h2 className="text-lg font-semibold">{invoice.recipient}</h2>
+                      <User className="w-6 h-6 text-gray-500" />
+                      <h2 className="text-xl font-semibold">{invoice.recipient}</h2>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <DollarSign className="w-5 h-5 text-gray-500" />
-                      <p className="text-lg font-bold">{invoice.amount.toLocaleString()}円</p>
+                      <DollarSign className="w-6 h-6 text-gray-500" />
+                      <p className="text-xl font-bold">{invoice.amount.toLocaleString()}円</p>
                     </div>
                   </div>
                   <ChevronRight className="w-6 h-6 text-gray-400 flex-shrink-0" />
