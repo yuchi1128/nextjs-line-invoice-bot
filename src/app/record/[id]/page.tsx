@@ -150,41 +150,41 @@ const InvoiceDetail = () => {
 
   if (!invoice) return (
     <div className="flex justify-center items-center h-screen">
-      <p className="text-lg font-semibold">読み込み中...</p>
+      <p className="text-xl font-semibold text-gray-600">読み込み中...</p>
     </div>
   );
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="bg-gray-100 min-h-screen">
       <Header />
-      <main className="flex-grow container mx-auto p-4">
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h1 className="text-2xl font-bold mb-4">請求書詳細</h1>
-          <div className="space-y-4">
-            <p><strong>送信相手:</strong> {invoice.recipient}</p>
-            <p><strong>送信日:</strong> {new Date(invoice.sentDate).toLocaleDateString()}</p>
-            <p><strong>支払い期限:</strong> {new Date(invoice.dueDate).toLocaleDateString()}</p>
-            <p><strong>金額:</strong> {invoice.amount.toLocaleString()}円</p>
-            <p><strong>メッセージ:</strong> {invoice.message}</p>
-            <div>
-              <strong>状態:</strong>
-              <button
-                className={`ml-4 px-4 py-2 rounded-full font-semibold ${
-                  invoice.isPaid
-                    ? 'bg-green-100 text-green-800'
-                    : 'bg-red-100 text-red-800'
-                }`}
-                onClick={togglePaidStatus}
-              >
-                {invoice.isPaid ? '精算済み' : '未精算'}
-              </button>
-            </div>
-            <Link href="/record" className="inline-block mt-6 text-blue-500 hover:underline">
-              一覧画面に戻る
-            </Link>
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">請求書詳細</h1>
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <p className="text-gray-700"><span className="font-semibold">送信相手:</span> {invoice.recipient}</p>
+            <p className="text-gray-700"><span className="font-semibold">送信日:</span> {new Date(invoice.sentDate).toLocaleDateString()}</p>
+            <p className="text-gray-700"><span className="font-semibold">支払い期限:</span> {new Date(invoice.dueDate).toLocaleDateString()}</p>
+            <p className="text-gray-700"><span className="font-semibold">金額:</span> {invoice.amount.toLocaleString()}円</p>
           </div>
+          <p className="text-gray-700 mt-4"><span className="font-semibold">メッセージ:</span> {invoice.message}</p>
+          <div className="mt-6 flex items-center justify-between">
+            <p className="text-gray-700"><span className="font-semibold">状態:</span></p>
+            <button 
+              onClick={togglePaidStatus}
+              className={`px-4 py-2 rounded-full font-semibold ${
+                invoice.isPaid 
+                  ? 'bg-green-500 text-white hover:bg-green-600' 
+                  : 'bg-red-500 text-white hover:bg-red-600'
+              } transition duration-300 ease-in-out`}
+            >
+              {invoice.isPaid ? '精算済み' : '未精算'}
+            </button>
+          </div>
+          <Link href="/record" className="inline-block mt-8 text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">
+            ← 一覧画面に戻る
+          </Link>
         </div>
-      </main>
+      </div>
       <Navigation />
     </div>
   );
