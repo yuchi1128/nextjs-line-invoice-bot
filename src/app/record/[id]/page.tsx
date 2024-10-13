@@ -440,7 +440,7 @@ const InvoiceDetail = () => {
             <div className="flex items-center space-x-6">
             <button
               onClick={togglePaidStatus}
-              className={`px-7 py-3 rounded-full text-xl font-bold transition duration-300 ease-in-out w-48 ${
+              className={`px-6 py-5 rounded-full text-xl font-bold transition duration-300 ease-in-out w-48 ${
                 invoice.isPaid ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-red-500 text-white hover:bg-red-600'
               }`}
             >
