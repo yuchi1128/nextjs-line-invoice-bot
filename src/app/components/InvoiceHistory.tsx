@@ -371,26 +371,26 @@ const InvoiceHistory = () => {
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
       <main className="flex-grow p-4">
-        <div className="space-y-5 max-w-sm mx-auto"> {/* カード幅を調整 */}
+        <div className="space-y-5 max-w-sm mx-auto"> {/* カード幅調整 */}
           {invoices.map((invoice) => (
             <Link href={`/record/${invoice.id}`} key={invoice.id} className="block">
-              <div className="bg-white rounded-lg shadow-md overflow-hidden h-32 flex flex-col justify-between">
-                {/* 上段: 日付と精算状態を縦の真ん中に配置 */}
-                <div className="flex justify-center items-center p-3 border-b border-gray-200 h-16"> 
+              <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+                {/* 上段: 日付は左、精算状態は右に配置 */}
+                <div className="flex justify-between items-center p-2 border-b border-gray-200 h-12"> 
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-gray-500" />
                     <span className="text-sm text-gray-600">
                       {new Date(invoice.sentDate).toLocaleDateString()}
                     </span>
                   </div>
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium ml-4 ${
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${
                     invoice.isPaid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
                   }`}>
                     {invoice.isPaid ? '精算済み' : '未精算'}
                   </div>
                 </div>
-                {/* 下段 */}
-                <div className="flex justify-between items-center p-4 h-16">
+                {/* 下段: 相手の名前、金額、矢印 */}
+                <div className="flex justify-between items-center p-6 h-20"> {/* 下段の縦幅を長く */}
                   <div className="flex items-center space-x-6">
                     <div className="flex items-center space-x-2">
                       <User className="w-6 h-6 text-gray-500" />
