@@ -58,13 +58,12 @@ const InvoiceHistory = () => {
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
       <main className="flex-grow pt-10 p-4">
-        <div className="space-y-5 max-w-sm mx-auto"> {/* カード幅調整 */}
+        <div className="space-y-5 max-w-sm mx-auto">
           {invoices.map((invoice) => (
             <Link href={`/record/${invoice.id}`} key={invoice.id} className="block">
               <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
-                {/* 上段: 日にちと精算状態を中央寄りに配置 */}
                 <div className="flex justify-between items-center p-2 border-b border-gray-200 h-12"> 
-                  <div className="flex items-center space-x-2 ml-4"> {/* 左寄りに少しだけ寄せる */}
+                  <div className="flex items-center space-x-2 ml-4">
                     <Calendar className="w-4 h-4 text-gray-500" />
                     <span className="text-sm text-gray-600">
                       {new Date(invoice.sentDate).toLocaleDateString()}
@@ -76,19 +75,18 @@ const InvoiceHistory = () => {
                     {invoice.isPaid ? '精算済み' : '未精算'}
                   </div>
                 </div>
-                {/* 下段: 相手の名前、金額、矢印 */}
-                <div className="flex justify-between items-center p-6 h-20"> {/* 下段の縦幅を長く */}
+                <div className="flex justify-between items-center p-6 h-20">
                   <div className="flex items-center space-x-6">
                     <div className="flex items-center space-x-2">
                       <User className="w-6 h-6 text-gray-500" />
-                      <h2 className="text-2xl font-bold">{invoice.recipient}</h2> {/* 名前を大きく */}
+                      <h2 className="text-2xl font-bold">{invoice.recipient}</h2>
                     </div>
                     <div className="flex items-center space-x-2">
                       <DollarSign className="w-6 h-6 text-gray-500" />
-                      <p className="text-2xl font-bold">{invoice.amount.toLocaleString()}円</p> {/* 金額を大きく */}
+                      <p className="text-2xl font-bold">{invoice.amount.toLocaleString()}円</p>
                     </div>
                   </div>
-                  <ChevronRight className="w-6 h-6 text-gray-400" /> {/* 右端に矢印 */}
+                  <ChevronRight className="w-6 h-6 text-gray-400" /> 
                 </div>
               </div>
             </Link>
