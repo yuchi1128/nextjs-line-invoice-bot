@@ -313,18 +313,18 @@ const InvoiceDetail = () => {
               <p className="text-gray-600 text-xl">クリックして状態を切り替え</p>
             </div>
           </div>
-          {/* 削除ボタンの追加 */}
-          <div className="mt-10">
-            <button
-              onClick={handleDelete}
-              className="px-8 py-4 rounded-full text-2xl font-bold bg-gray-700 text-white hover:bg-gray-800 transition duration-300 ease-in-out"
-            >
-              削除
-            </button>
-          </div>
           <Link href="/record" className="inline-block mt-12 text-2xl text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">
             ← 一覧画面に戻る
           </Link>
+        </div>
+        {/* 削除ボタンをカードの外側に配置 */}
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={handleDelete}
+            className="px-6 py-3 rounded-lg text-2xl font-bold bg-gray-700 text-white hover:bg-gray-800 transition duration-300 ease-in-out"
+          >
+            削除
+          </button>
         </div>
       </div>
       <Navigation />
