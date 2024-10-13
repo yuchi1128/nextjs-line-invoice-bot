@@ -386,15 +386,15 @@ const InvoiceHistory = () => {
                     {invoice.isPaid ? '精算済み' : '未精算'}
                   </div>
                 </div>
-                <div className="flex items-center p-3">
-                  <div className="flex-grow">
-                    <div className="flex items-center space-x-2 mb-2">
+                <div className="flex items-center justify-between p-3">
+                  <div className="flex items-center space-x-4 flex-grow">
+                    <div className="flex items-center space-x-2">
                       <User className="w-5 h-5 text-gray-500" />
-                      <h2 className="text-xl font-semibold">{invoice.recipient}</h2>
+                      <h2 className="text-lg font-semibold">{invoice.recipient}</h2>
                     </div>
                     <div className="flex items-center space-x-2">
                       <DollarSign className="w-5 h-5 text-gray-500" />
-                      <p className="text-xl font-bold">{invoice.amount.toLocaleString()}円</p>
+                      <p className="text-lg font-bold">{invoice.amount.toLocaleString()}円</p>
                     </div>
                   </div>
                   <ChevronRight className="w-6 h-6 text-gray-400 flex-shrink-0" />
