@@ -57,7 +57,7 @@ const InvoiceHistory = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
-      <main className="flex-grow pt-8 p-4">
+      <main className="flex-grow pt-10 p-4">
         <div className="space-y-5 max-w-sm mx-auto"> {/* カード幅調整 */}
           {invoices.map((invoice) => (
             <Link href={`/record/${invoice.id}`} key={invoice.id} className="block">
