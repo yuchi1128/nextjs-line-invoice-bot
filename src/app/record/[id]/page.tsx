@@ -202,13 +202,11 @@
 
 
 "use client";
-
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Header from '../../components/Header';
 import Navigation from '@/app/components/Navigation';
 import Link from 'next/link';
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 interface Invoice {
   id: number;
@@ -222,6 +220,7 @@ interface Invoice {
 
 const InvoiceDetail = () => {
   const [invoice, setInvoice] = useState<Invoice | null>(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const { id } = useParams();
   const router = useRouter();
 
@@ -267,6 +266,32 @@ const InvoiceDetail = () => {
     }
   };
 
+  const DeleteConfirmationModal = () => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+      <div className="bg-white p-8 rounded-lg shadow-xl">
+        <h2 className="text-2xl font-bold mb-4">請求書を削除しますか？</h2>
+        <p className="mb-6">この操作は取り消せません。本当にこの請求書を削除してもよろしいですか？</p>
+        <div className="flex justify-end space-x-4">
+          <button
+            onClick={() => setIsDeleteModalOpen(false)}
+            className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition duration-300"
+          >
+            キャンセル
+          </button>
+          <button
+            onClick={() => {
+              deleteInvoice();
+              setIsDeleteModalOpen(false);
+            }}
+            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300"
+          >
+            削除する
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   if (!invoice) return (
     <div className="flex justify-center items-center h-screen">
       <p className="text-3xl font-semibold text-gray-600">読み込み中...</p>
@@ -289,12 +314,10 @@ const InvoiceDetail = () => {
           <div className="mt-10">
             <p className="text-2xl font-semibold mb-4">精算状態:</p>
             <div className="flex items-center space-x-6">
-              <button 
+              <button
                 onClick={togglePaidStatus}
                 className={`px-8 py-4 rounded-full text-2xl font-bold transition duration-300 ease-in-out ${
-                  invoice.isPaid 
-                    ? 'bg-green-500 text-white hover:bg-green-600' 
-                    : 'bg-red-500 text-white hover:bg-red-600'
+                  invoice.isPaid ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-red-500 text-white hover:bg-red-600'
                 }`}
               >
                 {invoice.isPaid ? '精算済み' : '未精算'}
@@ -306,29 +329,17 @@ const InvoiceDetail = () => {
             <Link href="/record" className="inline-block text-2xl text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">
               ← 一覧画面に戻る
             </Link>
-            <AlertDialog>
-              <AlertDialogTrigger asChild>
-                <button className="px-8 py-4 bg-red-500 text-white rounded-lg text-2xl font-bold hover:bg-red-600 transition duration-300 ease-in-out">
-                  削除
-                </button>
-              </AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>請求書を削除しますか？</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    この操作は取り消せません。本当にこの請求書を削除してもよろしいですか？
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>キャンセル</AlertDialogCancel>
-                  <AlertDialogAction onClick={deleteInvoice}>削除する</AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
+            <button
+              onClick={() => setIsDeleteModalOpen(true)}
+              className="px-8 py-4 bg-red-500 text-white rounded-full text-2xl font-bold hover:bg-red-600 transition duration-300 ease-in-out"
+            >
+              請求書を削除
+            </button>
           </div>
         </div>
       </div>
       <Navigation />
+      {isDeleteModalOpen && <DeleteConfirmationModal />}
     </div>
   );
 };
