@@ -150,29 +150,29 @@ const InvoiceDetail = () => {
 
   if (!invoice) return (
     <div className="flex justify-center items-center h-screen">
-      <p className="text-2xl font-semibold text-gray-600">読み込み中...</p>
+      <p className="text-3xl font-semibold text-gray-600">読み込み中...</p>
     </div>
   );
 
   return (
-    <div className="bg-gray-100 min-h-screen text-lg">
+    <div className="bg-gray-100 min-h-screen text-xl">
       <Header />
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">請求書詳細</h1>
-        <div className="bg-white shadow-lg rounded-lg p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="container mx-auto px-4 py-10">
+        <h1 className="text-5xl font-bold text-gray-800 mb-10 text-center">請求書詳細</h1>
+        <div className="bg-white shadow-lg rounded-lg p-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <p className="text-gray-700"><span className="font-semibold">送信相手:</span> {invoice.recipient}</p>
             <p className="text-gray-700"><span className="font-semibold">送信日:</span> {new Date(invoice.sentDate).toLocaleDateString()}</p>
             <p className="text-gray-700"><span className="font-semibold">支払い期限:</span> {new Date(invoice.dueDate).toLocaleDateString()}</p>
             <p className="text-gray-700"><span className="font-semibold">金額:</span> {invoice.amount.toLocaleString()}円</p>
           </div>
-          <p className="text-gray-700 mt-6"><span className="font-semibold">メッセージ:</span> {invoice.message}</p>
-          <div className="mt-8">
-            <p className="text-xl font-semibold mb-2">精算状態:</p>
-            <div className="flex items-center space-x-4">
+          <p className="text-gray-700 mt-8"><span className="font-semibold">メッセージ:</span> {invoice.message}</p>
+          <div className="mt-10">
+            <p className="text-2xl font-semibold mb-4">精算状態:</p>
+            <div className="flex items-center space-x-6">
               <button 
                 onClick={togglePaidStatus}
-                className={`px-6 py-3 rounded-full text-xl font-bold transition duration-300 ease-in-out ${
+                className={`px-8 py-4 rounded-full text-2xl font-bold transition duration-300 ease-in-out ${
                   invoice.isPaid 
                     ? 'bg-green-500 text-white hover:bg-green-600' 
                     : 'bg-red-500 text-white hover:bg-red-600'
@@ -180,10 +180,10 @@ const InvoiceDetail = () => {
               >
                 {invoice.isPaid ? '精算済み' : '未精算'}
               </button>
-              <p className="text-gray-600">クリックして状態を切り替え</p>
+              <p className="text-gray-600 text-xl">クリックして状態を切り替え</p>
             </div>
           </div>
-          <Link href="/record" className="inline-block mt-10 text-xl text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">
+          <Link href="/record" className="inline-block mt-12 text-2xl text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">
             ← 一覧画面に戻る
           </Link>
         </div>
