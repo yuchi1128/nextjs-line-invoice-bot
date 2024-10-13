@@ -202,7 +202,6 @@
 
 
 "use client";
-
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Header from '../../components/Header';
@@ -233,6 +232,9 @@ const InvoiceDetail = () => {
   const fetchInvoice = async (invoiceId: string) => {
     try {
       const response = await fetch(`/api/invoices/${invoiceId}`);
+      if (!response.ok) {
+        throw new Error('ネットワークの応答が正常ではありません');
+      }
       const data = await response.json();
       setInvoice(data);
     } catch (error) {
@@ -243,37 +245,38 @@ const InvoiceDetail = () => {
   const togglePaidStatus = async () => {
     if (!invoice) return;
     try {
-      await fetch(`/api/invoices/${invoice.id}`, {
+      const response = await fetch(`/api/invoices/${invoice.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ isPaid: !invoice.isPaid }),
       });
+      if (!response.ok) {
+        throw new Error('ネットワークの応答が正常ではありません');
+      }
       fetchInvoice(id as string);
     } catch (error) {
       console.error('請求書の状態更新に失敗しました', error);
     }
   };
 
-  const deleteInvoice = async () => {
+  const handleDelete = async () => {
     if (!invoice) return;
-    if (!confirm('本当にこの請求書を削除しますか？')) return;
+    const confirmDelete = confirm('本当にこの請求書を削除しますか？この操作は取り消せません。');
+    if (!confirmDelete) return;
 
     try {
       const response = await fetch(`/api/invoices/${invoice.id}`, {
         method: 'DELETE',
       });
-
-      if (response.ok) {
-        alert('請求書が正常に削除されました。');
-        router.push('/record');
-      } else {
+      if (!response.ok) {
         throw new Error('削除に失敗しました');
       }
+      // 削除後、一覧画面にリダイレクト
+      router.push('/record');
     } catch (error) {
       console.error('請求書の削除に失敗しました', error);
-      alert('請求書の削除中にエラーが発生しました。');
     }
   };
 
@@ -296,30 +299,29 @@ const InvoiceDetail = () => {
             <p className="text-gray-700 text-2xl"><span className="font-semibold">金額:</span> {invoice.amount.toLocaleString()}円</p>
           </div>
           <p className="text-gray-700 mt-8 text-2xl"><span className="font-semibold">メッセージ:</span> {invoice.message}</p>
-          
-          <div className="mt-10 flex justify-between items-center">
-            <div>
-              <p className="text-2xl font-semibold mb-4">精算状態:</p>
-              <div className="flex items-center space-x-6">
-                <button 
-                  onClick={togglePaidStatus} 
-                  className={`px-8 py-4 rounded-full text-2xl font-bold transition duration-300 ease-in-out ${
-                    invoice.isPaid ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-red-500 text-white hover:bg-red-600'
-                  }`}
-                >
-                  {invoice.isPaid ? '精算済み' : '未精算'}
-                </button>
-                <p className="text-gray-600 text-xl">クリックして状態を切り替え</p>
-              </div>
+          <div className="mt-10">
+            <p className="text-2xl font-semibold mb-4">精算状態:</p>
+            <div className="flex items-center space-x-6">
+              <button
+                onClick={togglePaidStatus}
+                className={`px-8 py-4 rounded-full text-2xl font-bold transition duration-300 ease-in-out ${
+                  invoice.isPaid ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-red-500 text-white hover:bg-red-600'
+                }`}
+              >
+                {invoice.isPaid ? '精算済み' : '未精算'}
+              </button>
+              <p className="text-gray-600 text-xl">クリックして状態を切り替え</p>
             </div>
+          </div>
+          {/* 削除ボタンの追加 */}
+          <div className="mt-10">
             <button
-              onClick={deleteInvoice}
-              className="px-8 py-4 bg-red-600 text-white rounded-full text-2xl font-bold hover:bg-red-700 transition duration-300 ease-in-out"
+              onClick={handleDelete}
+              className="px-8 py-4 rounded-full text-2xl font-bold bg-gray-700 text-white hover:bg-gray-800 transition duration-300 ease-in-out"
             >
               削除
             </button>
           </div>
-          
           <Link href="/record" className="inline-block mt-12 text-2xl text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out">
             ← 一覧画面に戻る
           </Link>
