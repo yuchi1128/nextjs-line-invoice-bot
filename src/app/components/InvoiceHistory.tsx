@@ -388,16 +388,19 @@ const InvoiceHistory = () => {
                     {invoice.isPaid ? '精算済み' : '未精算'}
                   </div>
                 </div>
-                {/* 下段の要素を縦中央に揃える */}
-                <div className="flex items-center justify-center space-x-6 flex-grow">
-                  <div className="flex items-center space-x-2">
-                    <User className="w-6 h-6 text-gray-500" />
-                    <h2 className="text-xl font-semibold">{invoice.recipient}</h2>
+                {/* 下段の要素を調整 */}
+                <div className="flex justify-between items-center p-4">
+                  <div className="flex items-center space-x-6">
+                    <div className="flex items-center space-x-2">
+                      <User className="w-6 h-6 text-gray-500" />
+                      <h2 className="text-xl font-semibold">{invoice.recipient}</h2>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <DollarSign className="w-6 h-6 text-gray-500" />
+                      <p className="text-xl font-bold">{invoice.amount.toLocaleString()}円</p>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <DollarSign className="w-6 h-6 text-gray-500" />
-                    <p className="text-xl font-bold">{invoice.amount.toLocaleString()}円</p>
-                  </div>
+                  {/* 右端に配置 */}
                   <ChevronRight className="w-6 h-6 text-gray-400" />
                 </div>
               </div>
