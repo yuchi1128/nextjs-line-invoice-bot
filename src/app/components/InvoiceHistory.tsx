@@ -375,15 +375,15 @@ const InvoiceHistory = () => {
           {invoices.map((invoice) => (
             <Link href={`/record/${invoice.id}`} key={invoice.id} className="block">
               <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
-                {/* 上段: 日付は左、精算状態は右に配置 */}
+                {/* 上段: 日にちと精算状態を中央寄りに配置 */}
                 <div className="flex justify-between items-center p-2 border-b border-gray-200 h-12"> 
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 ml-4"> {/* 左寄りに少しだけ寄せる */}
                     <Calendar className="w-4 h-4 text-gray-500" />
                     <span className="text-sm text-gray-600">
                       {new Date(invoice.sentDate).toLocaleDateString()}
                     </span>
                   </div>
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium mr-4 ${
                     invoice.isPaid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
                   }`}>
                     {invoice.isPaid ? '精算済み' : '未精算'}
