@@ -103,7 +103,7 @@ const InvoiceDetail = () => {
             <button
               onClick={togglePaidStatus}
               className={`px-6 py-5 rounded-full text-xl font-bold transition duration-300 ease-in-out w-48 ${
-                invoice.isPaid ? 'bg-green-100 text-green-800 hover:bg-green-600' : 'bg-red-100 text-red-800 hover:bg-red-600'
+                invoice.isPaid ? 'bg-green-200 text-green-800 hover:bg-green-400' : 'bg-red-200 text-red-800 hover:bg-red-400'
               }`}
             >
               {invoice.isPaid ? '精算済み' : '未精算'}
