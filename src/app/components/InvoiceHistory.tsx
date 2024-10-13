@@ -322,7 +322,7 @@ import liff from '@line/liff';
 import Link from 'next/link';
 import Header from '@/app/components/Header';
 import Navigation from '@/app/components/Navigation';
-import { Calendar, User, DollarSign, ChevronRight, Check, X } from 'lucide-react';
+import { Calendar, User, DollarSign, ChevronRight } from 'lucide-react';
 
 interface Invoice {
   id: number;
@@ -371,10 +371,10 @@ const InvoiceHistory = () => {
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
       <main className="flex-grow p-4">
-        <div className="space-y-4 max-w-md mx-auto">
+        <div className="space-y-5 max-w-md mx-auto">
           {invoices.map((invoice) => (
             <Link href={`/record/${invoice.id}`} key={invoice.id} className="block">
-              <div className="bg-white rounded-lg shadow-md overflow-hidden mb-4">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden h-32">
                 <div className="flex justify-between items-center p-3 border-b border-gray-200">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-gray-500" />
@@ -382,18 +382,14 @@ const InvoiceHistory = () => {
                       {new Date(invoice.sentDate).toLocaleDateString()}
                     </span>
                   </div>
-                  <div className={`flex items-center space-x-1 ${
-                    invoice.isPaid ? 'text-green-600' : 'text-red-600'
+                  <div className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    invoice.isPaid ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
                   }`}>
-                    {invoice.isPaid ? (
-                      <><Check className="w-4 h-4" /> <span className="text-sm font-medium">精算済み</span></>
-                    ) : (
-                      <><X className="w-4 h-4" /> <span className="text-sm font-medium">未精算</span></>
-                    )}
+                    {invoice.isPaid ? '精算済み' : '未精算'}
                   </div>
                 </div>
-                <div className="flex items-center justify-between p-3">
-                  <div className="flex items-center space-x-4 flex-grow">
+                <div className="flex items-center justify-between p-4">
+                  <div className="flex items-center space-x-6 flex-grow">
                     <div className="flex items-center space-x-2">
                       <User className="w-6 h-6 text-gray-500" />
                       <h2 className="text-xl font-semibold">{invoice.recipient}</h2>
