@@ -374,7 +374,7 @@ const InvoiceHistory = () => {
         <div className="space-y-5 max-w-md mx-auto">
           {invoices.map((invoice) => (
             <Link href={`/record/${invoice.id}`} key={invoice.id} className="block">
-              <div className="bg-white rounded-lg shadow-md overflow-hidden h-32">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden h-32 flex flex-col justify-center">
                 <div className="flex justify-between items-center p-3 border-b border-gray-200">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-gray-500" />
@@ -388,8 +388,8 @@ const InvoiceHistory = () => {
                     {invoice.isPaid ? '精算済み' : '未精算'}
                   </div>
                 </div>
-                {/* 下段の真ん中に要素を配置 */}
-                <div className="flex flex-col items-center justify-center p-4 space-y-2">
+                {/* 下段の要素を縦中央に揃える */}
+                <div className="flex items-center justify-center space-x-6 flex-grow">
                   <div className="flex items-center space-x-2">
                     <User className="w-6 h-6 text-gray-500" />
                     <h2 className="text-xl font-semibold">{invoice.recipient}</h2>
