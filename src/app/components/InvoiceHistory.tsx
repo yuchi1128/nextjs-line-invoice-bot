@@ -373,8 +373,8 @@ const InvoiceHistory = () => {
       <main className="flex-grow p-4">
         <div className="space-y-4">
           {invoices.map((invoice) => (
-            <Link href={`/record/${invoice.id}`} key={invoice.id}>
-              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <Link href={`/record/${invoice.id}`} key={invoice.id} className="block">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden mb-4">
                 <div className="flex justify-between items-center p-4 border-b border-gray-200">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-5 h-5 text-gray-500" />
@@ -387,7 +387,7 @@ const InvoiceHistory = () => {
                   </div>
                 </div>
                 <div className="flex justify-between items-center p-4">
-                  <div className="space-y-2">
+                  <div className="flex items-center justify-between flex-grow mr-4">
                     <div className="flex items-center space-x-2">
                       <User className="w-5 h-5 text-gray-500" />
                       <h2 className="text-lg font-semibold">{invoice.recipient}</h2>
@@ -397,7 +397,7 @@ const InvoiceHistory = () => {
                       <p className="text-lg font-bold">{invoice.amount.toLocaleString()}円</p>
                     </div>
                   </div>
-                  <ChevronRight className="w-6 h-6 text-gray-400" />
+                  <ChevronRight className="w-6 h-6 text-gray-400 flex-shrink-0" />
                 </div>
               </div>
             </Link>
