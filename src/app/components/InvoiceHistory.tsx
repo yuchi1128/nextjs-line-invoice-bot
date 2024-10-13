@@ -371,11 +371,12 @@ const InvoiceHistory = () => {
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
       <main className="flex-grow p-4">
-        <div className="space-y-5 max-w-md mx-auto">
+        <div className="space-y-5 max-w-sm mx-auto"> {/* カード幅を短く調整 */}
           {invoices.map((invoice) => (
             <Link href={`/record/${invoice.id}`} key={invoice.id} className="block">
               <div className="bg-white rounded-lg shadow-md overflow-hidden h-32 flex flex-col justify-center">
-                <div className="flex justify-between items-center p-3 border-b border-gray-200">
+                {/* 上段 */}
+                <div className="flex flex-col items-center justify-center p-3 border-b border-gray-200"> 
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-gray-500" />
                     <span className="text-sm text-gray-600">
@@ -388,20 +389,19 @@ const InvoiceHistory = () => {
                     {invoice.isPaid ? '精算済み' : '未精算'}
                   </div>
                 </div>
-                {/* 下段の要素を調整 */}
+                {/* 下段 */}
                 <div className="flex justify-between items-center p-4">
                   <div className="flex items-center space-x-6">
                     <div className="flex items-center space-x-2">
                       <User className="w-6 h-6 text-gray-500" />
-                      <h2 className="text-xl font-semibold">{invoice.recipient}</h2>
+                      <h2 className="text-2xl font-bold">{invoice.recipient}</h2> {/* 名前を大きく */}
                     </div>
                     <div className="flex items-center space-x-2">
                       <DollarSign className="w-6 h-6 text-gray-500" />
-                      <p className="text-xl font-bold">{invoice.amount.toLocaleString()}円</p>
+                      <p className="text-2xl font-bold">{invoice.amount.toLocaleString()}円</p> {/* 金額を大きく */}
                     </div>
                   </div>
-                  {/* 右端に配置 */}
-                  <ChevronRight className="w-6 h-6 text-gray-400" />
+                  <ChevronRight className="w-6 h-6 text-gray-400" /> {/* 右端に矢印 */}
                 </div>
               </div>
             </Link>
