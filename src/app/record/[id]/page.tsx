@@ -273,7 +273,6 @@ const InvoiceDetail = () => {
       if (!response.ok) {
         throw new Error('削除に失敗しました');
       }
-      // 削除後、一覧画面にリダイレクト
       router.push('/record');
     } catch (error) {
       console.error('請求書の削除に失敗しました', error);
@@ -289,7 +288,7 @@ const InvoiceDetail = () => {
   return (
     <div className="bg-gray-100 min-h-screen text-xl">
       <Header />
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 py-10 max-w-3xl">
         <h1 className="text-3xl font-bold text-gray-800 mb-10 text-center">請求書の詳細</h1>
         <div className="bg-white shadow-lg rounded-lg p-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -317,7 +316,6 @@ const InvoiceDetail = () => {
             ← 一覧画面に戻る
           </Link>
         </div>
-        {/* 削除ボタンをカードの外側に配置 */}
         <div className="flex justify-center mt-8">
           <button
             onClick={handleDelete}
