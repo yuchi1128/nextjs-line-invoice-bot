@@ -438,14 +438,14 @@ const InvoiceDetail = () => {
           <div className="mt-10">
             <p className="text-2xl font-semibold mb-4">精算状態:</p>
             <div className="flex items-center space-x-6">
-              <button
-                onClick={togglePaidStatus}
-                className={`px-7 py-3 rounded-full text-xl font-bold transition duration-300 ease-in-out ${
-                  invoice.isPaid ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-red-500 text-white hover:bg-red-600'
-                }`}
-              >
-                {invoice.isPaid ? '精算済み' : '未精算'}
-              </button>
+            <button
+              onClick={togglePaidStatus}
+              className={`px-7 py-3 rounded-full text-xl font-bold transition duration-300 ease-in-out w-48 ${
+                invoice.isPaid ? 'bg-green-500 text-white hover:bg-green-600' : 'bg-red-500 text-white hover:bg-red-600'
+              }`}
+            >
+              {invoice.isPaid ? '精算済み' : '未精算'}
+            </button>
               <p className="text-gray-600 text-xl">クリックして状態を切り替え</p>
             </div>
           </div>
