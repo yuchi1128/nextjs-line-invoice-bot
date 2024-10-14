@@ -279,9 +279,9 @@ body {
 .home__input {
   background-color: #fff;
   padding: 1.7rem;
-  border-radius: 8px;
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 8px;
+  border-radius: 10px;
+  box-shadow: 0 6cap 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
   margin-bottom: 3rem;
   text-align: left;
   max-width: 400px;
@@ -309,13 +309,13 @@ body {
 .home__input textarea {
   width: 100%;
   padding: 1rem;
-  font-size: 15px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
 
 .home__input textarea {
-  height: 80px;
+  height: 100px;
   resize: vertical;
 }
 
@@ -351,11 +351,6 @@ body {
   }
 }
 
-@media screen and (max-width: 930px) {
-  .home__buttons {
-    flex-direction: column;
-  }
-}
 
 /* 請求書作成画面を違うページに */
 .navigation {
