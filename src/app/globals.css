@@ -279,8 +279,8 @@ body {
 .home__input {
   background-color: #fff;
   padding: 1.7rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
   margin-bottom: 3rem;
   text-align: left;
@@ -315,7 +315,7 @@ body {
 }
 
 .home__input textarea {
-  height: 200px;
+  height: 100px;
   resize: vertical;
 }
 
@@ -349,22 +349,6 @@ body {
   .home__buttons__button {
     font-size: 1.5rem;
   }
-}
-
-.mainContent {
-  flex: 1;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding-bottom: 60px;
 }
 
 @media screen and (max-width: 930px) {
