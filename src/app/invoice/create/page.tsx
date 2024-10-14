@@ -168,6 +168,12 @@
 
 
 
+
+
+
+
+
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -276,53 +282,54 @@ export default function CreateInvoice() {
   }
 
   if (isCreating || isRedirecting) return (
-    <div className="flex justify-center items-center min-h-screen">
-      <p className="text-2xl">作成中...</p>
+    <div className="flex justify-center items-center h-screen">
+      <p className="text-lg">作成中...</p>
     </div>
   );
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen pb-16">
       <Header />
-      <main className="flex-grow flex justify-center items-center bg-gray-100">
-        <div className="bg-white p-6 rounded-lg shadow-md mt-5 mb-10 text-left w-full sm:max-w-md md:max-w-lg lg:max-w-xl">
-          <h1 className="text-3xl text-center font-medium text-gray-800 mb-6">請求書の作成</h1>
-          <label htmlFor="recipient" className="block text-lg font-medium text-gray-700 mb-2">送り先:</label>
+      <main className="flex-1 flex justify-center px-6">
+        <div className="bg-white p-7 rounded-xl shadow-md mt-5 mb-12 max-w-md w-full text-left">
+          <h1 className="text-3xl mb-8 text-center text-gray-800 font-medium">請求書の作成</h1>
+          <label htmlFor="recipient" className="block text-lg text-gray-600 font-medium mb-2">送り先:</label>
           <input
             type="text"
             id="recipient"
             placeholder="送る相手の名前を入力してください"
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg mb-4"
+            className="w-full p-4 text-base border border-gray-300 rounded-md"
           />
-          <label htmlFor="amount" className="block text-lg font-medium text-gray-700 mb-2">金額:</label>
+          <label htmlFor="amount" className="block text-lg text-gray-600 font-medium mt-6 mb-2">金額:</label>
           <input
             type="number"
             id="amount"
             placeholder="金額を入力してください"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg mb-4"
+            className="w-full p-4 text-base border border-gray-300 rounded-md"
           />
-          <label htmlFor="due_date" className="block text-lg font-medium text-gray-700 mb-2">支払い期限:</label>
+          <label htmlFor="due_date" className="block text-lg text-gray-600 font-medium mt-6 mb-2">支払い期限:</label>
           <input
             type="date"
             id="due_date"
+            placeholder="期日を入力してください"
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg mb-4"
+            className="w-full p-4 text-base border border-gray-300 rounded-md"
           />
-          <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">メッセージ:</label>
+          <label htmlFor="message" className="block text-lg text-gray-600 font-medium mt-6 mb-2">メッセージ:</label>
           <textarea
             id="message"
             placeholder="メッセージを入力してください"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg mb-6 h-48 resize-y"
+            className="w-full p-4 h-48 text-base border border-gray-300 rounded-md resize-vertical"
           />
           <button 
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg w-full"
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-md mt-8 text-lg"
             onClick={handleCreateInvoice}
             disabled={isCreating || isRedirecting}
           >
