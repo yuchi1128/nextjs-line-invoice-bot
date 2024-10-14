@@ -290,7 +290,7 @@ body {
 }
 
 .home__input h1 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   margin-bottom: 2rem;
   text-align: center;
   color: #333;
@@ -299,7 +299,7 @@ body {
 
 .home__input label {
   display: block;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin: 1.5rem 0 0.7rem;
   color: #555;
   font-weight: 450;
@@ -309,7 +309,7 @@ body {
 .home__input textarea {
   width: 100%;
   padding: 1rem;
-  font-size: 15px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
