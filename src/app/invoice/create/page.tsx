@@ -321,12 +321,19 @@ export default function CreateInvoice() {
             className="w-full p-4 text-base border border-gray-300 rounded-md"
           />
           <label htmlFor="message" className="block text-xl mt-6 mb-3 text-gray-600 font-normal">メッセージ:</label>
-          <textarea
+          {/* <textarea
             id="message"
             placeholder="メッセージを入力してください"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="w-full p-4 text-base border border-gray-300 rounded-md h-48 resize-y"
+          /> */}
+          <textarea
+            id="message"
+            placeholder="メッセージを入力してください"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="w-3/4 p-4 text-base border border-gray-300 rounded-md h-48 resize-y"
           />
           <button 
             className="bg-[#00B900] hover:bg-[#009300] text-white py-4 px-8 rounded-md text-2xl cursor-pointer w-full mt-8 font-bold"
