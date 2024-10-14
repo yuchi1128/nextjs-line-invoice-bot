@@ -194,7 +194,7 @@ body {
 
 
 
-.home__input {
+/* .home__input {
   background-color: #fff;
   padding: 1.8rem;
   border-radius: 8px;
@@ -265,6 +265,87 @@ body {
   }
   
   .home__buttons__button {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .home__buttons {
+    flex-direction: column;
+  }
+} */
+
+
+.home__input {
+  background-color: #fff;
+  padding: 1.8rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 3rem;
+  text-align: left;
+  max-width: 400px;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.home__input h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #333;
+  font-weight: 450;
+}
+
+.home__input label {
+  display: block;
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.7rem;
+  color: #555;
+  font-weight: 450;
+}
+
+.homeinput input,
+.homeinput textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.home__input textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+.create-invoice-button {
+  background-color: #00B900;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
+.create-invoice-button:hover {
+  background-color: #009300;
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+
+  .home__title {
+    font-size: 3rem;
+  }
+
+  .homebuttonsbutton {
     font-size: 1.5rem;
   }
 }
