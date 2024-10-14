@@ -338,7 +338,7 @@ export default function CreateInvoice() {
         </div>
       </main> */}
       <main className="flex-1 flex justify-center px-6">
-        <div className="bg-white p-7 rounded-xl shadow-md mt-8 mb-12 max-w-lg w-full text-left">
+        <div className="bg-white p-7 rounded-xl shadow-md mt-6.8 mb-12 max-w-md w-full text-left">
           <h1 className="text-3xl mb-8 text-center text-gray-800 font-medium">請求書の作成</h1>
           <label htmlFor="recipient" className="block text-lg text-gray-600 font-medium mb-2">送り先:</label>
           <input
@@ -376,7 +376,7 @@ export default function CreateInvoice() {
             className="w-full p-4 h-48 text-base border border-gray-300 rounded-md resize-vertical"
           />
           <button 
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-md mt-4 text-lg"
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-md mt-7 mb-7 text-lg"
             onClick={handleCreateInvoice}
             disabled={isCreating || isRedirecting}
           >
