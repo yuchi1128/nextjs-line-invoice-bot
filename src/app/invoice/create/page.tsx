@@ -215,15 +215,70 @@ export default function CreateInvoice() {
   }, []);
 
   const generateHankoImage = async () => {
-    // 既存のコードと同じ
+    try {
+      const idToken = liff.getDecodedIDToken();
+      const profileImageUrl = idToken?.picture ?? '';
+      const response = await fetch('https://nextjs-line-invoice-bot.vercel.app/api/hanko', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ profileImageUrl }),
+      });
+      const data = await response.json();
+      setHankoImageUrl(data.imageUrl);
+    } catch (error) {
+      console.error('ハンコ画像の生成に失敗しました:', error);
+    }
   };
 
   const getCurrentDate = () => {
-    // 既存のコードと同じ
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
   };
 
   async function handleCreateInvoice() {
-    // 既存のコードと同じ
+    if (!amount || !dueDate || !message || !recipient) {
+      alert('金額、支払い期限、メッセージ、送り先を入力してください');
+      return;
+    }
+
+    setIsCreating(true);
+
+    const issueDate = getCurrentDate();
+    const invoiceImageUrl = `https://nextjs-line-invoice-bot.vercel.app/api/og/invoice?amount=${amount}&dueDate=${dueDate}&issueDate=${issueDate}&message=${encodeURIComponent(message)}&recipient=${encodeURIComponent(recipient)}&hankoImage=${encodeURIComponent(hankoImageUrl)}`;
+
+    try {
+      const profile = await liff.getProfile();
+      const invoiceData = {
+        userId: profile.userId,
+        recipient: recipient,
+        amount: parseInt(amount),
+        dueDate: new Date(dueDate),
+        message: message,
+      };
+
+      const response = await fetch('/api/invoices', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(invoiceData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create invoice');
+      }
+
+      setIsRedirecting(true);
+      router.push(`/invoice/send?invoiceImageUrl=${encodeURIComponent(invoiceImageUrl)}`);
+    } catch (error) {
+      console.error('Failed to create invoice:', error);
+      alert('請求書の作成に失敗しました。もう一度お試しください。');
+      setIsCreating(false);
+      setIsRedirecting(false);
+    }
   }
 
   if (isCreating || isRedirecting) return (
