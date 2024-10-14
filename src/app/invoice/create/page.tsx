@@ -333,7 +333,7 @@ export default function CreateInvoice() {
             placeholder="メッセージを入力してください"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-3/4 p-4 text-base border border-gray-300 rounded-md h-48 resize-y"
+            className="w-full p-4 text-base border border-gray-300 rounded-md h-32 resize-y"
           />
           <button 
             className="bg-[#00B900] hover:bg-[#009300] text-white py-4 px-8 rounded-md text-2xl cursor-pointer w-full mt-8 font-bold"
