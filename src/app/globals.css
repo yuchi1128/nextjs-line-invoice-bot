@@ -279,9 +279,9 @@ body {
 .home__input {
   background-color: #fff;
   padding: 1.7rem;
-  border-radius: 10px;
+  border-radius: 8%;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 3rem;
   text-align: left;
   max-width: 400px;
