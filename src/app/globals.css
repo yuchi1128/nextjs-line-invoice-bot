@@ -280,8 +280,8 @@ body {
   background-color: #fff;
   padding: 1.7rem;
   border-radius: 10px;
-  box-shadow: 0 6cap 6px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
   margin-bottom: 3rem;
   text-align: left;
   max-width: 400px;
@@ -309,7 +309,7 @@ body {
 .home__input textarea {
   width: 100%;
   padding: 1rem;
-  font-size: 16px;
+  font-size: 15px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
