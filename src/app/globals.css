@@ -278,8 +278,8 @@ body {
 
 .home__input {
   background-color: #fff;
-  padding: 1.8rem;
-  border-radius: 8px;
+  padding: 1.7rem;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
   margin-bottom: 3rem;
@@ -290,7 +290,7 @@ body {
 }
 
 .home__input h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
   color: #333;
@@ -299,14 +299,14 @@ body {
 
 .home__input label {
   display: block;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin: 1.5rem 0 0.7rem;
   color: #555;
   font-weight: 450;
 }
 
-.homeinput input,
-.homeinput textarea {
+.home__input input,
+.home__input textarea {
   width: 100%;
   padding: 1rem;
   font-size: 16px;
@@ -315,7 +315,7 @@ body {
 }
 
 .home__input textarea {
-  height: 100px;
+  height: 200px;
   resize: vertical;
 }
 
@@ -336,18 +336,35 @@ body {
   background-color: #009300;
 }
 
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 12px;
   }
-
+  
   .home__title {
     font-size: 3rem;
   }
-
-  .homebuttonsbutton {
+  
+  .home__buttons__button {
     font-size: 1.5rem;
   }
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 60px;
 }
 
 @media screen and (max-width: 930px) {
