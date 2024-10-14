@@ -285,7 +285,7 @@ export default function CreateInvoice() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow flex justify-center items-center bg-gray-100">
-        <div className="bg-white p-6 rounded-lg shadow-md mt-5 mb-10 text-left max-w-sm w-full">
+        <div className="bg-white p-6 rounded-lg shadow-md mt-5 mb-10 text-left w-full sm:max-w-md md:max-w-lg lg:max-w-xl">
           <h1 className="text-3xl text-center font-medium text-gray-800 mb-6">請求書の作成</h1>
           <label htmlFor="recipient" className="block text-lg font-medium text-gray-700 mb-2">送り先:</label>
           <input
