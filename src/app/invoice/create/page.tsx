@@ -340,100 +340,48 @@ export default function CreateInvoice() {
     //   <Navigation />
     // </div>
 
-    // <div className="flex flex-col min-h-screen pb-16">
-    //   <Header />
-    //   <main className="flex-1 p-8 max-w-3xl mx-auto text-center">
-    //     <div className="bg-white p-8 rounded-lg shadow-lg mt-5 mb-12 text-left w-full max-w-2xl mx-auto text-xl">
-    //       <h1 className="text-4xl mb-8 text-center text-gray-800 font-bold">請求書の作成</h1>
-    //       <label htmlFor="recipient" className="block text-2xl mt-6 mb-3 text-gray-600 font-medium">送り先:</label>
-    //       <input
-    //         type="text"
-    //         id="recipient"
-    //         placeholder="送る相手の名前を入力してください"
-    //         value={recipient}
-    //         onChange={(e) => setRecipient(e.target.value)}
-    //         className="w-full p-4 text-lg border border-gray-300 rounded-md font-medium"
-    //       />
-    //       <label htmlFor="amount" className="block text-2xl mt-6 mb-3 text-gray-600 font-medium">金額:</label>
-    //       <input
-    //         type="number"
-    //         id="amount"
-    //         placeholder="金額を入力してください"
-    //         value={amount}
-    //         onChange={(e) => setAmount(e.target.value)}
-    //         className="w-full p-4 text-lg border border-gray-300 rounded-md font-medium"
-    //       />
-    //       <label htmlFor="due_date" className="block text-2xl mt-6 mb-3 text-gray-600 font-medium">支払い期限:</label>
-    //       <input
-    //         type="date"
-    //         id="due_date"
-    //         placeholder="期日を入力してください"
-    //         value={dueDate}
-    //         onChange={(e) => setDueDate(e.target.value)}
-    //         className="w-full p-4 text-lg border border-gray-300 rounded-md font-medium"
-    //       />
-    //       <label htmlFor="message" className="block text-2xl mt-6 mb-3 text-gray-600 font-medium">メッセージ:</label>
-    //       <textarea
-    //         id="message"
-    //         placeholder="メッセージを入力してください"
-    //         value={message}
-    //         onChange={(e) => setMessage(e.target.value)}
-    //         className="w-full p-4 text-lg border border-gray-300 rounded-md h-32 resize-y"
-    //       />
-    //       <button 
-    //         className="bg-[#00B900] hover:bg-[#009300] text-white py-4 px-8 rounded-md text-2xl cursor-pointer w-full mt-8 font-bold"
-    //         onClick={handleCreateInvoice}
-    //         disabled={isCreating || isRedirecting}
-    //       >
-    //         この内容で請求書を作成
-    //       </button>
-    //     </div>
-    //   </main>
-    //   <Navigation />
-    // </div>
-
     <div className="flex flex-col min-h-screen pb-16">
       <Header />
-      <main className="flex-1 p-8 max-w-2xl mx-auto text-center">
-        <div className="bg-white p-6 rounded-lg shadow-lg mt-5 mb-12 text-left w-full max-w-xl mx-auto text-lg">
-          <h1 className="text-3xl mb-6 text-center text-gray-800 font-bold">請求書の作成</h1>
-          <label htmlFor="recipient" className="block text-xl mt-4 mb-2 text-gray-600 font-medium">送り先:</label>
+      <main className="flex-1 p-8 max-w-3xl mx-auto text-center">
+        <div className="bg-white p-8 rounded-lg shadow-lg mt-5 mb-12 text-left w-full max-w-2xl mx-auto text-xl">
+          <h1 className="text-4xl mb-8 text-center text-gray-800 font-bold">請求書の作成</h1>
+          <label htmlFor="recipient" className="block text-2xl mt-6 mb-3 text-gray-600 font-medium">送り先:</label>
           <input
             type="text"
             id="recipient"
             placeholder="送る相手の名前を入力してください"
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
-            className="w-full p-3 text-base border border-gray-300 rounded-md font-medium"
+            className="w-full p-4 text-lg border border-gray-300 rounded-md font-medium"
           />
-          <label htmlFor="amount" className="block text-xl mt-4 mb-2 text-gray-600 font-medium">金額:</label>
+          <label htmlFor="amount" className="block text-2xl mt-6 mb-3 text-gray-600 font-medium">金額:</label>
           <input
             type="number"
             id="amount"
             placeholder="金額を入力してください"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full p-3 text-base border border-gray-300 rounded-md font-medium"
+            className="w-full p-4 text-lg border border-gray-300 rounded-md font-medium"
           />
-          <label htmlFor="due_date" className="block text-xl mt-4 mb-2 text-gray-600 font-medium">支払い期限:</label>
+          <label htmlFor="due_date" className="block text-2xl mt-6 mb-3 text-gray-600 font-medium">支払い期限:</label>
           <input
             type="date"
             id="due_date"
             placeholder="期日を入力してください"
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
-            className="w-full p-3 text-base border border-gray-300 rounded-md font-medium"
+            className="w-full p-4 text-lg border border-gray-300 rounded-md font-medium"
           />
-          <label htmlFor="message" className="block text-xl mt-4 mb-2 text-gray-600 font-medium">メッセージ:</label>
+          <label htmlFor="message" className="block text-2xl mt-6 mb-3 text-gray-600 font-medium">メッセージ:</label>
           <textarea
             id="message"
             placeholder="メッセージを入力してください"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full p-3 text-base border border-gray-300 rounded-md h-28 resize-y"
+            className="w-full p-4 text-lg border border-gray-300 rounded-md h-32 resize-y"
           />
           <button 
-            className="bg-[#00B900] hover:bg-[#009300] text-white py-3 px-6 rounded-md text-xl cursor-pointer w-full mt-6 font-bold"
+            className="bg-[#00B900] hover:bg-[#009300] text-white py-4 px-8 rounded-md text-2xl cursor-pointer w-full mt-8 font-bold"
             onClick={handleCreateInvoice}
             disabled={isCreating || isRedirecting}
           >

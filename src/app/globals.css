@@ -193,7 +193,7 @@ body {
 
 
 
-
+/* 
 .home__input {
   background-color: #fff;
   padding: 1.7rem;
@@ -273,7 +273,7 @@ body {
   .home__buttons {
     flex-direction: column;
   }
-}
+} */
 
 /* 請求書作成画面を違うページに */
 .navigation {
