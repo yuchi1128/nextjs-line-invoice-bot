@@ -199,7 +199,7 @@ body {
   padding: 1.8rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin-top: 12px;
   margin-bottom: 3rem;
   text-align: left;
   max-width: 400px;
@@ -233,7 +233,7 @@ body {
 }
 
 .home__input textarea {
-  height: 200px;
+  height: 100px;
   resize: vertical;
 }
 
