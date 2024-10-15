@@ -217,10 +217,15 @@ let prisma: PrismaClient;
 if (process.env.NODE_ENV === 'production') {
   prisma = new PrismaClient();
 } else {
-  if (!(global as any).prisma) {
-    (global as any).prisma = new PrismaClient();
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
   }
-  prisma = (global as any).prisma;
+  prisma = global.prisma;
+}
+
+// グローバル変数の型拡張
+declare global {
+  var prisma: PrismaClient | undefined;
 }
 
 // LINEクライアントの初期化
