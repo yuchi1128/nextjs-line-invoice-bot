@@ -72,13 +72,11 @@ import { PrismaClient, Invoice } from '@prisma/client';
 
 // 環境変数の型定義
 declare global {
-  namespace NodeJS {
     interface ProcessEnv {
       LINE_CHANNEL_ACCESS_TOKEN: string;
       LINE_CHANNEL_SECRET: string;
       DATABASE_URL: string;
     }
-  }
 }
 
 // 環境変数の検証
