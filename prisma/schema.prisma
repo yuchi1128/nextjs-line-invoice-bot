@@ -17,3 +17,11 @@ model Invoice {
   sentDate  DateTime @default(now())
   isPaid    Boolean  @default(false)
 }
+
+//add
+model UserIdMapping {
+  id            Int      @id @default(autoincrement())
+  liffUserId    String   @unique
+  webhookUserId String   @unique
+  createdAt     DateTime @default(now())
+}
