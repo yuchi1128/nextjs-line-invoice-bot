@@ -229,24 +229,43 @@ export default function CreateInvoice() {
       }
     }
   
+    // async function mapUserIds() {
+    //   // const liffUserId = (await liff.getProfile()).userId;
+    //   // const idToken = liff.getDecodedIDToken();
+    //   // const webhookUserId = idToken?.sub;
+    //   const liffProfile = await liff.getProfile();
+    //   const liffUserId = liffProfile.userId;
+    //   const idToken = liff.getDecodedIDToken();
+    //   const webhookUserId = idToken?.sub;
+    //   console.log('LIFF User ID:', liffUserId);
+    //   console.log('Webhook User ID:', webhookUserId);
+
+    //   if (liffUserId && webhookUserId) {
+    //     try {
+    //       await fetch('/api/mapUserIds', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ liffUserId, webhookUserId }),
+    //       });
+    //     } catch (error) {
+    //       console.error('Failed to map user IDs:', error);
+    //     }
+    //   }
+    // }
     async function mapUserIds() {
-      // const liffUserId = (await liff.getProfile()).userId;
-      // const idToken = liff.getDecodedIDToken();
-      // const webhookUserId = idToken?.sub;
       const liffProfile = await liff.getProfile();
-      const liffUserId = liffProfile.userId;
-      const idToken = liff.getDecodedIDToken();
-      const webhookUserId = idToken?.sub;
-      console.log('LIFF User ID:', liffUserId);
-      console.log('Webhook User ID:', webhookUserId);
-      
-      if (liffUserId && webhookUserId) {
+      const userId = liffProfile.userId;
+      console.log('LIFF User ID:', userId);
+    
+      if (userId) {
         try {
-          await fetch('/api/mapUserIds', {
+          const response = await fetch('/api/mapUserIds', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ liffUserId, webhookUserId }),
+            body: JSON.stringify({ liffUserId: userId, webhookUserId: userId }),
           });
+          const result = await response.json();
+          console.log('Mapping result:', result);
         } catch (error) {
           console.error('Failed to map user IDs:', error);
         }

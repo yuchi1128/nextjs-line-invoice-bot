@@ -19,9 +19,14 @@ model Invoice {
 }
 
 //add
+// model UserIdMapping {
+//   id            Int      @id @default(autoincrement())
+//   liffUserId    String   @unique
+//   webhookUserId String   @unique
+//   createdAt     DateTime @default(now())
+// }
 model UserIdMapping {
-  id            Int      @id @default(autoincrement())
-  liffUserId    String   @unique
-  webhookUserId String   @unique
-  createdAt     DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  userId    String   @unique
+  createdAt DateTime @default(now())
 }

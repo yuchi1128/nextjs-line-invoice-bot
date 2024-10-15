@@ -254,9 +254,9 @@ export async function POST(request: Request) {
 
 async function handleHistoryRequest(userId: string) {
     try {
-        console.log('Searching for mapping with webhookUserId:', userId);
+        console.log('Handling history request for userId:', userId);
         const mapping = await prisma.userIdMapping.findUnique({
-            where: { webhookUserId: userId },
+            where: { userId: userId },
         });
 
         console.log('Found mapping:', mapping);
@@ -265,12 +265,14 @@ async function handleHistoryRequest(userId: string) {
             await client.pushMessage(userId, { type: 'text', text: 'ユーザーIDのマッピングが見つかりません。LIFFアプリを再度開いてください。' });
             return;
         }
-      
+
         const invoices = await prisma.invoice.findMany({
-            where: { userId: mapping.liffUserId },
+            where: { userId: mapping.userId },
             orderBy: { sentDate: 'desc' },
             take: 10,
         });
+
+        console.log('Found invoices:', invoices);
 
         if (invoices.length === 0) {
             await client.pushMessage(userId, { type: 'text', text: '請求書の履歴がありません。' });
@@ -304,6 +306,8 @@ async function handleHistoryRequest(userId: string) {
 
         await client.pushMessage(userId, carouselTemplate);
     } catch (error) {
+        // console.error('履歴リクエスト処理中にエラーが発生しました:', error);
+        // await client.pushMessage(userId, { type: 'text', text: '履歴の取得中にエラーが発生しました。しばらくしてからもう一度お試しください。' });
         console.error('履歴リクエスト処理中にエラーが発生しました:', error);
         await client.pushMessage(userId, { type: 'text', text: '履歴の取得中にエラーが発生しました。しばらくしてからもう一度お試しください。' });
     }
