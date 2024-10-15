@@ -204,21 +204,11 @@ import { PrismaClient, Invoice } from '@prisma/client';
 
 // 環境変数の型定義
 declare global {
-    namespace NodeJS {
-        interface ProcessEnv {
-            LINE_CHANNEL_ACCESS_TOKEN: string;
-            LINE_CHANNEL_SECRET: string;
-            DATABASE_URL: string;
-        }
+    interface ProcessEnv {
+        LINE_CHANNEL_ACCESS_TOKEN: string;
+        LINE_CHANNEL_SECRET: string;
+        DATABASE_URL: string;
     }
-}
-
-// 環境変数の検証
-const requiredEnvVars = ['NEXT_PUBLIC_LINE_CHANNEL_ACCESS_TOKEN', 'NEXT_PUBLIC_LINE_CHANNEL_SECRET', 'DATABASE_URL'];
-for (const envVar of requiredEnvVars) {
-  if (!process.env[envVar]) {
-    throw new Error(`環境変数 ${envVar} が設定されていません。`);
-  }
 }
 
 // Prismaクライアントの初期化
@@ -227,15 +217,10 @@ let prisma: PrismaClient;
 if (process.env.NODE_ENV === 'production') {
   prisma = new PrismaClient();
 } else {
-  if (!global.prisma) {
-    global.prisma = new PrismaClient();
+  if (!(global as any).prisma) {
+    (global as any).prisma = new PrismaClient();
   }
-  prisma = global.prisma;
-}
-
-// グローバル変数の型拡張
-declare global {
-  var prisma: PrismaClient | undefined;
+  prisma = (global as any).prisma;
 }
 
 // LINEクライアントの初期化
