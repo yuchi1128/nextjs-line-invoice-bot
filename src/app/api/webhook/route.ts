@@ -178,7 +178,7 @@ export async function POST(request: Request) {
         
                 // userId が存在するかどうか確認
                 const userId = messageEvent.source.userId;
-                console.log('User ID:', userId); 
+                console.log('Webhook received userId:', userId);
                 if (!userId) {
                     console.error('User IDが存在しません。');
                     return; // 処理を中断
@@ -254,10 +254,13 @@ export async function POST(request: Request) {
 
 async function handleHistoryRequest(userId: string) {
     try {
+        console.log('Searching for mapping with webhookUserId:', userId);
         const mapping = await prisma.userIdMapping.findUnique({
-            where: { webhookUserId: userId }, // ここを修正
+            where: { webhookUserId: userId },
         });
-      
+
+        console.log('Found mapping:', mapping);
+
         if (!mapping) {
             await client.pushMessage(userId, { type: 'text', text: 'ユーザーIDのマッピングが見つかりません。LIFFアプリを再度開いてください。' });
             return;

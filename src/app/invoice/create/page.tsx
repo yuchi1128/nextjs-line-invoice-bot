@@ -230,9 +230,16 @@ export default function CreateInvoice() {
     }
   
     async function mapUserIds() {
-      const liffUserId = (await liff.getProfile()).userId;
+      // const liffUserId = (await liff.getProfile()).userId;
+      // const idToken = liff.getDecodedIDToken();
+      // const webhookUserId = idToken?.sub;
+      const liffProfile = await liff.getProfile();
+      const liffUserId = liffProfile.userId;
       const idToken = liff.getDecodedIDToken();
       const webhookUserId = idToken?.sub;
+      console.log('LIFF User ID:', liffUserId);
+      console.log('Webhook User ID:', webhookUserId);
+      
       if (liffUserId && webhookUserId) {
         try {
           await fetch('/api/mapUserIds', {
