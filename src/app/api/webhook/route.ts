@@ -54,6 +54,7 @@ export async function POST(request: Request) {
         
                 // userId が存在するかどうか確認
                 const userId = messageEvent.source.userId;
+                console.log('User ID:', userId); 
                 if (!userId) {
                     console.error('User IDが存在しません。');
                     return; // 処理を中断
