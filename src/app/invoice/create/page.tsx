@@ -229,17 +229,37 @@ export default function CreateInvoice() {
       }
     }
   
+    // async function mapUserIds() {
+    //   const liffProfile = await liff.getProfile();
+    //   const userId = liffProfile.userId;
+    //   console.log('LIFF User ID:', userId);
+    
+    //   if (userId) {
+    //     try {
+    //       const response = await fetch('/api/mapUserIds', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ liffUserId: userId, webhookUserId: userId }),
+    //       });
+    //       const result = await response.json();
+    //       console.log('Mapping result:', result);
+    //     } catch (error) {
+    //       console.error('Failed to map user IDs:', error);
+    //     }
+    //   }
+    // }
+
     async function mapUserIds() {
       const liffProfile = await liff.getProfile();
-      const userId = liffProfile.userId;
-      console.log('LIFF User ID:', userId);
+      const liffUserId = liffProfile.userId;
+      console.log('LIFF User ID:', liffUserId);
     
-      if (userId) {
+      if (liffUserId) {
         try {
           const response = await fetch('/api/mapUserIds', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ liffUserId: userId, webhookUserId: userId }),
+            body: JSON.stringify({ liffUserId: liffUserId, webhookUserId: liffUserId }),
           });
           const result = await response.json();
           console.log('Mapping result:', result);

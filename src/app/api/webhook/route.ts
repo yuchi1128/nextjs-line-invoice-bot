@@ -200,9 +200,13 @@ export async function POST(request: Request) {
 async function handleHistoryRequest(userId: string) {
     try {
         console.log('Handling history request for userId:', userId);
+        // const mapping = await prisma.userIdMapping.findUnique({
+        //     where: { userId: userId },
+        // });
+        
         const mapping = await prisma.userIdMapping.findUnique({
-            where: { userId: userId },
-        });
+            where: { webhookUserId: userId },
+          });
 
         console.log('Found mapping:', mapping);
 
@@ -212,7 +216,7 @@ async function handleHistoryRequest(userId: string) {
         }
 
         const invoices = await prisma.invoice.findMany({
-            where: { userId: mapping.userId },
+            where: { userId: mapping.webhookUserId },
             orderBy: { sentDate: 'desc' },
             take: 10,
         });
