@@ -185,78 +185,31 @@ export default function CreateInvoice() {
   const [isRedirecting, setIsRedirecting] = useState(false);
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const liffId = process.env.NEXT_PUBLIC_LIFF_ID as string; // 型アサーションでstring型を明示
-
-  //   if (!liffId) {
-  //     console.error('LIFF IDが見つかりません');
-  //     return;
-  //   }
-  
-  //   async function initializeLiff() {
-  //     try {
-  //       await liff.init({ liffId });
-  //       if (liff.isLoggedIn()) {
-  //         await mapUserIds(); // ここで mapUserIds を呼び出す
-  //         generateHankoImage();
-  //       } else {
-  //         liff.login();
-  //       }
-  //     } catch (error) {
-  //       console.log('LIFF初期化に失敗しました', error);
-  //     }
-  //   }
-
-  //   async function mapUserIds() {
-  //       try {
-  //           const profile = await liff.getProfile();
-  //           const response = await fetch('/api/mapUserIds', {
-  //               method: 'POST',
-  //               headers: { 'Content-Type': 'application/json' },
-  //               body: JSON.stringify({ liffUserId: profile.userId }),
-  //           });
-
-  //           if (!response.ok) {
-  //               throw new Error('Failed to map user IDs');
-  //           }
-
-  //           const result = await response.json();
-  //           console.log('User ID mapping result:', result);
-  //       } catch (error) {
-  //           console.error('User ID mapping error:', error);
-  //       }
-  //   }
-  
-  //   initializeLiff();
-  // }, []);
-
   useEffect(() => {
-    const liffId = process.env.NEXT_PUBLIC_LIFF_ID as string;
+    const liffId = process.env.NEXT_PUBLIC_LIFF_ID as string; // 型アサーションでstring型を明示
 
     if (!liffId) {
-        console.error('LIFF IDが見つかりません');
-        return;
+      console.error('LIFF IDが見つかりません');
+      return;
     }
-
+  
     async function initializeLiff() {
-        try {
-            await liff.init({ liffId });
-            if (liff.isLoggedIn()) {
-                await mapUserIds();
-                generateHankoImage();
-            } else {
-                liff.login();
-            }
-        } catch (error) {
-            console.log('LIFF初期化に失敗しました', error);
+      try {
+        await liff.init({ liffId });
+        if (liff.isLoggedIn()) {
+          await mapUserIds(); // ここで mapUserIds を呼び出す
+          generateHankoImage();
+        } else {
+          liff.login();
         }
+      } catch (error) {
+        console.log('LIFF初期化に失敗しました', error);
+      }
     }
 
     async function mapUserIds() {
         try {
             const profile = await liff.getProfile();
-            console.log('LIFF Profile:', profile); // デバッグ用ログ
-
             const response = await fetch('/api/mapUserIds', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -273,7 +226,7 @@ export default function CreateInvoice() {
             console.error('User ID mapping error:', error);
         }
     }
-
+  
     initializeLiff();
   }, []);
 
