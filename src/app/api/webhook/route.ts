@@ -590,10 +590,7 @@ async function handleWebhookMapping(webhookUserId: string) {
                 // 既存のマッピングを更新
                 mapping = await prisma.userIdMapping.update({
                     where: { id: mapping.id },
-                    data: { 
-                        webhookUserId: webhookUserId,
-                        liffUserId: mapping.liffUserId // 既存のLIFFユーザーIDを保持
-                    },
+                    data: { webhookUserId: webhookUserId },
                 });
                 console.log('Updated existing mapping with webhook ID:', mapping);
             } else {
@@ -628,27 +625,16 @@ async function handleHistoryRequest(webhookUserId: string) {
             return;
         }
 
-        // const invoices = await prisma.invoice.findMany({
-        //     where: { 
-        //         OR: [
-        //             { userId: mapping.webhookUserId },
-        //             ...(mapping.liffUserId ? [{ userId: mapping.liffUserId }] : [])
-        //         ]
-        //     },
-        //     orderBy: { sentDate: 'desc' },
-        //     take: 10,
-        // });
-
         const invoices = await prisma.invoice.findMany({
             where: { 
                 OR: [
                     { userId: mapping.webhookUserId },
-                    { userId: mapping.liffUserId }
+                    ...(mapping.liffUserId ? [{ userId: mapping.liffUserId }] : [])
                 ]
             },
             orderBy: { sentDate: 'desc' },
             take: 10,
-        });        
+        });
 
         if (invoices.length === 0) {
             await client.pushMessage(webhookUserId, { type: 'text', text: '請求書の履歴がありません。' });

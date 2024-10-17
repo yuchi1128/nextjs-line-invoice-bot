@@ -208,24 +208,24 @@ export default function CreateInvoice() {
     }
 
     async function mapUserIds() {
-      try {
-          const profile = await liff.getProfile();
-          const response = await fetch('/api/mapUserIds', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ liffUserId: profile.userId }),
-          });
+        try {
+            const profile = await liff.getProfile();
+            const response = await fetch('/api/mapUserIds', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ liffUserId: profile.userId }),
+            });
 
-          if (!response.ok) {
-              throw new Error('Failed to map user IDs');
-          }
+            if (!response.ok) {
+                throw new Error('Failed to map user IDs');
+            }
 
-          const result = await response.json();
-          console.log('User ID mapping result:', result);
-      } catch (error) {
-          console.error('User ID mapping error:', error);
-      }
-  }
+            const result = await response.json();
+            console.log('User ID mapping result:', result);
+        } catch (error) {
+            console.error('User ID mapping error:', error);
+        }
+    }
   
     initializeLiff();
   }, []);
