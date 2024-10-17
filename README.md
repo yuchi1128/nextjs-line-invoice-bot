@@ -21,7 +21,9 @@ https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
 
 ### 構成図
 
-![image](https://github.com/user-attachments/assets/08f5dd67-3c2a-4f6e-a352-bb9fcdd238d1)
+<div>
+    <img src="https://github.com/user-attachments/assets/08f5dd67-3c2a-4f6e-a352-bb9fcdd238d1" width="530px" alt="請求書発行BOT">
+</div>
 
 ### 機能
 
