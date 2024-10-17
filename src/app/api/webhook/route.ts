@@ -809,45 +809,85 @@ export async function POST(request: Request) {
     }
 }
 
+// async function handleWebhookMapping(webhookUserId: string) {
+//     try {
+//         console.log('Handling webhook mapping for userId:', webhookUserId);
+        
+//         // webhookUserIdで検索
+//         let mapping = await prisma.userIdMapping.findUnique({
+//             where: { webhookUserId: webhookUserId },
+//         });
+
+//         if (!mapping) {
+//             // LIFFユーザーIDのみが設定されているマッピングを探す
+//             const liffOnlyMapping = await prisma.userIdMapping.findFirst({
+//                 where: {
+//                     AND: [
+//                         { liffUserId: { not: '' } },
+//                         { webhookUserId: '' }
+//                     ]
+//                 }
+//             });
+
+//             if (liffOnlyMapping) {
+//                 // 既存のマッピングを更新
+//                 mapping = await prisma.userIdMapping.update({
+//                     where: { id: liffOnlyMapping.id },
+//                     data: { webhookUserId: webhookUserId },
+//                 });
+//                 console.log('Updated existing mapping with webhook ID:', mapping);
+//             } else {
+//                 // 新規マッピングを作成
+//                 mapping = await prisma.userIdMapping.create({
+//                     data: {
+//                         liffUserId: '',
+//                         webhookUserId: webhookUserId,
+//                     },
+//                 });
+//                 console.log('Created new mapping with webhook ID:', mapping);
+//             }
+//         }
+
+//         return mapping;
+//     } catch (error) {
+//         console.error('Error in webhook mapping:', error);
+//         throw error;
+//     }
+// }
+
 async function handleWebhookMapping(webhookUserId: string) {
     try {
         console.log('Handling webhook mapping for userId:', webhookUserId);
         
-        // webhookUserIdで検索
-        let mapping = await prisma.userIdMapping.findUnique({
-            where: { webhookUserId: webhookUserId },
+        // webhookUserIdまたはliffUserIdでマッピングを検索
+        let mapping = await prisma.userIdMapping.findFirst({
+            where: {
+                OR: [
+                    { webhookUserId: webhookUserId },
+                    { liffUserId: webhookUserId }
+                ]
+            },
         });
 
-        if (!mapping) {
-            // LIFFユーザーIDのみが設定されているマッピングを探す
-            const liffOnlyMapping = await prisma.userIdMapping.findFirst({
-                where: {
-                    AND: [
-                        { liffUserId: { not: '' } },
-                        { webhookUserId: '' }
-                    ]
-                }
-            });
-
-            if (liffOnlyMapping) {
-                // 既存のマッピングを更新
+        if (mapping) {
+            // マッピングが見つかった場合、webhookUserIdを更新
+            if (mapping.webhookUserId !== webhookUserId) {
                 mapping = await prisma.userIdMapping.update({
-                    where: { id: liffOnlyMapping.id },
+                    where: { id: mapping.id },
                     data: { webhookUserId: webhookUserId },
                 });
-                console.log('Updated existing mapping with webhook ID:', mapping);
-            } else {
-                // 新規マッピングを作成
-                mapping = await prisma.userIdMapping.create({
-                    data: {
-                        liffUserId: '',
-                        webhookUserId: webhookUserId,
-                    },
-                });
-                console.log('Created new mapping with webhook ID:', mapping);
             }
+        } else {
+            // マッピングが見つからない場合、新規作成
+            mapping = await prisma.userIdMapping.create({
+                data: {
+                    liffUserId: '',
+                    webhookUserId: webhookUserId,
+                },
+            });
         }
 
+        console.log('Webhook mapping result:', mapping);
         return mapping;
     } catch (error) {
         console.error('Error in webhook mapping:', error);

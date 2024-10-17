@@ -252,6 +252,26 @@ export default function CreateInvoice() {
       }
     }
 
+    // async function mapUserIds() {
+    //   try {
+    //     const profile = await liff.getProfile();
+    //     const response = await fetch('/api/mapUserIds', {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify({ liffUserId: profile.userId }),
+    //     });
+
+    //     if (!response.ok) {
+    //       throw new Error('Failed to map user IDs');
+    //     }
+
+    //     const result = await response.json();
+    //     console.log('User ID mapping result:', result);
+    //   } catch (error) {
+    //     console.error('User ID mapping error:', error);
+    //   }
+    // }
+
     async function mapUserIds() {
       try {
         const profile = await liff.getProfile();
@@ -260,11 +280,11 @@ export default function CreateInvoice() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ liffUserId: profile.userId }),
         });
-
+    
         if (!response.ok) {
           throw new Error('Failed to map user IDs');
         }
-
+    
         const result = await response.json();
         console.log('User ID mapping result:', result);
       } catch (error) {

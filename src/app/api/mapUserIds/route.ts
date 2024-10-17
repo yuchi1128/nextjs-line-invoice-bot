@@ -191,44 +191,90 @@ const prisma = new PrismaClient();
 
 
 
+// export async function POST(request: Request) {
+//     try {
+//         const { liffUserId } = await request.json();
+//         console.log('Received LIFF mapping request:', { liffUserId });
+        
+//         let mapping = await prisma.userIdMapping.findUnique({
+//             where: { liffUserId: liffUserId },
+//         });
+
+//         if (!mapping) {
+//             // webhookUserIdのみが設定されているマッピングを探す
+//             const webhookOnlyMapping = await prisma.userIdMapping.findFirst({
+//                 where: {
+//                     AND: [
+//                         { webhookUserId: { not: '' } },
+//                         { liffUserId: '' }
+//                     ]
+//                 }
+//             });
+
+//             if (webhookOnlyMapping) {
+//                 // 既存のマッピングを更新
+//                 mapping = await prisma.userIdMapping.update({
+//                     where: { id: webhookOnlyMapping.id },
+//                     data: { liffUserId: liffUserId },
+//                 });
+//             } else {
+//                 // 新規マッピングを作成
+//                 mapping = await prisma.userIdMapping.create({
+//                     data: {
+//                         liffUserId: liffUserId,
+//                         webhookUserId: '',
+//                     },
+//                 });
+//             }
+//         }
+
+//         console.log('Mapping result:', mapping);
+//         return NextResponse.json({ success: true, mapping });
+//     } catch (error) {
+//         console.error('Error in LIFF mapping:', error);
+//         return NextResponse.json(
+//             { success: false, error: 'Failed to map user ID' }, 
+//             { status: 500 }
+//         );
+//     }
+// }
+
+
+
+
+
+
 export async function POST(request: Request) {
     try {
         const { liffUserId } = await request.json();
         console.log('Received LIFF mapping request:', { liffUserId });
         
-        let mapping = await prisma.userIdMapping.findUnique({
-            where: { liffUserId: liffUserId },
+        let mapping = await prisma.userIdMapping.findFirst({
+            where: {
+                OR: [
+                    { liffUserId: liffUserId },
+                    { webhookUserId: liffUserId }
+                ]
+            },
         });
 
-        if (!mapping) {
-            // webhookUserIdのみが設定されているマッピングを探す
-            const webhookOnlyMapping = await prisma.userIdMapping.findFirst({
-                where: {
-                    AND: [
-                        { webhookUserId: { not: '' } },
-                        { liffUserId: '' }
-                    ]
-                }
+        if (mapping) {
+            // 既存のマッピングを更新
+            mapping = await prisma.userIdMapping.update({
+                where: { id: mapping.id },
+                data: { liffUserId: liffUserId },
             });
-
-            if (webhookOnlyMapping) {
-                // 既存のマッピングを更新
-                mapping = await prisma.userIdMapping.update({
-                    where: { id: webhookOnlyMapping.id },
-                    data: { liffUserId: liffUserId },
-                });
-            } else {
-                // 新規マッピングを作成
-                mapping = await prisma.userIdMapping.create({
-                    data: {
-                        liffUserId: liffUserId,
-                        webhookUserId: '',
-                    },
-                });
-            }
+        } else {
+            // 新規マッピングを作成
+            mapping = await prisma.userIdMapping.create({
+                data: {
+                    liffUserId: liffUserId,
+                    webhookUserId: '',
+                },
+            });
         }
 
-        console.log('Mapping result:', mapping);
+        console.log('LIFF mapping result:', mapping);
         return NextResponse.json({ success: true, mapping });
     } catch (error) {
         console.error('Error in LIFF mapping:', error);
