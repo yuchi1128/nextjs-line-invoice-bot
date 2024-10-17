@@ -207,55 +207,25 @@ export default function CreateInvoice() {
       }
     }
 
-    // async function mapUserIds() {
-    //   const liffProfile = await liff.getProfile();
-    //   const liffUserId = liffProfile.userId;
-    //   console.log('LIFF User ID:', liffUserId);
-    
-    //   if (liffUserId) {
-    //     try {
-    //       const response = await fetch('/api/mapUserIds', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({ liffUserId: liffUserId }),
-    //       });
-    //       const result = await response.json();
-    //       console.log('Mapping result:', result);
-    //     } catch (error) {
-    //       console.error('Failed to map user ID:', error);
-    //     }
-    //   }
-    // }
-
     async function mapUserIds() {
       try {
-          const liffProfile = await liff.getProfile();
-          const liffUserId = liffProfile.userId;
-          console.log('LIFF User ID:', liffUserId);
-      
-          if (liffUserId) {
-              const response = await fetch('/api/mapUserIds', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ liffUserId: liffUserId }),
-              });
-              
-              if (!response.ok) {
-                  throw new Error('Failed to map user IDs');
-              }
-              
-              const result = await response.json();
-              console.log('Mapping result:', result);
-              
-              if (!result.success) {
-                  throw new Error(result.error || 'Unknown mapping error');
-              }
+          const profile = await liff.getProfile();
+          const response = await fetch('/api/mapUserIds', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ liffUserId: profile.userId }),
+          });
+
+          if (!response.ok) {
+              throw new Error('Failed to map user IDs');
           }
+
+          const result = await response.json();
+          console.log('User ID mapping result:', result);
       } catch (error) {
-          console.error('Failed to map user ID:', error);
-          // エラーハンドリングを追加（必要に応じて）
+          console.error('User ID mapping error:', error);
       }
-    }
+  }
   
     initializeLiff();
   }, []);
