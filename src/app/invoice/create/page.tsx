@@ -185,28 +185,6 @@ export default function CreateInvoice() {
   const [isRedirecting, setIsRedirecting] = useState(false);
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
-
-  //   if (!liffId) {
-  //     console.error('LIFF IDが見つかりません');
-  //     return;
-  //   }
-
-  //   liff
-  //     .init({ liffId })
-  //     .then(() => {
-  //       if (liff.isLoggedIn()) {
-  //         generateHankoImage();
-  //       } else {
-  //         liff.login();
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log('LIFF初期化に失敗しました', error);
-  //     });
-  // }, []);
-
   useEffect(() => {
     const liffId = process.env.NEXT_PUBLIC_LIFF_ID as string; // 型アサーションでstring型を明示
 
@@ -228,44 +206,54 @@ export default function CreateInvoice() {
         console.log('LIFF初期化に失敗しました', error);
       }
     }
-  
+
     // async function mapUserIds() {
     //   const liffProfile = await liff.getProfile();
-    //   const userId = liffProfile.userId;
-    //   console.log('LIFF User ID:', userId);
+    //   const liffUserId = liffProfile.userId;
+    //   console.log('LIFF User ID:', liffUserId);
     
-    //   if (userId) {
+    //   if (liffUserId) {
     //     try {
     //       const response = await fetch('/api/mapUserIds', {
     //         method: 'POST',
     //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify({ liffUserId: userId, webhookUserId: userId }),
+    //         body: JSON.stringify({ liffUserId: liffUserId }),
     //       });
     //       const result = await response.json();
     //       console.log('Mapping result:', result);
     //     } catch (error) {
-    //       console.error('Failed to map user IDs:', error);
+    //       console.error('Failed to map user ID:', error);
     //     }
     //   }
     // }
 
     async function mapUserIds() {
-      const liffProfile = await liff.getProfile();
-      const liffUserId = liffProfile.userId;
-      console.log('LIFF User ID:', liffUserId);
-    
-      if (liffUserId) {
-        try {
-          const response = await fetch('/api/mapUserIds', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ liffUserId: liffUserId }),
-          });
-          const result = await response.json();
-          console.log('Mapping result:', result);
-        } catch (error) {
+      try {
+          const liffProfile = await liff.getProfile();
+          const liffUserId = liffProfile.userId;
+          console.log('LIFF User ID:', liffUserId);
+      
+          if (liffUserId) {
+              const response = await fetch('/api/mapUserIds', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ liffUserId: liffUserId }),
+              });
+              
+              if (!response.ok) {
+                  throw new Error('Failed to map user IDs');
+              }
+              
+              const result = await response.json();
+              console.log('Mapping result:', result);
+              
+              if (!result.success) {
+                  throw new Error(result.error || 'Unknown mapping error');
+              }
+          }
+      } catch (error) {
           console.error('Failed to map user ID:', error);
-        }
+          // エラーハンドリングを追加（必要に応じて）
       }
     }
   
