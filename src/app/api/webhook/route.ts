@@ -306,9 +306,17 @@ async function handleHistoryRequest(userId: string) {
 
         await client.pushMessage(userId, carouselTemplate);
     } catch (error) {
+        // // console.error('履歴リクエスト処理中にエラーが発生しました:', error);
+        // // await client.pushMessage(userId, { type: 'text', text: '履歴の取得中にエラーが発生しました。しばらくしてからもう一度お試しください。' });
         // console.error('履歴リクエスト処理中にエラーが発生しました:', error);
         // await client.pushMessage(userId, { type: 'text', text: '履歴の取得中にエラーが発生しました。しばらくしてからもう一度お試しください。' });
-        console.error('履歴リクエスト処理中にエラーが発生しました:', error);
-        await client.pushMessage(userId, { type: 'text', text: '履歴の取得中にエラーが発生しました。しばらくしてからもう一度お試しください。' });
+        console.error('履歴リクエスト処理中に具体的なエラーが発生しました:', error);
+        
+        let errorMessage = '履歴の取得中にエラーが発生しました。';
+        if (error instanceof Error) {
+            errorMessage += ` エラー詳細: ${error.message}`;
+        }
+        
+        await client.pushMessage(userId, { type: 'text', text: errorMessage });
     }
 }
