@@ -259,12 +259,12 @@ export default function CreateInvoice() {
           const response = await fetch('/api/mapUserIds', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ liffUserId: liffUserId, webhookUserId: liffUserId }),
+            body: JSON.stringify({ liffUserId: liffUserId }),
           });
           const result = await response.json();
           console.log('Mapping result:', result);
         } catch (error) {
-          console.error('Failed to map user IDs:', error);
+          console.error('Failed to map user ID:', error);
         }
       }
     }

@@ -39,14 +39,33 @@ const prisma = new PrismaClient();
 
 
 
+// export async function POST(request: Request) {
+//   try {
+//     const { liffUserId, webhookUserId } = await request.json();
+//     console.log('Received mapping request:', { liffUserId, webhookUserId });
+//     const result = await prisma.userIdMapping.upsert({
+//       where: { liffUserId: liffUserId },
+//       update: { webhookUserId: webhookUserId },
+//       create: { liffUserId: liffUserId, webhookUserId: webhookUserId },
+//     });
+//     console.log('Mapping result:', result);
+//     return NextResponse.json({ success: true, result });
+//   } catch (error) {
+//     console.error('Error mapping user ID:', error);
+//     return NextResponse.json({ error: 'Failed to map user ID' }, { status: 500 });
+//   }
+// }
+
+
+
 export async function POST(request: Request) {
   try {
-    const { liffUserId, webhookUserId } = await request.json();
-    console.log('Received mapping request:', { liffUserId, webhookUserId });
+    const { liffUserId } = await request.json();
+    console.log('Received mapping request:', { liffUserId });
     const result = await prisma.userIdMapping.upsert({
       where: { liffUserId: liffUserId },
-      update: { webhookUserId: webhookUserId },
-      create: { liffUserId: liffUserId, webhookUserId: webhookUserId },
+      update: {},
+      create: { liffUserId: liffUserId, webhookUserId: '' },
     });
     console.log('Mapping result:', result);
     return NextResponse.json({ success: true, result });
