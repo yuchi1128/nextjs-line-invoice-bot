@@ -9,7 +9,7 @@ https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
 ### QR コード
 
 <div>
-    <img src="https://github.com/user-attachments/assets/61e35050-e1da-474e-95fe-f18d63cee20e" width="200px" alt="請求書発行BOT">
+    <img src="https://github.com/user-attachments/assets/61e35050-e1da-474e-95fe-f18d63cee20e" width="210px" alt="請求書発行BOT">
 </div>
 
 ### 簡易デモ
@@ -22,7 +22,7 @@ https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
 ### 構成図
 
 <div>
-    <img src="https://github.com/user-attachments/assets/08f5dd67-3c2a-4f6e-a352-bb9fcdd238d1" width="630px" alt="請求書発行BOT">
+    <img src="https://github.com/user-attachments/assets/08f5dd67-3c2a-4f6e-a352-bb9fcdd238d1" width="700px" alt="請求書発行BOT">
 </div>
 
 ### 機能
