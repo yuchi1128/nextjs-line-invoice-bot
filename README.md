@@ -19,6 +19,10 @@ https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
 
 <!-- <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3809870/55ed8004-adb8-45f2-e1eb-128e2143cbdd.gif" width="270"> -->
 
+### 構成図
+
+https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3809870/06afdb9c-e65e-c335-c12c-fefc2b43af8a.png
+
 ### 機能
 
 - LIFF のアプリ内で請求書を作成できる
