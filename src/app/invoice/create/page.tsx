@@ -272,10 +272,6 @@ export default function CreateInvoice() {
       }
     }
 
-    async function generateHankoImage() {
-      // ここに印鑑画像生成のコードを追加
-    }
-  
     initializeLiff();
   }, []);
 
