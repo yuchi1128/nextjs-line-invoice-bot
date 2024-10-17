@@ -197,61 +197,6 @@ export async function POST(request: Request) {
     }
 }
 
-// async function handleHistoryRequest(userId: string) {
-//     try {
-//         const mapping = await prisma.userIdMapping.findUnique({
-//             where: { webhookUserId },
-//           });
-      
-//         if (!mapping) {
-//             await client.pushMessage(webhookUserId, { type: 'text', text: 'ユーザーIDのマッピングが見つかりません。LIFFアプリを再度開いてください。' });
-//             return;
-//         }
-      
-//         const invoices = await prisma.invoice.findMany({
-//             where: { userId: mapping.liffUserId },
-//             orderBy: { sentDate: 'desc' },
-//             take: 10,
-//         });
-
-//         if (invoices.length === 0) {
-//             await client.pushMessage(userId, { type: 'text', text: '請求書の履歴がありません。' });
-//             return;
-//         }
-
-//         const carouselTemplate: TemplateMessage = {
-//             type: 'template',
-//             altText: '請求書履歴',
-//             template: {
-//                 type: 'carousel',
-//                 columns: invoices.map((invoice: Invoice) => ({
-//                     thumbnailImageUrl: 'https://example.com/invoice-image.jpg',
-//                     title: `請求書 #${invoice.id}`,
-//                     text: `金額: ${invoice.amount}円\n期日: ${invoice.dueDate.toLocaleDateString('ja-JP')}`,
-//                     actions: [
-//                         {
-//                             type: 'postback',
-//                             label: '詳細を見る',
-//                             data: `action=view_invoice&id=${invoice.id}`
-//                         },
-//                         {
-//                             type: 'postback',
-//                             label: '支払い済みにする',
-//                             data: `action=mark_paid&id=${invoice.id}`
-//                         }
-//                     ]
-//                 }))
-//             }
-//         };
-
-//         await client.pushMessage(userId, carouselTemplate);
-//     } catch (error) {
-//         console.error('履歴リクエスト処理中にエラーが発生しました:', error);
-//         await client.pushMessage(webhookUserId, { type: 'text', text: '履歴の取得中にエラーが発生しました。しばらくしてからもう一度お試しください。' });
-//     }
-// }
-
-
 async function handleHistoryRequest(userId: string) {
     try {
         console.log('Handling history request for userId:', userId);
