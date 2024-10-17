@@ -21,7 +21,7 @@ https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
 
 ### 構成図
 
-https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3809870/06afdb9c-e65e-c335-c12c-fefc2b43af8a.png
+![image](https://github.com/user-attachments/assets/08f5dd67-3c2a-4f6e-a352-bb9fcdd238d1)
 
 ### 機能
 
