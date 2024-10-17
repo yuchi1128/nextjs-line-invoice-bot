@@ -135,7 +135,6 @@ const prisma = new PrismaClient();
 
 
 // app/api/mapUserIds/route.ts
-
 export async function POST(request: Request) {
     try {
         const { liffUserId } = await request.json();
