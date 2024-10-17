@@ -14,7 +14,7 @@ model Invoice {
   amount    Int
   dueDate   DateTime
   message   String
-  sentDate  DateTime @default(now())
+  fa        DateTime @default(now())
   isPaid    Boolean  @default(false)
 }
 

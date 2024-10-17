@@ -566,43 +566,82 @@ export async function POST(request: Request) {
     }
 }
 
+// async function handleWebhookMapping(webhookUserId: string) {
+//     try {
+//         console.log('Handling webhook mapping for userId:', webhookUserId);
+        
+//         // まずwebhookUserIdで検索
+//         let mapping = await prisma.userIdMapping.findUnique({
+//             where: { webhookUserId: webhookUserId },
+//         });
+
+//         if (!mapping) {
+//             // 未使用のliffUserIdマッピングを探す
+//             mapping = await prisma.userIdMapping.findFirst({
+//                 where: {
+//                     AND: [
+//                         { webhookUserId: '' },
+//                         { liffUserId: { not: '' } }
+//                     ]
+//                 }
+//             });
+
+//             if (mapping) {
+//                 // 既存のマッピングを更新
+//                 mapping = await prisma.userIdMapping.update({
+//                     where: { id: mapping.id },
+//                     data: { webhookUserId: webhookUserId },
+//                 });
+//                 console.log('Updated existing mapping with webhook ID:', mapping);
+//             } else {
+//                 // 新規マッピングを作成
+//                 mapping = await prisma.userIdMapping.create({
+//                     data: {
+//                         liffUserId: '',
+//                         webhookUserId: webhookUserId,
+//                     },
+//                 });
+//                 console.log('Created new mapping with webhook ID:', mapping);
+//             }
+//         }
+
+//         return mapping;
+//     } catch (error) {
+//         console.error('Error in webhook mapping:', error);
+//         throw error;
+//     }
+// }
+
 async function handleWebhookMapping(webhookUserId: string) {
     try {
         console.log('Handling webhook mapping for userId:', webhookUserId);
         
-        // まずwebhookUserIdで検索
-        let mapping = await prisma.userIdMapping.findUnique({
-            where: { webhookUserId: webhookUserId },
+        // webhookUserIdで検索
+        let mapping = await prisma.userIdMapping.findFirst({
+            where: { 
+                OR: [
+                    { webhookUserId: webhookUserId },
+                    { liffUserId: webhookUserId }
+                ]
+            },
         });
 
         if (!mapping) {
-            // 未使用のliffUserIdマッピングを探す
-            mapping = await prisma.userIdMapping.findFirst({
-                where: {
-                    AND: [
-                        { webhookUserId: '' },
-                        { liffUserId: { not: '' } }
-                    ]
-                }
+            // 新規マッピングを作成
+            mapping = await prisma.userIdMapping.create({
+                data: {
+                    liffUserId: '',
+                    webhookUserId: webhookUserId,
+                },
             });
-
-            if (mapping) {
-                // 既存のマッピングを更新
-                mapping = await prisma.userIdMapping.update({
-                    where: { id: mapping.id },
-                    data: { webhookUserId: webhookUserId },
-                });
-                console.log('Updated existing mapping with webhook ID:', mapping);
-            } else {
-                // 新規マッピングを作成
-                mapping = await prisma.userIdMapping.create({
-                    data: {
-                        liffUserId: '',
-                        webhookUserId: webhookUserId,
-                    },
-                });
-                console.log('Created new mapping with webhook ID:', mapping);
-            }
+            console.log('Created new mapping with webhook ID:', mapping);
+        } else if (mapping.webhookUserId !== webhookUserId) {
+            // webhookUserIdを更新
+            mapping = await prisma.userIdMapping.update({
+                where: { id: mapping.id },
+                data: { webhookUserId: webhookUserId },
+            });
+            console.log('Updated existing mapping with webhook ID:', mapping);
         }
 
         return mapping;
@@ -611,75 +650,6 @@ async function handleWebhookMapping(webhookUserId: string) {
         throw error;
     }
 }
-
-// async function handleHistoryRequest(webhookUserId: string) {
-//     try {
-//         console.log('Handling history request for webhookUserId:', webhookUserId);
-//         const mapping = await handleWebhookMapping(webhookUserId);
-        
-//         if (!mapping) {
-//             await client.pushMessage(webhookUserId, { 
-//                 type: 'text', 
-//                 text: 'ユーザー情報の同期が必要です。LIFFアプリを開いて同期を行ってください。' 
-//             });
-//             return;
-//         }
-
-//         const invoices = await prisma.invoice.findMany({
-//             where: { 
-//                 OR: [
-//                     { userId: mapping.webhookUserId },
-//                     ...(mapping.liffUserId ? [{ userId: mapping.liffUserId }] : [])
-//                 ]
-//             },
-//             orderBy: { sentDate: 'desc' },
-//             take: 10,
-//         });
-
-//         console.log('取得した請求書:', invoices);
-
-//         if (invoices.length === 0) {
-//             await client.pushMessage(webhookUserId, { type: 'text', text: '請求書の履歴がありません。' });
-//             return;
-//         }
-
-//         const carouselTemplate: TemplateMessage = {
-//             type: 'template',
-//             altText: '請求書履歴',
-//             template: {
-//                 type: 'carousel',
-//                 columns: invoices.map((invoice: Invoice) => ({
-//                     thumbnailImageUrl: 'https://example.com/invoice-image.jpg',
-//                     title: `請求書 #${invoice.id}`,
-//                     text: `金額: ${invoice.amount}円\n期日: ${invoice.dueDate.toLocaleDateString('ja-JP')}`,
-//                     actions: [
-//                         {
-//                             type: 'postback',
-//                             label: '詳細を見る',
-//                             data: `action=view_invoice&id=${invoice.id}`
-//                         },
-//                         {
-//                             type: 'postback',
-//                             label: '支払い済みにする',
-//                             data: `action=mark_paid&id=${invoice.id}`
-//                         }
-//                     ]
-//                 }))
-//             }
-//         };
-
-//         await client.pushMessage(webhookUserId, carouselTemplate);
-//     } catch (error) {
-//         console.error('履歴リクエスト処理中に具体的なエラーが発生しました:', error);
-        
-//         let errorMessage = '履歴の取得中にエラーが発生しました。';
-//         if (error instanceof Error) {
-//             errorMessage += ` エラー詳細: ${error.message}`;
-//         }
-        
-//         await client.pushMessage(webhookUserId, { type: 'text', text: errorMessage });
-//     }
-// }
 
 async function handleHistoryRequest(webhookUserId: string) {
     try {
@@ -699,10 +669,20 @@ async function handleHistoryRequest(webhookUserId: string) {
         console.log('Found mapping:', mapping);
         console.log('Searching for invoices with userId:', mapping.webhookUserId, 'or', mapping.liffUserId);
 
+        // const invoices = await prisma.invoice.findMany({
+        //     where: { 
+        //         userId: {
+        //             in: [mapping.webhookUserId, mapping.liffUserId]
+        //         }
+        //     },
+        //     orderBy: { sentDate: 'desc' },
+        //     take: 10,
+        // });
+
         const invoices = await prisma.invoice.findMany({
             where: { 
                 userId: {
-                    in: [mapping.webhookUserId, mapping.liffUserId]
+                    in: [mapping.webhookUserId, mapping.liffUserId].filter(id => id !== '')
                 }
             },
             orderBy: { sentDate: 'desc' },
