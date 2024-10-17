@@ -185,8 +185,53 @@ export default function CreateInvoice() {
   const [isRedirecting, setIsRedirecting] = useState(false);
   const router = useRouter();
 
+  // useEffect(() => {
+  //   const liffId = process.env.NEXT_PUBLIC_LIFF_ID as string; // 型アサーションでstring型を明示
+
+  //   if (!liffId) {
+  //     console.error('LIFF IDが見つかりません');
+  //     return;
+  //   }
+  
+  //   async function initializeLiff() {
+  //     try {
+  //       await liff.init({ liffId });
+  //       if (liff.isLoggedIn()) {
+  //         await mapUserIds(); // ここで mapUserIds を呼び出す
+  //         generateHankoImage();
+  //       } else {
+  //         liff.login();
+  //       }
+  //     } catch (error) {
+  //       console.log('LIFF初期化に失敗しました', error);
+  //     }
+  //   }
+
+  //   async function mapUserIds() {
+  //       try {
+  //           const profile = await liff.getProfile();
+  //           const response = await fetch('/api/mapUserIds', {
+  //               method: 'POST',
+  //               headers: { 'Content-Type': 'application/json' },
+  //               body: JSON.stringify({ liffUserId: profile.userId }),
+  //           });
+
+  //           if (!response.ok) {
+  //               throw new Error('Failed to map user IDs');
+  //           }
+
+  //           const result = await response.json();
+  //           console.log('User ID mapping result:', result);
+  //       } catch (error) {
+  //           console.error('User ID mapping error:', error);
+  //       }
+  //   }
+  
+  //   initializeLiff();
+  // }, []);
+
   useEffect(() => {
-    const liffId = process.env.NEXT_PUBLIC_LIFF_ID as string; // 型アサーションでstring型を明示
+    const liffId = process.env.NEXT_PUBLIC_LIFF_ID as string;
 
     if (!liffId) {
       console.error('LIFF IDが見つかりません');
@@ -197,7 +242,7 @@ export default function CreateInvoice() {
       try {
         await liff.init({ liffId });
         if (liff.isLoggedIn()) {
-          await mapUserIds(); // ここで mapUserIds を呼び出す
+          await mapUserIds();
           generateHankoImage();
         } else {
           liff.login();
@@ -208,23 +253,27 @@ export default function CreateInvoice() {
     }
 
     async function mapUserIds() {
-        try {
-            const profile = await liff.getProfile();
-            const response = await fetch('/api/mapUserIds', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ liffUserId: profile.userId }),
-            });
+      try {
+        const profile = await liff.getProfile();
+        const response = await fetch('/api/mapUserIds', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ liffUserId: profile.userId }),
+        });
 
-            if (!response.ok) {
-                throw new Error('Failed to map user IDs');
-            }
-
-            const result = await response.json();
-            console.log('User ID mapping result:', result);
-        } catch (error) {
-            console.error('User ID mapping error:', error);
+        if (!response.ok) {
+          throw new Error('Failed to map user IDs');
         }
+
+        const result = await response.json();
+        console.log('User ID mapping result:', result);
+      } catch (error) {
+        console.error('User ID mapping error:', error);
+      }
+    }
+
+    async function generateHankoImage() {
+      // ここに印鑑画像生成のコードを追加
     }
   
     initializeLiff();
