@@ -45,3 +45,8 @@ https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
 - LIFF
 - LINE Official Account Manager
 - Vercel
+
+### 起動
+
+`npm install`  
+`npm run dev`
