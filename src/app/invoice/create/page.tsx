@@ -189,6 +189,9 @@
 
 
 
+
+
+// src/app/invoice/create/page.tsx
 'use client';
 
 import { useState } from 'react';
@@ -196,8 +199,6 @@ import { useRouter } from 'next/navigation';
 import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
 import { useLiff } from '../../context/LiffProvider';
-import styles from './styles.module.css';
-
 export default function CreateInvoice() {
   const [amount, setAmount] = useState('');
   const [dueDate, setDueDate] = useState('');
@@ -211,16 +212,16 @@ export default function CreateInvoice() {
 
   if (!isInitialized) {
     return (
-      <div className={styles.loadingScreen}>
-        <p className={styles.loadingScreen__text}>読み込み中...</p>
+      <div className="loading-screen">
+        <p className="loading-screen__text">読み込み中...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className={styles.errorScreen}>
-        <p className={styles.errorScreen__text}>{error.message}</p>
+      <div className="loading-screen">
+        <p className="loading-screen__text">{error.message}</p>
       </div>
     );
   }
@@ -231,7 +232,7 @@ export default function CreateInvoice() {
     try {
       const idToken = liff.getDecodedIDToken();
       const profileImageUrl = idToken?.picture ?? '';
-      const response = await fetch('/api/hanko', {
+      const response = await fetch('https://nextjs-line-invoice-bot.vercel.app/api/hanko', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -263,7 +264,7 @@ export default function CreateInvoice() {
     setIsCreating(true);
 
     const issueDate = getCurrentDate();
-    const invoiceImageUrl = `/api/og/invoice?amount=${amount}&dueDate=${dueDate}&issueDate=${issueDate}&message=${encodeURIComponent(message)}&recipient=${encodeURIComponent(recipient)}&hankoImage=${encodeURIComponent(hankoImageUrl)}`;
+    const invoiceImageUrl = `https://nextjs-line-invoice-bot.vercel.app/api/og/invoice?amount=${amount}&dueDate=${dueDate}&issueDate=${issueDate}&message=${encodeURIComponent(message)}&recipient=${encodeURIComponent(recipient)}&hankoImage=${encodeURIComponent(hankoImageUrl)}`;
 
     try {
       const profile = await liff.getProfile();
@@ -297,58 +298,50 @@ export default function CreateInvoice() {
 
   if (isCreating || isRedirecting) {
     return (
-      <div className={styles.loadingScreen}>
-        <p className={styles.loadingScreen__text}>作成中...</p>
+      <div className="loading-screen">
+        <p className="loading-screen__text">作成中...</p>
       </div>
     );
   }
 
   return (
-    <div className={styles.app}>
+    <div className="app">
       <Header />
-      <main className={styles.mainContent}>
-        <div className={styles.home__input}>
+      <main className="main-content">
+        <div className="home__input">
           <h1>請求書の作成</h1>
-          <div className={styles.formGroup}>
-            <label htmlFor="recipient">送り先:</label>
-            <input
-              type="text"
-              id="recipient"
-              placeholder="送る相手の名前を入力してください"
-              value={recipient}
-              onChange={(e) => setRecipient(e.target.value)}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="amount">金額:</label>
-            <input
-              type="number"
-              id="amount"
-              placeholder="金額を入力してください"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="due_date">支払い期限:</label>
-            <input
-              type="date"
-              id="due_date"
-              value={dueDate}
-              onChange={(e) => setDueDate(e.target.value)}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="message">メッセージ:</label>
-            <textarea
-              id="message"
-              placeholder="メッセージを入力してください"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-          </div>
+          <label htmlFor="recipient">送り先:</label>
+          <input
+            type="text"
+            id="recipient"
+            placeholder="送る相手の名前を入力してください"
+            value={recipient}
+            onChange={(e) => setRecipient(e.target.value)}
+          />
+          <label htmlFor="amount">金額:</label>
+          <input
+            type="number"
+            id="amount"
+            placeholder="金額を入力してください"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
+          <label htmlFor="due_date">支払い期限:</label>
+          <input
+            type="date"
+            id="due_date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+          />
+          <label htmlFor="message">メッセージ:</label>
+          <textarea
+            id="message"
+            placeholder="メッセージを入力してください"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
           <button 
-            className={styles.createInvoiceButton}
+            className="create-invoice-button"
             onClick={handleCreateInvoice}
             disabled={isCreating || isRedirecting}
           >
