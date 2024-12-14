@@ -2,7 +2,7 @@
 
 import Navigation from './components/Navigation';
 import { useLiff } from './context/LiffProvider';
-
+import Header from '@/app/components/Header';
 export default function Home() {
   const { isInitialized, error } = useLiff();
 
@@ -20,6 +20,7 @@ export default function Home() {
 
   return (
     <div className="container">
+      <Header />
       <main className="mainContent">
         <h1 className="title">請求書送信アプリへようこそ!</h1>
         <p className="description">

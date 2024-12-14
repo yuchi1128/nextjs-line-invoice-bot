@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Navigation from '../../components/Navigation';
 import { useRouter } from 'next/navigation';
 import { useLiff } from '../../context/LiffProvider';
+import Header from '@/app/components/Header';
 
 export default function CreateInvoice() {
   const [amount, setAmount] = useState('');
@@ -112,6 +113,7 @@ export default function CreateInvoice() {
 
   return (
     <div className="app">
+      <Header />
       <main className="main-content">
         <div className="home__input">
           <h1>請求書の作成</h1>

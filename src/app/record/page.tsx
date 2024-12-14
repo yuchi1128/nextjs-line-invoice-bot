@@ -7,7 +7,7 @@ import InvoiceHistory from '@/app/components/InvoiceHistory';
 const Record = () => {
   return (
     <div className='app'>
-        <InvoiceHistory />
+      <InvoiceHistory />
     </div>
   )
 }
