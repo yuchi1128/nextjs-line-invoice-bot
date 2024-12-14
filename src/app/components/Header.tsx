@@ -1,3 +1,66 @@
+// "use client";
+
+// import { useEffect, useState } from 'react';
+// import { useLiff } from '@/app/context/LiffProvider';
+
+// interface Profile {
+//   name: string;
+//   picture: string;
+// }
+
+// export default function Header() {
+//   const [profile, setProfile] = useState<Profile>({ name: '', picture: '' });
+//   const { liff, isLoggedIn, isInitialized } = useLiff();
+
+//   useEffect(() => {
+//     if (isInitialized && isLoggedIn && liff) {
+//       fetchUserProfile();
+//     }
+//   }, [isInitialized, isLoggedIn, liff]);
+
+//   const fetchUserProfile = async () => {
+//     try {
+//       const idToken = liff?.getDecodedIDToken();
+//       if (idToken) {
+//         setProfile({ 
+//           name: idToken.name ?? '', 
+//           picture: idToken.picture ?? '' 
+//         });
+//       }
+//     } catch (error) {
+//       console.error('Failed to fetch user profile:', error);
+//     }
+//   };
+
+//   return (
+//     <header className="header">
+//       <div className="profile-container">
+//         {profile.picture && (
+//           <img 
+//             className="profile-image" 
+//             src={profile.picture} 
+//             alt="プロフィール" 
+//           />
+//         )}
+//         <span className="profile-name">
+//           {profile.name ? `${profile.name}さん` : ''}
+//         </span>
+//       </div>
+//     </header>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -10,27 +73,40 @@ interface Profile {
 
 export default function Header() {
   const [profile, setProfile] = useState<Profile>({ name: '', picture: '' });
-  const { liff, isLoggedIn, isInitialized } = useLiff();
+  const { isLoggedIn, isInitialized, getAccessToken } = useLiff();
 
   useEffect(() => {
-    if (isInitialized && isLoggedIn && liff) {
-      fetchUserProfile();
-    }
-  }, [isInitialized, isLoggedIn, liff]);
+    const fetchProfile = async () => {
+      try {
+        const accessToken = getAccessToken();
+        if (!accessToken) {
+          throw new Error('アクセストークンが取得できません');
+        }
 
-  const fetchUserProfile = async () => {
-    try {
-      const idToken = liff?.getDecodedIDToken();
-      if (idToken) {
-        setProfile({ 
-          name: idToken.name ?? '', 
-          picture: idToken.picture ?? '' 
+        const response = await fetch('/api/user/profile', {
+          headers: {
+            'Authorization': `Bearer ${accessToken}`
+          }
         });
+        
+        if (!response.ok) {
+          throw new Error('プロフィールの取得に失敗しました');
+        }
+
+        const data = await response.json();
+        setProfile({
+          name: data.displayName,
+          picture: data.pictureUrl
+        });
+      } catch (error) {
+        console.error('プロフィールの取得に失敗しました:', error);
       }
-    } catch (error) {
-      console.error('Failed to fetch user profile:', error);
+    };
+
+    if (isInitialized && isLoggedIn) {
+      fetchProfile();
     }
-  };
+  }, [isInitialized, isLoggedIn, getAccessToken]);
 
   return (
     <header className="header">
