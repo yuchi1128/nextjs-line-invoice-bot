@@ -41,6 +41,10 @@ export const LiffProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
         await liff.init({ liffId });
 
+        if (!liff.isLoggedIn()) {
+          liff.login();
+        }
+
         setState({
           liff,
           isLoggedIn: liff.isLoggedIn(),
