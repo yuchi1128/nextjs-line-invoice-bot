@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Header from '../../components/Header';
 import Navigation from '../../components/Navigation';
 import { useRouter } from 'next/navigation';
 import { useLiff } from '../../context/LiffProvider';
@@ -113,7 +112,6 @@ export default function CreateInvoice() {
 
   return (
     <div className="app">
-      <Header />
       <main className="main-content">
         <div className="home__input">
           <h1>請求書の作成</h1>

@@ -1,6 +1,5 @@
 "use client";
 
-import Header from './components/Header';
 import Navigation from './components/Navigation';
 import { useLiff } from './context/LiffProvider';
 
@@ -21,7 +20,6 @@ export default function Home() {
 
   return (
     <div className="container">
-      <Header />
       <main className="mainContent">
         <h1 className="title">請求書送信アプリへようこそ!</h1>
         <p className="description">

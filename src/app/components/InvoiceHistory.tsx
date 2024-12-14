@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Header from '@/app/components/Header';
 import Navigation from '@/app/components/Navigation';
 import { Calendar, User, DollarSign, ChevronRight } from 'lucide-react';
 import { useLiff } from '@/app/context/LiffProvider';
@@ -100,7 +99,6 @@ const InvoiceHistory = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
-      <Header />
       <main className="flex-grow pt-10 p-4">
         <div className="space-y-5 max-w-sm mx-auto">
           {invoices.length === 0 ? (
