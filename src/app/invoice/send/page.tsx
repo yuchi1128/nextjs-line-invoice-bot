@@ -8,33 +8,71 @@ import Navigation from '@/app/components/Navigation';
 import { useLiff } from '@/app/context/LiffProvider';
 
 function PreviewContent() {
+  // const searchParams = useSearchParams();
+  // const invoiceImageUrl = searchParams.get('invoiceImageUrl');
+  // const router = useRouter();
+  // const { liff, isInitialized, error } = useLiff();
+
+  // const handleSendToFriend = async () => {
+  //   if (!liff || !invoiceImageUrl) {
+  //     console.error('LIFFが初期化されていないか、請求書の画像URLが見つかりません');
+  //     return;
+  //   }
+  
+  //   try {
+  //     await liff.shareTargetPicker([
+  //       {
+  //         type: "text",
+  //         text: "下記の内容にて請求書をお送りいたしますので、ご確認ください。",
+  //       },
+  //       {
+  //         type: "image",
+  //         originalContentUrl: invoiceImageUrl, 
+  //         previewImageUrl: invoiceImageUrl,
+  //       },
+  //       {
+  //         type: 'text',
+  //         text: `このメッセージは請求書送信BOTから送信されています。\nhttps://lin.ee/qeZlCxi`,
+  //       },
+  //     ]);
+  //   } catch (error) {
+  //     console.error('共有の処理に失敗しました:', error);
+  //     alert('送信に失敗しました。もう一度お試しください。');
+  //   }
+  // };  
+
   const searchParams = useSearchParams();
   const invoiceImageUrl = searchParams.get('invoiceImageUrl');
   const router = useRouter();
-  const { liff, isInitialized, error } = useLiff();
+  const { isInitialized, error, getAccessToken } = useLiff();
 
   const handleSendToFriend = async () => {
-    if (!liff || !invoiceImageUrl) {
-      console.error('LIFFが初期化されていないか、請求書の画像URLが見つかりません');
+    if (!invoiceImageUrl) {
+      console.error('請求書の画像URLが見つかりません');
+      return;
+    }
+
+    const accessToken = getAccessToken();
+    if (!accessToken) {
+      console.error('アクセストークンが取得できません');
       return;
     }
   
     try {
-      await liff.shareTargetPicker([
-        {
-          type: "text",
-          text: "下記の内容にて請求書をお送りいたしますので、ご確認ください。",
+      const response = await fetch('/api/line/share', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`
         },
-        {
-          type: "image",
-          originalContentUrl: invoiceImageUrl, 
-          previewImageUrl: invoiceImageUrl,
-        },
-        {
-          type: 'text',
-          text: `このメッセージは請求書送信BOTから送信されています。\nhttps://lin.ee/qeZlCxi`,
-        },
-      ]);
+        body: JSON.stringify({
+          invoiceImageUrl,
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('共有の処理に失敗しました');
+      }
     } catch (error) {
       console.error('共有の処理に失敗しました:', error);
       alert('送信に失敗しました。もう一度お試しください。');
