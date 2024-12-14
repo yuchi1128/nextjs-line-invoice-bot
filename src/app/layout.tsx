@@ -1,9 +1,14 @@
 import './globals.css';
+import { LiffProvider } from './context/LiffProvider';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <LiffProvider>
+          {children}
+        </LiffProvider>
+      </body>
     </html>
   );
 }
