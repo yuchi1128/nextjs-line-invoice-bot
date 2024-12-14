@@ -16,15 +16,50 @@ interface Invoice {
 }
 
 const InvoiceHistory = () => {
+  
+  // const [invoices, setInvoices] = useState<Invoice[]>([]);
+  // const [loading, setLoading] = useState(true);
+  // const { liff, isLoggedIn, isInitialized, error } = useLiff();
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     if (isInitialized && isLoggedIn && liff) {
+  //       try {
+  //         const profile = await liff.getProfile();
+  //         await fetchInvoices(profile.userId);
+  //       } catch (error) {
+  //         console.error('プロフィールの取得に失敗しました', error);
+  //       }
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [isInitialized, isLoggedIn, liff]);
+
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [loading, setLoading] = useState(true);
-  const { liff, isLoggedIn, isInitialized, error } = useLiff();
+  const { isLoggedIn, isInitialized, getAccessToken } = useLiff();
 
   useEffect(() => {
     const fetchData = async () => {
-      if (isInitialized && isLoggedIn && liff) {
+      if (isInitialized && isLoggedIn) {
         try {
-          const profile = await liff.getProfile();
+          const accessToken = getAccessToken();
+          if (!accessToken) {
+            throw new Error('アクセストークンが取得できません');
+          }
+
+          const profileResponse = await fetch('/api/user/profile', {
+            headers: {
+              'Authorization': `Bearer ${accessToken}`
+            }
+          });
+
+          if (!profileResponse.ok) {
+            throw new Error('プロフィールの取得に失敗しました');
+          }
+
+          const profile = await profileResponse.json();
           await fetchInvoices(profile.userId);
         } catch (error) {
           console.error('プロフィールの取得に失敗しました', error);
@@ -33,7 +68,7 @@ const InvoiceHistory = () => {
     };
 
     fetchData();
-  }, [isInitialized, isLoggedIn, liff]);
+  }, [isInitialized, isLoggedIn, getAccessToken]);
 
   const fetchInvoices = async (userId: string) => {
     try {
@@ -55,13 +90,13 @@ const InvoiceHistory = () => {
     );
   }
 
-  if (error) {
-    return (
-      <div className="error-screen">
-        <p className="error-screen__text">エラーが発生しました: {error.message}</p>
-      </div>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <div className="error-screen">
+  //       <p className="error-screen__text">エラーが発生しました: {error.message}</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
