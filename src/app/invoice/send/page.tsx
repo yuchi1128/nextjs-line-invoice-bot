@@ -38,45 +38,7 @@ function PreviewContent() {
       console.error('共有の処理に失敗しました:', error);
       alert('送信に失敗しました。もう一度お試しください。');
     }
-  };  
-
-  // const searchParams = useSearchParams();
-  // const invoiceImageUrl = searchParams.get('invoiceImageUrl');
-  // const router = useRouter();
-  // const { isInitialized, error, getAccessToken } = useLiff();
-
-  // const handleSendToFriend = async () => {
-  //   if (!invoiceImageUrl) {
-  //     console.error('請求書の画像URLが見つかりません');
-  //     return;
-  //   }
-
-  //   const accessToken = getAccessToken();
-  //   if (!accessToken) {
-  //     console.error('アクセストークンが取得できません');
-  //     return;
-  //   }
-  
-  //   try {
-  //     const response = await fetch('/api/line/share', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${accessToken}`
-  //       },
-  //       body: JSON.stringify({
-  //         invoiceImageUrl,
-  //       })
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error('共有の処理に失敗しました');
-  //     }
-  //   } catch (error) {
-  //     console.error('共有の処理に失敗しました:', error);
-  //     alert('送信に失敗しました。もう一度お試しください。');
-  //   }
-  // };  
+  };
 
   const handleBackToCreate = () => {
     router.push('/invoice/create');

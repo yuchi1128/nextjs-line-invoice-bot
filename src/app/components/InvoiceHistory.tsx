@@ -14,25 +14,6 @@ interface Invoice {
 }
 
 const InvoiceHistory = () => {
-  
-  // const [invoices, setInvoices] = useState<Invoice[]>([]);
-  // const [loading, setLoading] = useState(true);
-  // const { liff, isLoggedIn, isInitialized, error } = useLiff();
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     if (isInitialized && isLoggedIn && liff) {
-  //       try {
-  //         const profile = await liff.getProfile();
-  //         await fetchInvoices(profile.userId);
-  //       } catch (error) {
-  //         console.error('プロフィールの取得に失敗しました', error);
-  //       }
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [isInitialized, isLoggedIn, liff]);
 
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [loading, setLoading] = useState(true);
@@ -87,14 +68,6 @@ const InvoiceHistory = () => {
       </div>
     );
   }
-
-  // if (error) {
-  //   return (
-  //     <div className="error-screen">
-  //       <p className="error-screen__text">エラーが発生しました: {error.message}</p>
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
