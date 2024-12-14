@@ -3,7 +3,6 @@
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { Suspense } from 'react';
-import Header from '../../components/Header';
 import Navigation from '@/app/components/Navigation';
 import { useLiff } from '@/app/context/LiffProvider';
 
@@ -109,7 +108,6 @@ function PreviewContent() {
 
   return (
     <div className="app">
-      <Header />
       <div className="invoice-heading">この請求書が相手に送信されます</div>
       <div className="preview-container">
         <div className="invoice-caption">完成した請求書:</div>

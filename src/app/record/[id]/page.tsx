@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Header from '../../components/Header';
 import Navigation from '@/app/components/Navigation';
 import Link from 'next/link';
 
@@ -86,7 +85,6 @@ const InvoiceDetail = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen text-xl">
-      <Header />
       <div className="container mx-auto px-4 py-10 w-[92%] max-w-2xl">
         <h1 className="text-3xl font-bold text-gray-800 mb-10 text-center">請求書の詳細</h1>
         <div className="bg-white shadow-lg rounded-lg p-10">
