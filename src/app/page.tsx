@@ -75,7 +75,11 @@ export default function Home() {
   const { isInitialized, error } = useLiff();
 
   if (!isInitialized) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-screen">
+        <p className="loading-screen__text">読み込み中...</p>
+      </div>
+    );
   }
 
   if (error) {
