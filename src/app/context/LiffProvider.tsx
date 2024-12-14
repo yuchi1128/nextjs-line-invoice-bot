@@ -41,10 +41,6 @@ export const LiffProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
         await liff.init({ liffId });
 
-        if (!liff.isInClient()) {
-          throw new Error('このアプリはLINE内でのみ使用できます');
-        }
-
         setState({
           liff,
           isLoggedIn: liff.isLoggedIn(),
