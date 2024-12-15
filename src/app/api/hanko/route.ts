@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 import { supabase } from '@/lib/supabaseClient';
-import { processHankoImage } from '@/app/utils/generateHankoUtils';
+import { processHankoImage } from '@/utils/generateHankoUtils';
 
 export async function POST(req: NextRequest) {
   try {

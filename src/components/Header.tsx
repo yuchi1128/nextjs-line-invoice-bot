@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useLiff } from '@/app/context/LiffProvider';
+import { useLiff } from '@/context/LiffProvider';
 
 interface Profile {
   name: string;
