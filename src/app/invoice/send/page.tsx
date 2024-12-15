@@ -3,8 +3,8 @@
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { Suspense } from 'react';
-import Navigation from '@/app/components/Navigation';
-import { useLiff } from '@/app/context/LiffProvider';
+import Navigation from '@/components/Navigation';
+import { useLiff } from '@/context/LiffProvider';
 
 function PreviewContent() {
   const searchParams = useSearchParams();

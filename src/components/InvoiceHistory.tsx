@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navigation from '@/app/components/Navigation';
 import { Calendar, User, DollarSign, ChevronRight } from 'lucide-react';
-import { useLiff } from '@/app/context/LiffProvider';
+import { useLiff } from '@/context/LiffProvider';
 interface Invoice {
   id: number;
   recipient: string;

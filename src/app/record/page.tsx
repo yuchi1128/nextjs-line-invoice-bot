@@ -2,7 +2,7 @@
 "use client";
 
 import React from 'react'
-import InvoiceHistory from '@/app/components/InvoiceHistory';
+import InvoiceHistory from '@/components/InvoiceHistory';
 
 const Record = () => {
   return (

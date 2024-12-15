@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Navigation from '@/app/components/Navigation';
+import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 
 interface Invoice {

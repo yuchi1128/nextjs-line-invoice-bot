@@ -1,7 +1,7 @@
 "use client";
 
-import Navigation from './components/Navigation';
-import { useLiff } from './context/LiffProvider';
+import Navigation from '@/components/Navigation';
+import { useLiff } from '../context/LiffProvider';
 export default function Home() {
   const { isInitialized, error } = useLiff();
 
