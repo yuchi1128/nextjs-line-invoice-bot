@@ -39,6 +39,10 @@ export const LiffProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           throw new Error('LIFF IDが必要です');
         }
 
+        if (!liff.isInClient()) {
+          throw new Error('このアプリケーションはLINE内でのみ使用できます');
+        }
+
         await liff.init({ liffId });
 
         if (!liff.isLoggedIn()) {
@@ -65,13 +69,23 @@ export const LiffProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   }, []);
 
-  const contextValue = {
-    ...state,
-    getAccessToken,
-  };
+  if (state.error?.message === 'このアプリケーションはLINE内でのみ使用できます') {
+    return (
+      <div style={{ 
+        padding: '20px', 
+        textAlign: 'center', 
+        marginTop: '50px',
+        fontSize: '1.2rem'
+      }}>
+        <h1>エラー</h1>
+        <p>このアプリケーションはLINE内でのみ使用できます。</p>
+        <p>LINEアプリから開いてください。</p>
+      </div>
+    );
+  }
 
   return (
-    <LiffContext.Provider value={contextValue}>
+    <LiffContext.Provider value={{ ...state, getAccessToken }}>
       {children}
     </LiffContext.Provider>
   );
