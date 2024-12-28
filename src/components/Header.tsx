@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLiff } from '@/context/LiffProvider';
+import liff from '@line/liff';
 
 interface Profile {
   name: string;
@@ -10,30 +11,15 @@ interface Profile {
 
 export default function Header() {
   const [profile, setProfile] = useState<Profile>({ name: '', picture: '' });
-  const { isLoggedIn, isInitialized, getAccessToken } = useLiff();
+  const { isLoggedIn, isInitialized } = useLiff();
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const accessToken = getAccessToken();
-        if (!accessToken) {
-          throw new Error('アクセストークンが取得できません');
-        }
-
-        const response = await fetch('/api/user/profile', {
-          headers: {
-            'Authorization': `Bearer ${accessToken}`
-          }
-        });
-        
-        if (!response.ok) {
-          throw new Error('プロフィールの取得に失敗しました');
-        }
-
-        const data = await response.json();
+        const liffProfile = await liff.getProfile();
         setProfile({
-          name: data.displayName,
-          picture: data.pictureUrl
+          name: liffProfile.displayName,
+          picture: liffProfile.pictureUrl || ''
         });
       } catch (error) {
         console.error('プロフィールの取得に失敗しました:', error);
@@ -43,7 +29,7 @@ export default function Header() {
     if (isInitialized && isLoggedIn) {
       fetchProfile();
     }
-  }, [isInitialized, isLoggedIn, getAccessToken]);
+  }, [isInitialized, isLoggedIn]);
 
   return (
     <header className="header">
