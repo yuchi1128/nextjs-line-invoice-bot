@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import { Calendar, User, DollarSign, ChevronRight } from 'lucide-react';
 import { useLiff } from '@/context/LiffProvider';
+import Header from '@/components/Header';
 interface Invoice {
   id: number;
   recipient: string;
@@ -71,6 +72,7 @@ const InvoiceHistory = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
+      <Header />
       <main className="flex-grow pt-10 p-4">
         <div className="space-y-5 max-w-sm mx-auto">
           {invoices.length === 0 ? (
