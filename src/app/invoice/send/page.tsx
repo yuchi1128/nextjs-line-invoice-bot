@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Suspense } from 'react';
 import Navigation from '@/components/Navigation';
 import { useLiff } from '@/context/LiffProvider';
+import Header from '@/components/Header';
 
 function PreviewContent() {
   const searchParams = useSearchParams();
@@ -70,6 +71,7 @@ function PreviewContent() {
 
   return (
     <div className="app">
+      <Header />
       <div className="invoice-heading">この請求書が相手に送信されます</div>
       <div className="preview-container">
         <div className="invoice-caption">完成した請求書:</div>
