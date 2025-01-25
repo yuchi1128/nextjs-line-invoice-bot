@@ -14,7 +14,7 @@ https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
 
 ### 簡易デモ
 
-<img src="Videotogif.gif" alt="alt text" width="280"/>
+<img src="Videotogif.gif" alt="alt text" width="285"/>
 <!-- ![alt text](Videotogif.gif) -->
 
 <!-- <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3809870/55ed8004-adb8-45f2-e1eb-128e2143cbdd.gif" width="270"> -->
