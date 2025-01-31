@@ -12,7 +12,7 @@ https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
     <img src="https://github.com/user-attachments/assets/61e35050-e1da-474e-95fe-f18d63cee20e" width="210px" alt="請求書発行BOT">
 </div>
 
-### 簡易デモ
+### デモ
 
 <img src="Videotogif.gif" alt="alt text" width="285"/>
 
