@@ -2,10 +2,6 @@
 
 LINE の友達に請求書を送ることができる LINE BOTです
 
-### 記事
-
-https://qiita.com/yuchi1128/items/de8d5f0cc136838d64cc
-
 ### QR コード
 
 <div>
